@@ -31,6 +31,7 @@ export const BgImage = styled("div")<{ src: string }>(({ src }) => ({
   backgroundImage: `url(${src})`,
   backgroundSize: "cover",
   backgroundPosition: "center",
+  
 }));
 
 export const Overlay = styled("div")({
@@ -42,6 +43,7 @@ export const Overlay = styled("div")({
 
 export const Content = styled("div")(({ theme }) => ({
   position: "absolute",
+
   height: "100%",
   display: "flex",
   alignItems: "center",
@@ -59,11 +61,14 @@ export const Content = styled("div")(({ theme }) => ({
   },
 }));
 
+
 export const ContentBox = styled("div")(({ theme }) => ({
   color: theme.palette.common.white,
   fontFamily: "var(--font-inter)",
   animation: "fadeInUp 0.8s ease-out 0.2s both",
   maxWidth: "100%",
+  borderLeft: "3px solid red",
+  paddingLeft: theme.spacing(2),
   [theme.breakpoints.up("sm")]: {
     maxWidth: 520,
   },
