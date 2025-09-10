@@ -10,17 +10,17 @@ import {
   Overlay,
   Content,
   ContentBox,
-  Title, // Import the updated Title
+  Title, 
   Description,
 } from "./elements";
 import { AppButton } from "../Button/Button";
 
-// We now use the more robust HeroProps interface
+
 export function Hero({
-  title, // Required props are listed first
+  title,
   description,
   ctaLabel,
-  ctaHref = "#", // Default values for optional props
+  ctaHref = "#", 
   backgroundSrc = "/Herologo.webp",
   userName,
 }: HeroProps) {

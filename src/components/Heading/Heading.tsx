@@ -20,7 +20,7 @@ export function Heading({
 
   return (
     <HeadingRoot
-      as={Tag} // Dynamically sets the component to be <h1>, <h2>, etc. for SEO.
+      as={Tag} 
       $variant={variant}
       $color={color}
       $uppercase={uppercase}

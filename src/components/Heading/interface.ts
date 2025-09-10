@@ -1,13 +1,10 @@
 import React from 'react';
 
-// Define the allowed HTML heading levels
 export type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
 export type HeadingTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
-// Define the visual styles the heading can have
 export type HeadingVariant = 'hero' | 'section' | 'card' | 'group';
 
-// Define text alignment options
 export type HeadingAlign = 'left' | 'center' | 'right';
 
 export interface HeadingProps {
@@ -21,13 +18,9 @@ export interface HeadingProps {
    * @default 'section'
    */
   variant?: HeadingVariant;
-  /**
-   * The content to be displayed inside the heading.
-   */
+ 
   children: React.ReactNode;
-  /**
-   * Overrides the default color from the theme.
-   */
+  
   color?: string;
   /**
    * If true, the text will be transformed to uppercase.
