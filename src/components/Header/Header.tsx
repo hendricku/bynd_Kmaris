@@ -7,17 +7,39 @@ import Image from "next/image";
 import Link from "next/link";
 
 // Import all styled components
-import { HeaderRoot, Bar, Nav, LinkItem, AddressBar, RightSection, LogoWrap } from "./base";
+import {
+  HeaderRoot,
+  Bar,
+  Nav,
+  LinkItem,
+  AddressBar,
+  RightSection,
+  LogoWrap,
+} from "./base";
 import { MobileOnly, DesktopOnly } from "./responsive";
-import { IconRow, IconButton, StyledSearchIcon, StyledCartIcon, StyledAccountIcon, CartBadge } from "./icons";
-import { MobileDrawerOverlay, MobileDrawerPanel, DrawerCloseButton, MobileDrawerHeader, DrawerNav, DrawerLink, DrawerIconSection } from "./drawer";
+import {
+  IconRow,
+  IconButton,
+  StyledSearchIcon,
+  StyledCartIcon,
+  StyledAccountIcon,
+  CartBadge,
+} from "./icons";
+import {
+  MobileDrawerOverlay,
+  MobileDrawerPanel,
+  DrawerCloseButton,
+  MobileDrawerHeader,
+  DrawerNav,
+  DrawerLink,
+  DrawerIconSection,
+} from "./drawer";
 import { ProfileMenu, DropdownContent, MenuItem } from "./menu";
 
 // Import MUI Icons
 import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import MenuIcon from "@mui/icons-material/Menu";
-
 
 const defaultLinks: NavLink[] = [
   { label: "Home", href: "/" },
@@ -76,12 +98,18 @@ export function Header({
       <Bar>
         <LogoWrap>
           <Link href="/" aria-label="KMARIS Home">
-            <Image src="/Logo.png" alt="KMARIS Logo" width={200} height={60} priority />
+            <Image
+              src="/Logo.png"
+              alt="KMARIS Logo"
+              width={200}
+              height={60}
+              priority
+            />
           </Link>
         </LogoWrap>
 
         <RightSection>
-          <DesktopOnly style={{ gap: '20px' }}>
+          <DesktopOnly style={{ gap: "20px" }}>
             <Nav aria-label="Primary Navigation">
               {navLinks.map((item) => (
                 <Link key={item.href} href={item.href} passHref legacyBehavior>
@@ -90,13 +118,17 @@ export function Header({
               ))}
             </Nav>
             <IconRow>
-              <IconButton onClick={onSearchClick}><StyledSearchIcon /></IconButton>
+              <IconButton onClick={onSearchClick}>
+                <StyledSearchIcon />
+              </IconButton>
               {userIcons}
             </IconRow>
           </DesktopOnly>
 
           <MobileOnly>
-            <IconButton onClick={onSearchClick}><StyledSearchIcon /></IconButton>
+            <IconButton onClick={onSearchClick}>
+              <StyledSearchIcon />
+            </IconButton>
             <IconButton aria-label="Menu" onClick={toggleDrawer}>
               <MenuIcon />
             </IconButton>
@@ -114,7 +146,12 @@ export function Header({
         </MobileDrawerHeader>
         <DrawerNav>
           {navLinks.map((item) => (
-            <Link key={`m-${item.href}`} href={item.href} passHref legacyBehavior>
+            <Link
+              key={`m-${item.href}`}
+              href={item.href}
+              passHref
+              legacyBehavior
+            >
               <DrawerLink onClick={closeDrawer}>{item.label}</DrawerLink>
             </Link>
           ))}
@@ -125,4 +162,4 @@ export function Header({
       </MobileDrawerPanel>
     </HeaderRoot>
   );
-}    
+}

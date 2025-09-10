@@ -21,7 +21,7 @@ export const HeaderRow = styled("div")(({ theme }) => ({
   alignItems: "flex-start",
   gap: 16,
   marginBottom: 32,
-  [theme.breakpoints.up('md')]: {
+  [theme.breakpoints.up("md")]: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
@@ -33,10 +33,10 @@ export const Grid = styled("div")(({ theme }) => ({
   gridTemplateColumns: "1fr",
   gap: 24,
   alignItems: "stretch",
-  [theme.breakpoints.up('sm')]: {
+  [theme.breakpoints.up("sm")]: {
     gridTemplateColumns: "repeat(2, 1fr)",
   },
-  [theme.breakpoints.up('lg')]: {
+  [theme.breakpoints.up("lg")]: {
     gridTemplateColumns: "repeat(4, 1fr)",
   },
 }));
@@ -71,7 +71,7 @@ export const CardBody = styled("div")({
   display: "flex",
   flexDirection: "column",
   gap: 12,
-  flex: 1, 
+  flex: 1,
 });
 
 export const CardTitle = styled("h3")(({ theme }) => ({
@@ -86,13 +86,12 @@ export const CardTitle = styled("h3")(({ theme }) => ({
 }));
 
 export const ButtonRow = styled("div")({
-  marginTop: "auto", 
-  paddingTop: '16px', 
+  marginTop: "auto",
+  paddingTop: "16px",
 });
 
-
 export const ServiceButtonWrapper = styled("div")(({ theme }) => ({
-  "& .app-button": { 
+  "& .app-button": {
     width: "100%",
     backgroundColor: theme.palette.primary.main,
     color: theme.palette.common.white,

@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
 export type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
-export type HeadingTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+export type HeadingTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
-export type HeadingVariant = 'hero' | 'section' | 'card' | 'group';
+export type HeadingVariant = "hero" | "section" | "card" | "group";
 
-export type HeadingAlign = 'left' | 'center' | 'right';
+export type HeadingAlign = "left" | "center" | "right";
 
 export interface HeadingProps {
   /**
@@ -18,9 +18,9 @@ export interface HeadingProps {
    * @default 'section'
    */
   variant?: HeadingVariant;
- 
+
   children: React.ReactNode;
-  
+
   color?: string;
   /**
    * If true, the text will be transformed to uppercase.
@@ -34,6 +34,6 @@ export interface HeadingProps {
   align?: HeadingAlign;
 
   maxWidth?: number | string;
- 
+
   marginBottom?: number;
 }

@@ -8,12 +8,12 @@ export function AppButton({
   label,
   onClick,
   href,
-  size = 'large',
-  variant = 'default',
+  size = "large",
+  variant = "default",
   withArrow = false,
   long = false,
   className,
-  disabled
+  disabled,
 }: AppButtonProps) {
   const content = (
     <>
@@ -21,7 +21,6 @@ export function AppButton({
       {withArrow && <Arrow aria-hidden>→</Arrow>}
     </>
   );
-
 
   if (href) {
     return (

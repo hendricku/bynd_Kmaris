@@ -10,17 +10,16 @@ import {
   Overlay,
   Content,
   ContentBox,
-  Title, 
+  Title,
   Description,
 } from "./elements";
 import { AppButton } from "../Button/Button";
-
 
 export function Hero({
   title,
   description,
   ctaLabel,
-  ctaHref = "#", 
+  ctaHref = "#",
   backgroundSrc = "/Herologo.webp",
   userName,
 }: HeroProps) {
@@ -35,15 +34,20 @@ export function Hero({
               <Title>{title}</Title>
 
               {userName && (
-                <Description style={{ fontWeight: "bold", marginBottom: "1rem" }}>
+                <Description
+                  style={{ fontWeight: "bold", marginBottom: "1rem" }}
+                >
                   Hello, {userName} 👋
                 </Description>
               )}
 
               <Description>{description}</Description>
 
-              <AppButton label={ctaLabel} href={ctaHref} className="btn-shine" />
-
+              <AppButton
+                label={ctaLabel}
+                href={ctaHref}
+                className="btn-shine"
+              />
             </ContentBox>
           </Content>
         </HeroImageWrap>

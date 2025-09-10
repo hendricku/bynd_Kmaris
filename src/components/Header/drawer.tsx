@@ -3,7 +3,7 @@
 import { styled } from "@mui/material/styles";
 
 export const MobileDrawerOverlay = styled("div", {
-  shouldForwardProp: (prop) => prop !== 'open',
+  shouldForwardProp: (prop) => prop !== "open",
 })<{ open: boolean }>(({ open, theme }) => ({
   position: "fixed",
   inset: 0,
@@ -12,13 +12,13 @@ export const MobileDrawerOverlay = styled("div", {
   visibility: open ? "visible" : "hidden",
   transition: "opacity 300ms ease, visibility 300ms ease",
   zIndex: 1000,
-  [theme.breakpoints.up('md')]: {
-    display: 'none',
+  [theme.breakpoints.up("md")]: {
+    display: "none",
   },
 }));
 
 export const MobileDrawerPanel = styled("div", {
-  shouldForwardProp: (prop) => prop !== 'open',
+  shouldForwardProp: (prop) => prop !== "open",
 })<{ open: boolean }>(({ open, theme }) => ({
   position: "fixed",
   top: 0,
@@ -33,8 +33,8 @@ export const MobileDrawerPanel = styled("div", {
   zIndex: 1001,
   display: "flex",
   flexDirection: "column",
-  [theme.breakpoints.up('md')]: {
-    display: 'none',
+  [theme.breakpoints.up("md")]: {
+    display: "none",
   },
 }));
 
@@ -45,7 +45,7 @@ export const MobileDrawerHeader = styled("div")({
 
 export const DrawerCloseButton = styled("button")({
   position: "absolute",
-  top: 32, 
+  top: 32,
   right: 24,
   background: "transparent",
   border: "none",
@@ -68,19 +68,18 @@ export const DrawerLink = styled("a")(({ theme }) => ({
   transition: "color 200ms ease",
   "&:hover": {
     color: theme.palette.primary.main,
-  }
+  },
 }));
 
-
 export const DrawerIconSection = styled("div")(({ theme }) => ({
-  marginTop: 'auto',
-  padding: '24px',
+  marginTop: "auto",
+  padding: "24px",
   borderTop: `1px solid rgba(255,255,255,0.1)`,
 
   "& button": {
     color: theme.palette.common.white,
     "&:hover": {
-      backgroundColor: 'rgba(255,255,255,0.1)',
+      backgroundColor: "rgba(255,255,255,0.1)",
       color: theme.palette.common.white,
     },
   },

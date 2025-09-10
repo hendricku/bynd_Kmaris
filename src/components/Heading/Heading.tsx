@@ -20,7 +20,7 @@ export function Heading({
 
   return (
     <HeadingRoot
-      as={Tag} 
+      as={Tag}
       $variant={variant}
       $color={color}
       $uppercase={uppercase}
