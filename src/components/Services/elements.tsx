@@ -94,12 +94,16 @@ export const ButtonRow = styled("div")({
 export const ServiceButtonWrapper = styled("div")(({ theme }) => ({
   "& .app-button": { 
     width: "100%",
-    backgroundColor: "transparent",
-    border: `2px solid ${theme.palette.primary.main}`,
-    color: theme.palette.primary.main,
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.common.white,
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
     "&:hover": {
-      backgroundColor: theme.palette.primary.main,
-      color: theme.palette.common.white,
+      backgroundColor: theme.palette.primary.dark,
+    },
+    "& .MuiButton-endIcon": {
+      marginLeft: "auto",
     },
   },
 }));

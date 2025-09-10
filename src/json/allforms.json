@@ -101,22 +101,8 @@
       "type": "SERVICES",
       "subtitle": "Professional Services Fee",
       "status": "active"
-    },
-    {
-      "id": "hendrick's-form-1756273518244",
-      "title": "MANPREET",
-      "type": "Gusto mo Yumaman?",
-      "subtitle": "Yaman ba sa pera o yaman sa buhay??",
-      "package": "PACKAGE 10",
-      "status": "active"
-    },
-    {
-      "id": "a-1756281919492",
-      "title": "aaa",
-      "type": "aaa",
-      "subtitle": "aaa",
-      "package": "aaa",
-      "status": "active"
     }
+   
+   
   ]
 }

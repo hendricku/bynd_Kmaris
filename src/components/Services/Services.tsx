@@ -15,13 +15,13 @@ ButtonRow,
 ServiceButtonWrapper
 } from "./elements";
 import { AppButton } from "@/components/Button/Button";
-
+  
 import { Heading } from "../Heading/Heading"; 
 const defaultItems: ServiceItem[] = [
-{ id: 1, title: "FAMILY PETITION & ADJUSTMENT OF STATUS", imageSrc: "/petition.webp" },
-{ id: 2, title: "VAWA – Violence Against Women’s Act", imageSrc: "/greencard.webp" },
-{ id: 3, title: "ASYLUM/REFUGEE APPLICATION", imageSrc: "/asylum.webp" },
-{ id: 4, title: "NATURALIZATION & CITIZENSHIP", imageSrc: "/conditions.webp" },
+{ id: 1, title: "FAMILY PETITION & ADJUSTMENT OF STATUS", imageSrc: "/image.webp" },
+{ id: 2, title: "VAWA – Violence Against Women’s Act", imageSrc: "/image2.webp" },
+{ id: 3, title: "ASYLUM/REFUGEE APPLICATION", imageSrc: "/image3.webp" },
+{ id: 4, title: "NATURALIZATION & CITIZENSHIP", imageSrc: "/image4.webp" },
 { id: 5, title: "U-VISA", imageSrc: "/visa.webp" },
 { id: 6, title: "CHANGE OF STATUS TO F1 STUDENT", imageSrc: "/greencard.webp" },
 { id: 7, title: "RENEWAL OF WORK AUTHORIZATION", imageSrc: "/asylum.webp" },
@@ -42,7 +42,9 @@ return (
 {!hideHeader && (
 <HeaderRow>
 <Heading level={2} variant="section">{title}</Heading>
-<AppButton label={ctaLabel} href={ctaHref} size="large" withArrow />
+<ServiceButtonWrapper>
+  <AppButton label={ctaLabel} href={ctaHref} size="large" withArrow />
+</ServiceButtonWrapper>
 </HeaderRow>
 )}
 <Grid>

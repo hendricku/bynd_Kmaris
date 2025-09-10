@@ -1,0 +1,62 @@
+<Nav aria-label="Primary Navigation">
+                {navLinks.map((item: NavLink) => (
+                  <LinkItem key={item.label} href={item.href}>
+                    {item.label}
+                  </LinkItem>
+                ))}
+              </Nav>
+            </DesktopOnly>
+=======
+            <DesktopOnly>
+              <Nav aria-label="Primary Navigation">
+                {navLinks.map((item: NavLink) => (
+                  <Link key={item.href} href={item.href} passHref legacyBehavior>
+                    <LinkItem key={item.label}>
+                      {item.label}
+                    </LinkItem>
+                  </Link>
+                ))}
+              </Nav>
+            </DesktopOnly>
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+          <MobileDrawerOverlay open={drawerOpen} onClick={closeDrawer} />
+          <MobileDrawerPanel open={drawerOpen}>
+            <MobileDrawerHeader>
+              <Image src="/whitelogo.png" alt="Logo" width={0} height={0} />
+              <DrawerCloseButton onClick={closeDrawer}>
+                <CloseRoundedIcon sx={{ color: "white" }} />
+              </DrawerCloseButton>
+            </MobileDrawerHeader>
+            <DrawerNav>
+              {navLinks.map((item: NavLink) => (
+                <DrawerLink
+                  key={`m-${item.label}`}
+                  href={item.href}
+                  onClick={closeDrawer}
+                >
+                  {item.label}
+                </DrawerLink>
+              ))}
+            </DrawerNav>
+          </MobileDrawerPanel>
+=======
+          <MobileDrawerOverlay open={drawerOpen} onClick={closeDrawer} />
+          <MobileDrawerPanel open={drawerOpen}>
+            <MobileDrawerHeader>
+              <Image src="/whitelogo.png" alt="Logo" width={0} height={0} />
+              <DrawerCloseButton onClick={closeDrawer}>
+                <CloseRoundedIcon sx={{ color: "white" }} />
+              </DrawerCloseButton>
+            </MobileDrawerHeader>
+            <DrawerNav>
+              {navLinks.map((item: NavLink) => (
+                <Link key={`m-${item.label}`} href={item.href} passHref legacyBehavior>
+                  <DrawerLink onClick={closeDrawer}>
+                    {item.label}
+                  </DrawerLink>
+                </Link>
+              ))}
+            </DrawerNav>
+          </MobileDrawerPanel>

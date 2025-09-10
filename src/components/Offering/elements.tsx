@@ -11,7 +11,7 @@ export const Section = styled("section")(({ theme }) => ({
 
 export const Container = styled("div")(({ theme }) => ({
   width: "100%",
-  maxWidth: theme.breakpoints.values.xl, // Sourced from theme
+  maxWidth: theme.breakpoints.values.xl, 
   margin: "0 auto",
 }));
 
@@ -53,8 +53,7 @@ export const Description = styled("p")(({ theme }) => ({
 }));
 
 export const ButtonWrapper = styled("div")(({ theme }) => ({
-  // The wrapper is not strictly needed if the button handles its own width,
-  // but it's useful for alignment.
+
   display: 'flex',
-  justifyContent: 'flex-start', // Align button to the left
+  justifyContent: 'flex-start', 
 }));
