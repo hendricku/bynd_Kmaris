@@ -29,6 +29,7 @@ export const theme = createTheme({
   breakpoints,
   palette,
   typography,
+  
   // You can also add component-level overrides here for global styles
   // For example, to change the default props for all MUI Buttons:
   // components: {

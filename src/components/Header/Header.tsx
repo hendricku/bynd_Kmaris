@@ -1,17 +1,39 @@
 "use client";
 
 import React, { useState, useEffect, useCallback, useRef } from "react";
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname, useRouter } from "next/navigation";
 import { HeaderProps, NavLink } from "./interface";
 import Image from "next/image";
 import Link from "next/link";
 
 // These imports will work once the filenames in your folder are correct
-import { HeaderRoot, Bar, Nav, LogoWrap, LinkItem, AddressBar, RightSection } from "./base";
+import {
+  HeaderRoot,
+  Bar,
+  Nav,
+  LogoWrap,
+  LinkItem,
+  AddressBar,
+  RightSection,
+} from "./base";
 import { MobileOnly, DesktopOnly } from "./responsive";
-import { IconRow, IconButton, StyledSearchIcon, StyledCartIcon, StyledAccountIcon, CartBadge } from './icons';
-import { MobileDrawerOverlay, MobileDrawerPanel, DrawerCloseButton, MobileDrawerHeader, DrawerNav, DrawerLink } from './drawer';
-import { ProfileMenu, DropdownContent, MenuItem } from './menu';
+import {
+  IconRow,
+  IconButton,
+  StyledSearchIcon,
+  StyledCartIcon,
+  StyledAccountIcon,
+  CartBadge,
+} from "./icons";
+import {
+  MobileDrawerOverlay,
+  MobileDrawerPanel,
+  DrawerCloseButton,
+  MobileDrawerHeader,
+  DrawerNav,
+  DrawerLink,
+} from "./drawer";
+import { ProfileMenu, DropdownContent, MenuItem } from "./menu";
 
 // Import MUI Icons
 import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
@@ -38,7 +60,7 @@ export function Header({
 }: HeaderProps) {
   const pathname = usePathname();
   const router = useRouter();
-  
+
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
@@ -47,11 +69,16 @@ export function Header({
 
   // ... All your authentication logic and other hooks remain here ...
 
-  const toggleDrawer = () => setDrawerOpen(v => !v);
+  const toggleDrawer = () => setDrawerOpen((v) => !v);
   const closeDrawer = () => setDrawerOpen(false);
 
   // --- Do not render on certain pages ---
-  if (pathname?.startsWith('/auth') || pathname === '/Login' || pathname === '/signup' || pathname?.startsWith('/admin')) {
+  if (
+    pathname?.startsWith("/auth") ||
+    pathname === "/Login" ||
+    pathname === "/signup" ||
+    pathname?.startsWith("/admin")
+  ) {
     return null;
   }
 
@@ -65,27 +92,42 @@ export function Header({
       <Bar>
         <LogoWrap>
           <Link href="/" aria-label="KMARIS Home">
-            <Image src="/Logo.png" alt="KMARIS Logo" width={120} height={64} priority />
+            <Image
+              src="/Logo.png"
+              alt="KMARIS Logo"
+              objectFit="contain"
+              width={200}
+              height={60}
+              priority
+            />
           </Link>
         </LogoWrap>
-        
+
         <RightSection>
           <DesktopOnly>
             <Nav aria-label="Primary Navigation">
-              {navLinks.map((item: NavLink) => <LinkItem key={item.label} href={item.href}>{item.label}</LinkItem>)}
+              {navLinks.map((item: NavLink) => (
+                <LinkItem key={item.label} href={item.href}>
+                  {item.label}
+                </LinkItem>
+              ))}
             </Nav>
           </DesktopOnly>
-          
+
           <IconRow>
-            <IconButton onClick={onSearchClick}><StyledSearchIcon /></IconButton>
+            <IconButton onClick={onSearchClick}>
+              <StyledSearchIcon />
+            </IconButton>
             <IconButton onClick={onCartClick}>
               <StyledCartIcon />
               {/* THIS IS THE CORRECTED LINE */}
               {cartCount > 0 && <CartBadge>{cartCount}</CartBadge>}
             </IconButton>
-           
+
             <ProfileMenu ref={dropdownRef}>
-              <IconButton onClick={() => setDropdownOpen(o => !o)}><StyledAccountIcon /></IconButton>
+              <IconButton onClick={() => setDropdownOpen((o) => !o)}>
+                <StyledAccountIcon />
+              </IconButton>
               <DropdownContent isOpen={dropdownOpen}>
                 {/* All your dropdown menu logic remains the same */}
               </DropdownContent>
@@ -103,11 +145,21 @@ export function Header({
       <MobileDrawerOverlay open={drawerOpen} onClick={closeDrawer} />
       <MobileDrawerPanel open={drawerOpen}>
         <MobileDrawerHeader>
-          <Image src="/whitelogo.png" alt="Logo" width={0} height={0}/>
-          <DrawerCloseButton onClick={closeDrawer}><CloseRoundedIcon sx={{color: 'white'}}/></DrawerCloseButton>
+          <Image src="/whitelogo.png" alt="Logo" width={0} height={0} />
+          <DrawerCloseButton onClick={closeDrawer}>
+            <CloseRoundedIcon sx={{ color: "white" }} />
+          </DrawerCloseButton>
         </MobileDrawerHeader>
         <DrawerNav>
-          {navLinks.map((item: NavLink) => <DrawerLink key={`m-${item.label}`} href={item.href} onClick={closeDrawer}>{item.label}</DrawerLink>)}
+          {navLinks.map((item: NavLink) => (
+            <DrawerLink
+              key={`m-${item.label}`}
+              href={item.href}
+              onClick={closeDrawer}
+            >
+              {item.label}
+            </DrawerLink>
+          ))}
         </DrawerNav>
       </MobileDrawerPanel>
     </HeaderRoot>

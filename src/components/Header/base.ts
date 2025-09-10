@@ -41,9 +41,10 @@ export const AddressBar = styled("div")(({ theme }) => ({
 
 export const Bar = styled("div")(({ theme }) => ({
   width: "100%",
+  marginRight: theme.spacing(8),
   maxWidth: theme.breakpoints.values.xl,
   backgroundColor: theme.palette.common.white,
-  borderRadius: 14,
+  borderRadius: 5,
   height: 80,
   display: "flex",
   justifyContent: "space-between",
@@ -69,14 +70,17 @@ export const RightSection = styled("div")({
   gap: '20px',
 });
 
-export const LogoWrap = styled("div")({
+
+
+export const LogoWrap = styled("a")(({ theme }) => ({
   display: 'flex',
+  paddingLeft: theme.spacing(6),
   alignItems: 'center',
   transition: "transform 0.2s ease",
   "&:hover": {
     transform: "scale(1.02)",
   },
-});
+}));
 
 export const LinkItem = styled("a")(({ theme }) => ({
   color: theme.palette.text.primary,
