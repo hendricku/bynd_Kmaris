@@ -1,13 +1,15 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
+import { NextRequest, NextResponse } from 'next/server';
 import jwt from 'jsonwebtoken';
 import clientPromise from '@/lib/mongodb';
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method !== 'POST') return res.status(405).end();
-
-  const { email, password } = req.body;
+export default async function handler(req: NextRequest) {
+  if (req.method !== 'POST') {
+    return new NextResponse(null, { status: 405, statusText: 'Method Not Allowed' });
+  }
 
   try {
+    const { email, password } = await req.json();
+
     const client = await clientPromise;
     const db = client.db(); // default DB from URI
     const usersCollection = db.collection('users');
@@ -15,7 +17,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const user = await usersCollection.findOne({ email });
 
     if (!user || user.password !== password) {
-      return res.status(401).json({ message: 'Invalid credentials' });
+      return NextResponse.json({ message: 'Invalid credentials' }, { status: 401 });
     }
 
     const token = jwt.sign(
@@ -24,9 +26,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       { expiresIn: '15m' }
     );
 
-    res.status(200).json({ user, token });
+    const { password: _, ...userWithoutPassword } = user;
+
+    return NextResponse.json({ user: userWithoutPassword, token });
   } catch (err) {
     console.error('Login error:', err);
-    res.status(500).json({ message: 'Internal server error' });
+    return NextResponse.json({ message: 'Internal server error' }, { status: 500 });
   }
 }
