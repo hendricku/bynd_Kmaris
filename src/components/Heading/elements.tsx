@@ -2,7 +2,6 @@
 
 import { styled, Theme } from "@mui/material/styles";
 import { HeadingVariant, HeadingAlign } from "./interface";
-import { Property } from "csstype";
 
 // Define the props that are passed to the styled-component for styling.
 // The "$" prefix prevents them from being passed down to the DOM element.

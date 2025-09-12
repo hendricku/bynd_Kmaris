@@ -52,8 +52,7 @@ export const Description = styled("p")(({ theme }) => ({
   color: theme.palette.text.primary,
 }));
 
-export const ButtonWrapper = styled("div")(({ theme }) => ({
-
+export const ButtonWrapper = styled("div")({
   display: 'flex',
-  justifyContent: 'flex-start', 
-}));
+  justifyContent: 'flex-start',
+});

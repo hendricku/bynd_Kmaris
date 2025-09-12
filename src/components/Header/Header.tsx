@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { HeaderProps, NavLink } from "./interface";
 import Image from "next/image";
@@ -47,8 +47,6 @@ const defaultLinks: NavLink[] = [
   { label: "All Services", href: "/All_forms" },
   { label: "News", href: "/News" },
 ];
-
-type UserInfo = { name: string; role: string; email: string };
 
 export function Header({
   navLinks = defaultLinks,
