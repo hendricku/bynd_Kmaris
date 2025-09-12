@@ -5,6 +5,7 @@ import Image from "next/image";
 import { styled } from "@mui/material/styles";
 
 
+
 export const NewsSection = styled("section")(({ theme }) => ({
   width: '100%',
   backgroundColor: theme.palette.background.default,
@@ -206,8 +207,9 @@ export const LatestArticlesGrid = styled("div")(({ theme }) => ({
   display: 'grid',
   gridTemplateColumns: '1fr',
   gap: theme.spacing(3),
+  overflowX: 'auto',
   [theme.breakpoints.up('sm')]: {
-    gridTemplateColumns: 'repeat(2, 1fr)',
+    gridTemplateColumns: 'repeat(4, 1fr)',
   },
 }));
 

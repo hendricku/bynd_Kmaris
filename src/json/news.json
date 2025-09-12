@@ -71,6 +71,42 @@
         "avatarUrl": "/avatars/maggie.jpg"
       },
       "publishedAt": "9 hours ago"
+    },
+     {
+      "id": "latest-3",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "category": "Olympics",
+      "readTime": "3 minute read",
+      "imageUrl": "/image.webp",
+      "author": {
+        "name": "Leslie Alexander",
+        "avatarUrl": "/avatars/leslie.jpg"
+      },
+      "publishedAt": "7 hours ago"
+    },
+      {
+      "id": "latest-4",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "category": "Olympics",
+      "readTime": "3 minute read",
+      "imageUrl": "/image.webp",
+      "author": {
+        "name": "Leslie Alexander",
+        "avatarUrl": "/avatars/leslie.jpg"
+      },
+      "publishedAt": "7 hours ago"
+    },
+      {
+      "id": "latest-5",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "category": "Olympics",
+      "readTime": "3 minute read",
+      "imageUrl": "/image.webp",
+      "author": {
+        "name": "Leslie Alexander",
+        "avatarUrl": "/avatars/leslie.jpg"
+      },
+      "publishedAt": "7 hours ago"
     }
   ],
   "video_news": [

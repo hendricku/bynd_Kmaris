@@ -27,7 +27,7 @@ import {
 const LatestArticlesSection: React.FC<{ articles: Article[] }> = ({
   articles,
 }) => (
-  <div style={{ maxWidth: 600 }}>
+  <div style={{ maxWidth: 1200 }}>
     <SectionTitle>Latest Articles</SectionTitle>
     <LatestArticlesGrid>
       {articles.map((article) => (
@@ -107,7 +107,7 @@ export function News() {
   const videoNews: Article[] = newsData.video_news;
 
   const featuredArticle = mainArticles[0];
-  const listArticles = mainArticles.slice(1, 5);
+  const listArticles = mainArticles.slice(1, 4);
   const gridArticles = mainArticles.slice(4);
 
   return (
