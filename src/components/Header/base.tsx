@@ -4,7 +4,7 @@ import { styled } from "@mui/material/styles";
 
 export const HeaderRoot = styled("header")(({ theme }) => ({
   width: "100%",
-  backgroundColor: theme.palette.navy.main, // Use theme
+  backgroundColor: theme.palette.navy.main, 
   padding: "12px 8px 22px 8px",
   display: "flex",
   flexDirection: "column",
@@ -14,14 +14,14 @@ export const HeaderRoot = styled("header")(({ theme }) => ({
   top: 0,
   zIndex: 1000,
   [theme.breakpoints.up('md')]: {
-    paddingLeft: 0,
-    paddingRight: 0,
+    paddingLeft: 32,
+    paddingRight: 32,
   },
 }));
 
 export const AddressBar = styled("div")(({ theme }) => ({
   width: "100%",
-  maxWidth: theme.breakpoints.values.xl, // Example of using a breakpoint value
+  maxWidth: theme.breakpoints.values.xl, 
   minHeight: 28,
   display: "flex",
   alignItems: "center",
@@ -40,7 +40,7 @@ export const AddressBar = styled("div")(({ theme }) => ({
 }));
 
 export const Bar = styled("div")(({ theme }) => ({
-  width: "95%",
+  width: "100%",
   maxWidth: theme.breakpoints.values.xl,
   backgroundColor: theme.palette.common.white,
   borderRadius: 14,
@@ -61,6 +61,7 @@ export const Nav = styled("nav")({
   display: 'flex',
   alignItems: 'center',
   gap: '20px',
+  
 });
 
 export const RightSection = styled("div")({

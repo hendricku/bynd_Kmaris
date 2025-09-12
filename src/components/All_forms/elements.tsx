@@ -4,17 +4,17 @@ import { styled } from "@mui/material/styles";
 
 export const PageWrapper = styled("div")(({ theme }) => ({
   backgroundColor: theme.palette.common.white,
-  minHeight: "100vh",
+
   width: "100%",
 }));
 
 export const Container = styled("div")(({ theme }) => ({
   width: "100%",
   maxWidth: theme.breakpoints.values.xl,
-  margin: "0 auto",
+  margin: "0 auto", 
   padding: "40px 24px",
   [theme.breakpoints.down('md')]: {
-    padding: "32px 16px",
+    padding: "32px 32px",
   },
 }));
 
@@ -77,33 +77,23 @@ export const FormHeader = styled("div")(({ theme }) => ({
   gap: "12px",
   height: "220px",
   justifyContent: "center",
+  position: "relative",
 }));
 
 export const FormId = styled("h3")(({ theme }) => ({
   color: theme.palette.common.white,
-  fontSize: "36px",
+  fontSize: "18px",
   fontWeight: 700,
   margin: 0,
   fontFamily: theme.typography.fontFamily,
   lineHeight: 1.2,
-}));
-
-export const StatusBadge = styled("div")({
-  background: "#FFFFFF",
-  padding: "4px 16px",
-  minWidth: "120px",
   textAlign: "center",
-});
-
-export const StatusText = styled("span")(({ theme }) => ({
-  color: theme.palette.primary.main,
-  fontSize: "18px",
-  fontWeight: 700,
-  textTransform: "uppercase",
-  letterSpacing: "0.5px",
-  whiteSpace: "nowrap",
-  fontFamily: theme.typography.fontFamily,
+  wordWrap: "break-word",
+  hyphens: "auto",
+  maxWidth: "100%",
 }));
+
+
 
 export const PackageText = styled("div")(({ theme }) => ({
   color: theme.palette.common.white,
@@ -119,11 +109,11 @@ export const PackageText = styled("div")(({ theme }) => ({
 export const FormContent = styled("div")({
   padding: "16px",
   textAlign: "center",
-  height: "150px",
+  height: "100px",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  justifyContent: "space-between",
+  // justifyContent: "space-between",
   overflow: "hidden",
 });
 

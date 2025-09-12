@@ -44,10 +44,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 const defaultLinks: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
-  { label: "All Forms", href: "/All_forms" },
-  { label: "Filling Services", href: "/filling-services" },
-  { label: "Immigration News", href: "/news" },
-  { label: "Videos", href: "/videos" },
+  { label: "All Services", href: "/All_forms" },
+  { label: "News", href: "/News" },
 ];
 
 type UserInfo = { name: string; role: string; email: string };

@@ -1,0 +1,94 @@
+{
+  "main_articles": [
+    {
+      "id": "main-1",
+      "category": "Olympics",
+      "readTime": "6 minute read",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "imageUrl": "/image.webp"
+    },
+    {
+      "id": "main-2",
+      "category": "Olympics",
+      "readTime": "4 min read",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
+      "imageUrl": "/image.webp"
+    },
+    {
+      "id": "main-3",
+      "category": "Olympics",
+      "readTime": "6 min read",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
+      "imageUrl":"/image.webp"
+    },
+    {
+      "id": "main-4",
+      "category": "Olympics",
+      "readTime": "2 min read",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
+      "imageUrl": "/image.webp"
+    },
+    {
+      "id": "main-5",
+      "category": "Olympics",
+      "readTime": "24 hours ago",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
+      "imageUrl": "/image.webp"
+    },
+    {
+      "id": "main-6",
+      "category": "Olympics",
+      "readTime": "24 hours ago",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "imageUrl": "/image.webp"
+    }
+  ],
+  "latest_articles": [
+    {
+      "id": "latest-1",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "category": "Olympics",
+      "readTime": "3 minute read",
+      "imageUrl": "/image.webp",
+      "author": {
+        "name": "Leslie Alexander",
+        "avatarUrl": "/avatars/leslie.jpg"
+      },
+      "publishedAt": "7 hours ago"
+    },
+    {
+      "id": "latest-2",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "category": "Olympics",
+      "readTime": "5 minute read",
+      "imageUrl": "/image.webp",
+      "author": {
+        "name": "Maggie Hendricks",
+        "avatarUrl": "/avatars/maggie.jpg"
+      },
+      "publishedAt": "9 hours ago"
+    }
+  ],
+  "video_news": [
+    {
+      "id": "video-1",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
+      "category": "Olympics",
+      "readTime": "3 minutes to watch",
+      "imageUrl": "/image.webp"
+    },
+    {
+      "id": "video-2",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
+      "category": "Olympics",
+      "readTime": "5 minutes to watch",
+      "imageUrl": "/image.webp"
+    }
+  ]
+}

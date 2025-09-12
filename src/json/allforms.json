@@ -1,108 +1,106 @@
 {
   "forms": [
     {
-      "id": "i485-1",
-      "title": "I-485",
-      "type": "ADJUST STATUS",
-      "subtitle": "Form I-485 Adjustment Package 1",
-      "package": "PACKAGE 1",
-      "status": "pending"
-    },
-    {
-      "id": "filing",
-      "title": "OTHER",
-      "type": "FILING SERVICES",
-      "subtitle": "Consular Processing Service Fee",
-      "status": "pending"
-    },
-    {
-      "id": "i485-2",
-      "title": "I-485",
-      "type": "ADJUST STATUS",
-      "subtitle": "Form I-485 Adjustment Package 2",
-      "package": "PACKAGE 2",
-      "status": "pending"
-    },
-    {
-      "id": "i485-gc",
-      "title": "I-485",
-      "type": "ASYLUM ADJUSTMENT",
-      "subtitle": "Form I-485 Asylum Adjustment Package",
-      "package": "GREEN CARD",
+      "id": "i130-single",
+      "title": "I-130- PETITION FOR RELATIVE",
+      "type": "FAMILY PETITION",
       "status": "active"
     },
     {
-      "id": "i589",
-      "title": "I-589",
-      "type": "ASYLUM",
-      "subtitle": "Form I-589 and I-765 Filing Services",
-      "package": "FILING SERVICES",
+      "id": "i130-two",
+      "title": "I-130- PETITION FOR RELATIVE – TWO (2) BENEFICIARIES",
+      "type": "FAMILY PETITION",
+      "status": "active"
+    },
+    {
+      "id": "i130-three",
+      "title": "I-130- PETITION FOR RELATIVE – THREE (3) BENEFICIARIES",
+      "type": "FAMILY PETITION",
       "status": "active"
     },
     {
       "id": "i129f",
-      "title": "I-129F",
-      "type": "PETITION FOR FIANCE(E)",
-      "subtitle": "Form I-129F Petition for Fiance(e) Filing Services",
-      "package": "FILING SERVICES",
+      "title": "I-129F- PETITION FOR FIANCE/E",
+      "type": "FAMILY PETITION",
       "status": "active"
     },
     {
-      "id": "i130",
-      "title": "I-130",
-      "type": "PETITION FOR RELATIVE",
-      "subtitle": "Form I-130 Filing Services",
-      "package": "FILING SERVICES",
+      "id": "i130-i485-single",
+      "title": "I-130 / I-485- ADJUSTMENT PACKAGE",
+      "type": "ADJUSTMENT OF STATUS", 
+      "status": "active"
+    },
+    {
+      "id": "i130-i485-two",
+      "title": "I-130 / I-485- ADJUSTMENT PACKAGE- TWO (2) APPLICANTS",
+      "type": "ADJUSTMENT OF STATUS", 
+      "status": "active"
+    },
+    {
+      "id": "i360-i485-vawa",
+      "title": "I-360 / i-485- VAWA ADJUSTMENT PACKAGE",
+      "type": "ADJUSTMENT OF STATUS",
+      "status": "active"
+    },
+    {
+      "id": "i360-i485-vawa-child",
+      "title": "I-360 / i-485- VAWA ADJUSTMENT PACKAGE plus CHILD",
+      "type": "ADJUSTMENT OF STATUS",
+      "status": "active"
+    },
+    {
+      "id": "i485-approved-i130",
+      "title": "I-485- ADJUSTMENT PACKAGE with APPROVED I-130",
+      "type": "ADJUSTMENT OF STATUS", 
+      "status": "active"
+    },
+    {
+      "id": "i485-approved-i140",
+      "title": "I-485- ADJUSTMENT PACKAGE with APPROVED I-140",
+      "type": "ADJUSTMENT OF STATUS", 
+      "status": "active"
+    },
+    {
+      "id": "i485-approved-asylum",
+      "title": "I-485- ADJUSTMENT PACKAGE with APPROVED ASYLUM",
+      "type": "ADJUSTMENT OF STATUS", 
+      "status": "active"
+    },
+    {
+      "id": "i539",
+      "title": "I-539- EXTEND/ CHANGE NONIMMIGRANT STATUS",
+      "type": "OTHER SERVICES",
+      "status": "active"
+    },
+    {
+      "id": "i589-i765-asylum",
+      "title": "I-589 / I-765- ASYLUM PACKAGE",
+      "type": "OTHER SERVICES",
       "status": "active"
     },
     {
       "id": "i751",
-      "title": "I-751",
-      "type": "REMOVE CONDITIONS",
-      "subtitle": "Form I-751 Removal of Conditions",
-      "package": "FILING SERVICES",
+      "title": "I-751- REMOVAL OF CONDITIONS ON RESIDENCE",
+      "type": "OTHER SERVICES",
       "status": "active"
     },
     {
-      "id": "n400",
-      "title": "N-400",
-      "type": "NATURALIZATION",
-      "subtitle": "Form N-400 Naturalization Filing Services",
-      "package": "FILING SERVICES",
+      "id": "i765-renewal",
+      "title": "I-765- RENEWAL OF WORK AUTHORIZATION",
+      "type": "OTHER SERVICES",
       "status": "active"
     },
     {
-      "id": "n600",
-      "title": "N-600",
-      "type": "CITIZENSHIP",
-      "subtitle": "Form N-600 Citizenship Filing Services",
-      "package": "FILING SERVICES",
+      "id": "i918",
+      "title": "I-918- U VISA NONIMMIGRANT STATUS",
+      "type": "OTHER SERVICES",
       "status": "active"
     },
     {
-      "id": "i765",
-      "title": "I-765",
-      "type": "AUTHORIZATION",
-      "subtitle": "Form I-765 Employment Authorization Filing Services",
-      "package": "FILING SERVICES",
-      "status": "active"
-    },
-    {
-      "id": "i90",
-      "title": "I-90",
-      "type": "RENEW GREEN CARD",
-      "subtitle": "Form I-90 Renew, Replace Green Card Filing Services",
-      "package": "FILING SERVICES",
-      "status": "active"
-    },
-    {
-      "id": "professional",
-      "title": "PROFESSIONAL",
-      "type": "SERVICES",
-      "subtitle": "Professional Services Fee",
+      "id": "n400-naturalization",
+      "title": "N-400- NATURALIZATION / N-600- CITIZENSHIP",
+      "type": "OTHER SERVICES",
       "status": "active"
     }
-   
-   
   ]
 }
