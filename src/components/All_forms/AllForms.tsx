@@ -1,8 +1,6 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { useRouter } from "next/navigation";
-import Swal from "sweetalert2";
 
 import { AllFormsProps, Form } from "./interface";
 import formsData from "@/json/allforms.json";
@@ -17,8 +15,7 @@ const tabs = ["ALL SERVICES", "FAMILY PETITION", "ADJUSTMENT OF STATUS","OTHER S
 
 export function AllForms({ items = [] }: AllFormsProps) {
   const [activeTab, setActiveTab] = useState("ALL SERVICES");
-  const [requesting, setRequesting] = useState<{ [key: string]: boolean }>({});
-  const router = useRouter();
+  const [requesting] = useState<{ [key: string]: boolean }>({});
 
   const activeFormsFromJSON = useMemo(() => {
     return (formsData.forms as Form[]).filter((form: Form) => form.status === 'active');
@@ -26,7 +23,7 @@ export function AllForms({ items = [] }: AllFormsProps) {
 
   const formsToDisplay = items.length > 0 ? items.filter(form => form.status === 'active') : activeFormsFromJSON;
 
-  const handleRequestForm = async (form: Form) => {
+  const handleRequestForm = async () => {
 
   };
 
@@ -73,11 +70,10 @@ export function AllForms({ items = [] }: AllFormsProps) {
                   <FormTitle>{form.subtitle}</FormTitle>
                   <AppButton
                     label={requesting[form.id] ? 'Requesting...' : 'Request Form'}
-                    onClick={() => handleRequestForm(form)}
+                    onClick={() => handleRequestForm()}
                     disabled={requesting[form.id]}
                     size="medium"
                     long 
-                    // 
                   />
                 </FormContent>
               </Card>
