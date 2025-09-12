@@ -53,7 +53,7 @@ export function Feedback({ items = defaultItems }: FeedbackProps) {
               <CardInner>
               
                 <Avatar src={item.avatarSrc} alt={item.name} />
-                <Text>"{item.text}"</Text>
+                <Text>&ldquo;{item.text}&rdquo;</Text>
                 <MetaCol>
                   <StarsRow aria-label={`Rating ${item.rating ?? 0} out of 5`}>
                     {Array.from({ length: 5 }).map((_, i) => (
