@@ -17,7 +17,7 @@ import {
   MetaCol,
 } from "./elements";
 import { Heading } from "@/components/Heading/Heading";
-//a
+
 const defaultItems: FeedbackItem[] = [
   {
     id: 1,
