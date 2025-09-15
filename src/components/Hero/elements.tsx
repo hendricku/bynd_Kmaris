@@ -2,7 +2,7 @@
 
 import { styled } from "@mui/material/styles";
 
-export const HeroSection = styled("section")(({ theme }) => ({
+export const HeroSection = styled("section")(() => ({
   width: "100%",
   maxWidth: 1440,
   margin: "0 auto",

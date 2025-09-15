@@ -4,7 +4,6 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumbs, Typography } from "@mui/material";
-import { ArticleDetail } from "@/components/ArticleDetail/ArticleDetail";
 import { NewsArticleProps } from "./interface";
 import { Article } from "@/components/News/interface";
 import {

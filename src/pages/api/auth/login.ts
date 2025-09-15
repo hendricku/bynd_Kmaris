@@ -26,7 +26,8 @@ export default async function handler(req: NextRequest) {
       { expiresIn: '15m' }
     );
 
-    const { password: _, ...userWithoutPassword } = user;
+    const userWithoutPassword = { ...user };
+    delete userWithoutPassword.password;
 
     return NextResponse.json({ user: userWithoutPassword, token });
   } catch (err) {
