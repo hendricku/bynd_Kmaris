@@ -26,7 +26,7 @@ export const MobileDrawerPanel = styled("div", {
   height: "100vh",
   width: "100%",
   maxWidth: 360,
-  background: theme.palette.primary.main,
+  background: theme.palette.navy.main,
   transform: open ? "translateX(0)" : "translateX(100%)",
   visibility: open ? "visible" : "hidden",
   transition: "transform 500ms ease, visibility 500ms ease",
