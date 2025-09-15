@@ -18,4 +18,5 @@ export interface Article {
 export interface ArticleCardProps {
   article: Article;
   variant: 'featured' | 'list' | 'grid';
+  truncate?: boolean;
 }

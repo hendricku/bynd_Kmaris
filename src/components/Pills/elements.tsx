@@ -1,17 +1,19 @@
 import { styled } from "@mui/material/styles";
 
 export const PillRoot = styled("div")(({ theme }) => ({
-  background: "#FFFFFF",
+  background: theme.palette.common.white,
   color: theme.palette.primary.main,
-  padding: "4px 16px",
+  padding: "6px 14px",
   borderRadius: "20px",
-  fontSize: "14px",
-  fontWeight: 700,
+  fontSize: "13px",
+  fontFamily: theme.typography.fontFamily,
+  fontWeight: theme.typography.fontWeightBold,
   textTransform: "uppercase",
   letterSpacing: "0.5px",
   whiteSpace: "nowrap",
   display: "inline-block",
   position: "absolute",
-  top: "16px",
-  right: "16px",
+  top: "20px",
+  right: "20px",
+  boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
 }));

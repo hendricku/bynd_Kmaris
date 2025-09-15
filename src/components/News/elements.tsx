@@ -16,6 +16,7 @@ export const Container = styled("div")(({ theme }) => ({
   margin: '0 auto',
   padding: theme.spacing(6, 2),
   fontFamily: theme.typography.fontFamily,
+
 }));
 
 export const TopSection = styled("div")(({ theme }) => ({
@@ -31,6 +32,8 @@ export const TopSection = styled("div")(({ theme }) => ({
 export const ArticleList = styled("div")({
   display: 'flex',
   flexDirection: 'column',
+      justifyContent: 'space-around',
+
 });
 
 export const BottomGrid = styled("div")(({ theme }) => ({
@@ -47,6 +50,7 @@ export const SectionDivider = styled("hr")(({ theme }) => ({
   height: '1px',
   backgroundColor: theme.palette.divider,
   margin: `${theme.spacing(6)} 0`,
+
 }));
 
 export const SectionTitle = styled("h2")(({ theme }) => ({
@@ -64,6 +68,7 @@ export const FeaturedArticleRoot = styled(Link)({
   display: 'flex',
   flexDirection: 'column',
   gap: '16px',
+
 });
 
 export const FeaturedTitle = styled('h2')(({ theme }) => ({
@@ -101,6 +106,7 @@ export const ListItemRoot = styled(Link)(({ theme }) => ({
   textDecoration: 'none',
   display: 'flex',
   gap: '16px',
+
   paddingBottom: '16px',
   borderBottom: `1px solid ${theme.palette.divider}`,
   '&:last-of-type': {
@@ -112,6 +118,7 @@ export const ListItemRoot = styled(Link)(({ theme }) => ({
 export const ListItemTextContent = styled('div')({
   display: 'flex',
   flexDirection: 'column',
+
 });
 
 export const ListItemTitle = styled('h3')(({ theme }) => ({
@@ -121,13 +128,21 @@ export const ListItemTitle = styled('h3')(({ theme }) => ({
   color: theme.palette.text.primary,
   lineHeight: 1.4,
   margin: 0,
+
 }));
 
-export const ListItemSummary = styled('p')(({ theme }) => ({
+export const ListItemSummary = styled('p')<{ truncate?: boolean }>(({ theme, truncate = true }) => ({
   fontSize: '14px',
   color: theme.palette.text.secondary,
   margin: '8px 0',
   lineHeight: 1.5,
+  ...(truncate && {
+    display: '-webkit-box',
+    '-webkit-line-clamp': 3,
+    '-webkit-box-orient': 'vertical',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+  }),
 }));
 
 export const ListItemMeta = styled('div')(({ theme }) => ({
@@ -207,6 +222,7 @@ export const LatestArticlesGrid = styled("div")(({ theme }) => ({
   display: 'grid',
   gridTemplateColumns: '1fr',
   gap: theme.spacing(3),
+
   overflowX: 'auto',
   [theme.breakpoints.up('sm')]: {
     gridTemplateColumns: 'repeat(4, 1fr)',
@@ -256,74 +272,6 @@ export const LatestTitle = styled("h3")(({ theme }) => ({
 export const LatestCategoryMeta = styled(LatestMetaText)({});
 
 export const LatestCategory = styled('span')(({ theme }) => ({
-  color: theme.palette.primary.main,
-  fontWeight: 700,
-}));
-
-
-
-export const VideoList = styled("div")({
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '24px',
-});
-
-export const VideoItemLink = styled(Link)({
-  textDecoration: 'none',
-  display: 'flex',
-  gap: '16px',
-});
-
-export const ThumbWrapper = styled("div")({
-  position: 'relative',
-  width: '150px',
-  height: '90px',
-  flexShrink: 0,
-  borderRadius: '8px',
-  overflow: 'hidden',
-});
-
-export const PlayIconOverlay = styled("div")(({ theme }) => ({
-  position: 'absolute',
-  inset: 0,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  backgroundColor: 'rgba(0,0,0,0.3)',
-  color: theme.palette.common.white,
-}));
-
-export const VideoTextContent = styled("div")({
-  display: 'flex',
-  flexDirection: 'column',
-});
-
-export const VideoTitle = styled("h3")(({ theme }) => ({
-  fontFamily: 'inherit',
-  fontSize: '16px',
-  fontWeight: theme.typography.fontWeightBold,
-  color: theme.palette.text.primary,
-  lineHeight: 1.4,
-  margin: 0,
-}));
-
-export const VideoSummary = styled("p")(({ theme }) => ({
-  fontSize: '14px',
-  color: theme.palette.text.secondary,
-  margin: '8px 0',
-  lineHeight: 1.5,
-}));
-
-export const VideoMeta = styled("div")(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  gap: theme.spacing(1.5),
-  fontSize: '13px',
-  color: theme.palette.text.secondary,
-  marginTop: 'auto',
-}));
-
-export const VideoCategory = styled('span')(({ theme }) => ({
   color: theme.palette.primary.main,
   fontWeight: 700,
 }));

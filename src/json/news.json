@@ -1,57 +1,59 @@
 {
   "main_articles": [
     {
-      "id": "main-1",
+      "id": "1",
       "category": "Olympics",
       "readTime": "6 minute read",
-      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "title": "Olympic Games Paris 2024: A Spectacular Opening Ceremony",
+      "summary": "The Paris 2024 Olympic Games kicked off with a breathtaking opening ceremony along the Seine River, showcasing France's cultural heritage and innovation. The Paris 2024 Olympic Games kicked off with a breathtaking opening ceremony along the Seine River, showcasing France's cultural heritage and innovation The Paris 2024 Olympic Games kicked off with a breathtaking opening ceremony along the Seine River, showcasing France's cultural heritage and innovationThe Paris 2024 Olympic Games kicked off with a breathtaking opening ceremony along the Seine River, showcasing France's cultural heritage and innovationThe Paris 2024 Olympic Games kicked off with a breathtaking opening ceremony along the Seine River, showcasing France's cultural heritage and innovationThe Paris 2024 Olympic Games kicked off with a breathtaking opening ceremony along the Seine River, showcasing France's cultural heritage and innovationThe Paris 2024 Olympic Games kicked off with a breathtaking opening ceremony along the Seine River, showcasing France's cultural heritage and innovationThe Paris 2024 Olympic Games kicked off with a breathtaking opening ceremony along the Seine River, showcasing France's cultural heritage and innovationThe Paris 2024 Olympic Games kicked off with a breathtaking opening ceremony along the Seine River, showcasing France's cultural heritage and innovationThe Paris 2024 Olympic Games kicked off with a breathtaking opening ceremony along the Seine River, showcasing France's cultural heritage and innovationThe Paris 2024 Olympic Games kicked off with a breathtaking opening ceremony along the Seine River, showcasing France's cultural heritage and innovationThe Paris 2024 Olympic Games kicked off with a breathtaking opening ceremony along the Seine River, showcasing France's cultural heritage and innovationThe Paris 2024 Olympic Games kicked off with a breathtaking opening ceremony along the Seine River, showcasing France's cultural heritage and innovation",
       "imageUrl": "/image.webp"
     },
     {
-      "id": "main-2",
-      "category": "Olympics",
+      "id": "2",
+      "category": "Sports",
       "readTime": "4 min read",
-      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
+      "title": "Athletes Prepare for Historic Competitions",
+      "summary": "Top athletes from around the world are gearing up for intense competitions in various sports, with new records expected to be broken.",
       "imageUrl": "/image.webp"
     },
     {
-      "id": "main-3",
-      "category": "Olympics",
+      "id": "3",
+      "category": "Events",
       "readTime": "6 min read",
-      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
+      "title": "Paris Welcomes the World to the Olympics",
+      "summary": "The city of Paris is transformed as it hosts the 2024 Summer Olympics, with events spread across iconic landmarks and modern venues.",
       "imageUrl":"/image.webp"
     },
     {
-      "id": "main-4",
-      "category": "Olympics",
+      "id": "4",
+      "category": "Athletics",
       "readTime": "2 min read",
-      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
+      "title": "Breakthrough Performances in Early Events",
+      "summary": "Early Olympic events have seen remarkable performances, setting the stage for an unforgettable games.",
       "imageUrl": "/image.webp"
     },
     {
-      "id": "main-5",
-      "category": "Olympics",
+      "id": "5",
+      "category": "Environment",
       "readTime": "24 hours ago",
-      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
+      "title": "Sustainability at the Heart of Paris 2024",
+      "summary": "The Paris Olympics emphasize environmental sustainability, with eco-friendly initiatives throughout the games.",
       "imageUrl": "/image.webp"
     },
     {
-      "id": "main-6",
-      "category": "Olympics",
+      "id": "6",
+      "category": "Global",
       "readTime": "24 hours ago",
-      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "title": "Global Unity Through Sports",
+      "summary": "The Olympics bring together nations in a spirit of competition and camaraderie, fostering global unity.",
       "imageUrl": "/image.webp"
     }
   ],
   "latest_articles": [
     {
       "id": "latest-1",
-      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      "category": "Olympics",
+      "title": "New Records Set in Swimming Events",
+      "category": "Swimming",
       "readTime": "3 minute read",
       "imageUrl": "/image.webp",
       "author": {
@@ -62,8 +64,8 @@
     },
     {
       "id": "latest-2",
-      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      "category": "Olympics",
+      "title": "Gymnastics Stars Shine in Qualification Rounds",
+      "category": "Gymnastics",
       "readTime": "5 minute read",
       "imageUrl": "/image.webp",
       "author": {
@@ -74,8 +76,8 @@
     },
      {
       "id": "latest-3",
-      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      "category": "Olympics",
+      "title": "Track and Field Highlights from Day One",
+      "category": "Athletics",
       "readTime": "3 minute read",
       "imageUrl": "/image.webp",
       "author": {
@@ -86,8 +88,8 @@
     },
       {
       "id": "latest-4",
-      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      "category": "Olympics",
+      "title": "Team USA Dominates Basketball Preliminaries",
+      "category": "Basketball",
       "readTime": "3 minute read",
       "imageUrl": "/image.webp",
       "author": {
@@ -98,8 +100,8 @@
     },
       {
       "id": "latest-5",
-      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      "category": "Olympics",
+      "title": "Diving Competition Delivers Thrilling Moments",
+      "category": "Diving",
       "readTime": "3 minute read",
       "imageUrl": "/image.webp",
       "author": {
@@ -112,17 +114,17 @@
   "video_news": [
     {
       "id": "video-1",
-      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
+      "title": "Behind the Scenes: Olympic Village Life",
+      "summary": "Get an exclusive look at the daily life of athletes in the Olympic Village, from training sessions to team bonding activities.",
       "category": "Olympics",
       "readTime": "3 minutes to watch",
       "imageUrl": "/image.webp"
     },
     {
       "id": "video-2",
-      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
-      "category": "Olympics",
+      "title": "Highlights from the Opening Ceremony",
+      "summary": "Relive the magic of the Paris 2024 opening ceremony with stunning visuals and performances from around the world.",
+      "category": "Events",
       "readTime": "5 minutes to watch",
       "imageUrl": "/image.webp"
     }

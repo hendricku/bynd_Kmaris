@@ -4,9 +4,11 @@ import { styled } from "@mui/material/styles";
 
 export const HeroSection = styled("section")(({ theme }) => ({
   width: "100%",
-  backgroundColor: theme.palette.primary.main,
+  maxWidth: 1440,
+  margin: "0 auto",
+  // backgroundColor: theme.palette.common.black,
   position: "relative",
-  overflow: "hidden",
+
 }));
 
 export const HeroInner = styled("div")({

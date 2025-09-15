@@ -5,10 +5,10 @@ export const palette = {
   },
   common: {
     white: "#FFFFFF",
-    black: "#000000",
+    black: "#002542",
   },
   text: {
-    primary: "#1A1A1A",
+    primary: "#002542",
   },
   divider: "#E5E5E5",
   navy: {

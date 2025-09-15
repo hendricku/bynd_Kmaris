@@ -109,7 +109,7 @@ export const PackageText = styled("div")(({ theme }) => ({
 export const FormContent = styled("div")({
   padding: "16px",
   textAlign: "center",
-  height: "100px",
+  // height: "100px",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",

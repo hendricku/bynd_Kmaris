@@ -9,10 +9,10 @@ import {
   GridCardRoot, GridCardOverlay, GridCardTitle, GridCardMeta, GridCardCategory
 } from "./elements";
 
-export function ArticleCard({ article, variant }: ArticleCardProps) {
+export function ArticleCard({ article, variant, truncate = true }: ArticleCardProps) {
   if (variant === 'featured') {
     return (
-      <FeaturedArticleRoot href={`/news/${article.id}`}>
+      <FeaturedArticleRoot href={`/News/${article.id}`}>
         <div>
           <FeaturedTitle>{article.title}</FeaturedTitle>
           <FeaturedMeta>
@@ -28,11 +28,16 @@ export function ArticleCard({ article, variant }: ArticleCardProps) {
     );
   }
   if (variant === 'list') {
+    // Truncate summary to 20 words if truncate is true
+    const truncatedSummary = truncate && article.summary
+      ? article.summary.split(' ').slice(0, 20).join(' ') + (article.summary.split(' ').length > 20 ? '...' : '')
+      : article.summary;
+
     return (
-      <ListItemRoot href={`/news/${article.id}`}>
+      <ListItemRoot href={`/News/${article.id}`}>
         <ListItemTextContent>
           <ListItemTitle>{article.title}</ListItemTitle>
-          {article.summary && <ListItemSummary>{article.summary}</ListItemSummary>}
+          {truncatedSummary && <ListItemSummary>{truncatedSummary}</ListItemSummary>}
           <ListItemMeta>
             <ListItemCategory>{article.category}</ListItemCategory>
             <span>|</span>
@@ -47,7 +52,7 @@ export function ArticleCard({ article, variant }: ArticleCardProps) {
   }
   if (variant === 'grid') {
     return (
-      <GridCardRoot href={`/news/${article.id}`}>
+      <GridCardRoot href={`/News/${article.id}`}>
         <Image src={article.imageUrl} alt={article.title} fill style={{ objectFit: 'cover' }} />
         <GridCardOverlay>
           <GridCardTitle>{article.title}</GridCardTitle>

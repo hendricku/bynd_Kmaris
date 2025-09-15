@@ -33,7 +33,7 @@ const LatestArticlesSection: React.FC<{ articles: Article[] }> = ({
       {articles.map((article) => (
         <LatestArticleCardLink
           key={article.id}
-          href={`/news/${article.id}`}
+          href={`/News/${article.id}`}
         >
           <LatestImageWrapper>
             <Image
@@ -69,7 +69,7 @@ const VideoNewsSection: React.FC<{ videos: Article[] }> = ({ videos }) => (
       {videos.map((video) => (
         <LatestArticleCardLink
           key={video.id}
-          href={`/news/${video.id}`}
+          href={`/News/${video.id}`}
         >
           <LatestImageWrapper>
             <Image
@@ -119,22 +119,14 @@ export function News() {
           )}
           <ArticleList>
             {listArticles.map((article) => (
-              <ArticleCard
-                key={article.id}
-                article={article}
-                variant="list"
-              />
+              <ArticleCard key={article.id} article={article} variant="list" />
             ))}
           </ArticleList>
         </TopSection>
 
         <BottomGrid>
           {gridArticles.map((article) => (
-            <ArticleCard
-              key={article.id}
-              article={article}
-              variant="grid"
-            />
+            <ArticleCard key={article.id} article={article} variant="grid" />
           ))}
         </BottomGrid>
 
@@ -146,5 +138,3 @@ export function News() {
     </NewsSection>
   );
 }
-
-export default News;
