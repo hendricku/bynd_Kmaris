@@ -1,22 +1,18 @@
-export interface Author {
-  name: string;
-  avatarUrl: string;
-}
-
 export interface Article {
   id: string;
+  title: string;
+  summary?: string;
+  imageUrl: string;
   category: string;
   readTime: string;
-  title: string;
-  summary?: string | null;
-  imageUrl: string;
-  // Make author and publishedAt optional to handle all article types
-  author?: Author;
+  author?: {
+    name: string;
+  };
   publishedAt?: string;
 }
 
 export interface ArticleCardProps {
   article: Article;
-  variant: 'featured' | 'list' | 'grid';
+  variant: "featured" | "list" | "grid";
   truncate?: boolean;
 }

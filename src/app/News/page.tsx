@@ -2,7 +2,7 @@
 
 import React from "react";
 import { News } from "@/components/News/News";
-import Footer from "@/components/Footer/Footer";
+import { Footer } from "@/components/Footer/Footer";
 
 export default function NewsPage() {
   return (

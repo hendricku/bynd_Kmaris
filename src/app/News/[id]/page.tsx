@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import newsData from "@/json/news.json";
 import { Article } from "@/components/News/interface";
 import { NewsArticle } from "@/components/NewsArticle/news_article";
+import Footer from "@/components/Footer/Footer";
 
 interface NewsArticlePageProps {
   params: {
@@ -12,11 +13,8 @@ interface NewsArticlePageProps {
   };
 }
 
-import Footer from "@/components/Footer/Footer";
-
 export default function NewsArticlePage({ params }: NewsArticlePageProps) {
   const { id } = params;
-
 
   const article: Article | undefined = [
     ...newsData.main_articles,
@@ -28,7 +26,6 @@ export default function NewsArticlePage({ params }: NewsArticlePageProps) {
     notFound();
   }
 
-  
   const relatedArticles: Article[] = [
     ...newsData.main_articles,
     ...newsData.latest_articles,

@@ -41,6 +41,7 @@ const LatestArticlesSection: React.FC<{ articles: Article[] }> = ({
               alt={article.title}
               fill
               style={{ objectFit: "cover" }}
+
             />
           </LatestImageWrapper>
           {article.author && (
@@ -48,7 +49,9 @@ const LatestArticlesSection: React.FC<{ articles: Article[] }> = ({
               <LatestMetaText>{article.author.name}</LatestMetaText>
               <LatestMetaText>•</LatestMetaText>
               <LatestMetaText>{article.publishedAt}</LatestMetaText>
-            </AuthorInfo>
+            <LatestMetaText>•</LatestMetaText>
+            <LatestMetaText>{article.readTime}</LatestMetaText>
+          </AuthorInfo>
           )}
           <LatestTitle>{article.title}</LatestTitle>
           <LatestCategoryMeta>
@@ -80,6 +83,7 @@ const VideoNewsSection: React.FC<{ videos: Article[] }> = ({ videos }) => (
             />
             <PlayCircleFilledIcon
               style={{
+
                 position: "absolute",
                 top: "50%",
                 left: "50%",
