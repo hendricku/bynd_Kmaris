@@ -27,7 +27,7 @@ import {
 const LatestArticlesSection: React.FC<{ articles: Article[] }> = ({
   articles,
 }) => (
-  <div style={{ maxWidth: 1200 }}>
+  <div style={{ maxWidth: 1440 }}>
     <SectionTitle>Latest Articles</SectionTitle>
     <LatestArticlesGrid>
       {articles.map((article) => (

@@ -3,21 +3,19 @@
 import React from "react";
 import { FooterProps, SocialLink, LinkGroup, NavLink } from "./interface";
 
-// Import all the styled components from their dedicated files
+
 import { FooterRoot, Top, Bottom, BottomInner, BottomLinks } from "./base";
 import { Brand, Logo, Divider, Address, Socials, SocialLinkItem } from "./brand";
 import { Group, GroupTitle, LinkList, LinkItem } from "./navigation";
 import { Newsletter, NewsletterDescription, NewsletterForm, NewsletterInput, NewsletterButton } from "./newsletter";
 
-// Import the icons you need
+
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import SendIcon from "@mui/icons-material/Send";
 
-// --- Default Content ---
-// Defining default props outside the component is a clean pattern
 const defaultSocials: SocialLink[] = [
   { icon: <FacebookIcon />, href: "#", name: "Facebook" },
   { icon: <InstagramIcon />, href: "#", name: "Instagram" },
@@ -30,9 +28,9 @@ const defaultGroups: LinkGroup[] = [
     title: "Links",
     links: [
       { label: "Home", href: "/" },
-      { label: "About Us", href: "/about" },
-      { label: "All Forms", href: "/all-forms" },
-      { label: "Filing Services", href: "/services" },
+      { label: "About Us", href: "/aboutus" },
+      { label: "All Forms", href: "/AllForms" },
+          { label: "News", href: "/News" },
       { label: "Contact", href: "/contact" },
     ],
   },

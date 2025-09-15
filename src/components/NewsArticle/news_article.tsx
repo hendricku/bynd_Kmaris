@@ -56,7 +56,8 @@ export function NewsArticle({ article, relatedArticles }: NewsArticleProps) {
           </ArticleBody>
         </MainContent >
         <Sidebar>
-          <SidebarTitle>Related News</SidebarTitle>
+          
+          <SidebarTitle> Related News</SidebarTitle>
           <RelatedArticlesContainer>
             {relatedArticles.map((related: Article) => (
               <ArticleCard key={related.id} article={related} variant="list" truncate={true} />
