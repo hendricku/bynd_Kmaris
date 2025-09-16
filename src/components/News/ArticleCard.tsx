@@ -28,7 +28,7 @@ export function ArticleCard({ article, variant, truncate = true }: ArticleCardPr
     );
   }
   if (variant === 'list') {
-    // Truncate summary to 20 words if truncate is true
+
     const truncatedSummary = truncate && article.summary
       ? article.summary.split(' ').slice(0, 20).join(' ') + (article.summary.split(' ').length > 20 ? '...' : '')
       : article.summary;

@@ -107,7 +107,7 @@ export const ListItemRoot = styled(Link)(({ theme }) => ({
   display: 'flex',
   gap: '16px',
 
-  paddingBottom: '16px',
+  paddingBottom: '3rem',
   borderBottom: `1px solid ${theme.palette.divider}`,
   '&:last-of-type': {
     borderBottom: 'none',
@@ -162,7 +162,7 @@ export const ListItemCategory = styled('span')(({ theme }) => ({
 export const ListItemImageWrapper = styled('div')({
   position: 'relative',
   width: '120px',
-  height: '80px',
+  height: '100%',
   flexShrink: 0,
   borderRadius: '8px',
   overflow: 'hidden',
