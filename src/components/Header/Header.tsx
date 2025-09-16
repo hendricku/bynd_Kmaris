@@ -64,17 +64,17 @@ export function Header({
 
   const userIcons = (
     <>
-      <IconButton onClick={onCartClick}>
+      {/* <IconButton onClick={onCartClick}>
         <StyledCartIcon />
         {cartCount > 0 && <CartBadge>{cartCount}</CartBadge>}
-      </IconButton>
+      </IconButton> */}
       <ProfileMenu ref={dropdownRef}>
         <IconButton onClick={() => setDropdownOpen((o) => !o)}>
           <StyledAccountIcon />
         </IconButton>
         <DropdownContent isOpen={dropdownOpen}>
-          <MenuItem href="#">Sign In</MenuItem>
-          <MenuItem href="#">Create Account</MenuItem>
+          <MenuItem href="https://accesskmaris.vercel.app/" target="_blank">Sign In</MenuItem>
+          <MenuItem href="https://accesskmaris.vercel.app/signup" target="_blank">Create Account</MenuItem>
         </DropdownContent>
       </ProfileMenu>
     </>

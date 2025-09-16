@@ -31,7 +31,7 @@ export const HeaderRow = styled("div")(({ theme }) => ({
 export const Grid = styled("div")(({ theme }) => ({
   display: "grid",
   gridTemplateColumns: "1fr",
-  gap: 24,
+  gap: "2rem",
   alignItems: "stretch",
   [theme.breakpoints.up("sm")]: {
     gridTemplateColumns: "repeat(2, 1fr)",

@@ -56,7 +56,7 @@ export const Tab = styled("button", {
 export const Grid = styled("div")(({ theme }) => ({
   display: "grid",
   gridTemplateColumns: "1fr",
-  gap: "24px",
+  gap: "2rem",
   [theme.breakpoints.up('sm')]: {
     gridTemplateColumns: "repeat(2, minmax(280px, 1fr))",
   },
