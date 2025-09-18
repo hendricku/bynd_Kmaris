@@ -6,6 +6,8 @@ import {
   Container,
   TopSection,
   Image,
+  StepImage,
+  MainTitle,
   TextContent,
   Title,
   Description,
@@ -15,9 +17,9 @@ import {
   StepsContainer,
   StepCard,
   StepIconPlaceholder,
-  StepContent,
-  StepTitle,
-  StepDescription,
+  TextContent as StepContent,
+  Title as StepTitle,
+  Description as StepDescription,
 } from "./elements";
 import { Step } from "./interface";
 import { AppButton } from "../Button/Button";
@@ -27,21 +29,25 @@ const steps: Step[] = [
     title: "Find the service you need",
     description:
       "Lorem ipsum dolor sit amet consectetur adipiscing elit, pretium sapien mattis nulla",
+    icon: "/image.webp",
   },
   {
     title: "Register and get approved",
     description:
       "Lorem ipsum dolor sit amet consectetur adipiscing elit, pretium sapien mattis nulla",
+    icon: "/image2.webp",
   },
   {
     title: "Fill out important information",
     description:
       "Lorem ipsum dolor sit amet consectetur adipiscing elit, pretium sapien mattis nulla",
+    icon: "/image3.webp",
   },
   {
     title: "Sit back and relax",
     description:
       "Lorem ipsum dolor sit amet consectetur adipiscing elit, pretium sapien mattis nulla",
+    icon: "/image4.webp",
   },
 ];
 
@@ -58,10 +64,9 @@ const AboutUs: React.FC = () => {
           <Image
             src="/image3.webp"
             alt="Professional team collaborating in modern office environment"
-            loading="lazy"
           />
           <TextContent>
-            <Title>About Us</Title>
+            <MainTitle>About Us</MainTitle>
             <Description>
               Lorem ipsum dolor sit amet consectetur adipiscing elit, pretium
               sapien mattis nulla litora proin purus varius, pulvinar diam netus
@@ -88,7 +93,16 @@ const AboutUs: React.FC = () => {
               {steps.map((step, index) => (
                 <StepCard key={index}>
                   <StepIconPlaceholder>
-                    Image Placeholder
+                    <img
+                      src={step.icon || "/image.webp"}
+                      alt={step.title}
+                      style={{
+                        width: "100%",
+                        height: "160px",
+                        borderRadius: 8,
+                        objectFit: "cover",
+                      }}
+                    />
                   </StepIconPlaceholder>
                   <StepContent>
                     <StepTitle>{step.title}</StepTitle>

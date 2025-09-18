@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { styled } from "@mui/material/styles";
 
 export const Section = styled("section")(({ theme }) => ({
@@ -8,33 +9,32 @@ export const Section = styled("section")(({ theme }) => ({
   padding: "56px 24px",
   position: "relative",
 }));
+
 export const Container = styled("div")(({ theme }) => ({
   width: "100%",
- maxWidth: theme.breakpoints.values.xl,
-     margin: "0 auto",
+  maxWidth: theme.breakpoints.values.xl,
+  margin: "0 auto",
 }));
 
 export const TopSection = styled("section")(({ theme }) => ({
   maxWidth: 1440,
   margin: "0 auto",
   display: "flex",
-  alignItems: "center", 
+  alignItems: "center",
   gap: 64,
 
   [theme.breakpoints.down("lg")]: {
-    // padding: "48px 32px",
     gap: 48,
   },
   [theme.breakpoints.down("md")]: {
     flexDirection: "column",
-    // padding: "32px 24px",
     gap: 32,
   },
 }));
 
 export const Image = styled("img")(({ theme }) => ({
-  width: 624, 
-  height: 450, 
+  width: 624,
+  height: 450,
   borderRadius: 8,
   objectFit: "cover",
   flexShrink: 0,
@@ -53,32 +53,46 @@ export const TextContent = styled("div")(({ theme }) => ({
   flex: 1,
   display: "flex",
   flexDirection: "column",
-  justifyContent: "center", 
+  justifyContent: "center",
 }));
 
 export const Title = styled("h1")(({ theme }) => ({
   fontFamily: 'var(--font-inter)',
-  fontSize: "2.25rem", 
+  fontSize: "16px",
   fontWeight: 700,
   lineHeight: 1.2,
   margin: "0 0 16px 0",
   color: theme.palette.text.primary,
   [theme.breakpoints.down("md")]: {
-    fontSize: "2rem", 
+    fontSize: "2rem",
   },
   [theme.breakpoints.down("sm")]: {
-    fontSize: "1.75rem", 
+    fontSize: "1.75rem",
+  },
+}));
+export const MainTitle = styled("h1")(({ theme }) => ({
+  fontFamily: 'var(--font-inter)',
+  fontSize: "3rem",
+  fontWeight: 700,
+  lineHeight: 1.2,
+  margin: "0 0 16px 0",
+  color: theme.palette.text.primary,
+  [theme.breakpoints.down("md")]: {
+    fontSize: "2rem",
+  },
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "1.75rem",
   },
 }));
 
 export const Description = styled("p")(({ theme }) => ({
   fontFamily: 'var(--font-inter)',
-  fontSize: "1rem", 
+  fontSize: "1rem",
   fontWeight: 400,
   lineHeight: 1.6,
   margin: "0 0 32px 0",
-  color: "#6B7280", 
-  maxWidth: 480, 
+  color: "#6B7280",
+  maxWidth: 600,
 }));
 
 export const HowItWorksSection = styled("section")(({ theme }) => ({
@@ -93,7 +107,6 @@ export const HowItWorksSection = styled("section")(({ theme }) => ({
 export const HowItWorksContainer = styled("div")(({ theme }) => ({
   maxWidth: 1440,
   margin: "0 auto",
-  // padding: "0 64px",
   [theme.breakpoints.down("lg")]: {
     padding: "0 32px",
   },
@@ -111,7 +124,7 @@ export const HowItWorksTitle = styled("h2")(({ theme }) => ({
   margin: "0 0 48px 0",
   color: theme.palette.text.primary,
   [theme.breakpoints.down("sm")]: {
-    fontSize: "1.75rem", 
+    fontSize: "1.75rem",
     margin: "0 0 40px 0",
   },
 }));
@@ -148,39 +161,23 @@ export const StepCard = styled("article")(({ theme }) => ({
 
 export const StepIconPlaceholder = styled("div")(({ theme }) => ({
   width: "100%",
-  height: 160, // Matches reference proportions
-  backgroundColor: "#E5E7EB", // Gray-200 equivalent
+  height: 160,
+  backgroundColor: "#E5E7EB",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  color: "#9CA3AF", // Gray-400 equivalent
+  color: "#9CA3AF",
   fontSize: "0.875rem",
   fontFamily: 'var(--font-inter)',
   fontWeight: 500,
   marginBottom: 20,
 }));
 
-export const StepContent = styled("div")(({ theme }) => ({
-  padding: "0 20px 24px 20px",
-  display: "flex",
-  flexDirection: "column",
-  flex: 1,
-}));
-
-export const StepTitle = styled("h3")(({ theme }) => ({
-  fontFamily: 'var(--font-inter)',
-  fontWeight: 700,
-  fontSize: "1.125rem", // 18px
-  lineHeight: 1.3,
-  color: theme.palette.text.primary,
-  margin: "0 0 12px 0",
-}));
-
-export const StepDescription = styled("p")(({ theme }) => ({
-  fontFamily: 'var(--font-inter)',
-  fontSize: "0.875rem", // 14px
-  fontWeight: 400,
-  color: "#6B7280", // Gray-500 equivalent
-  lineHeight: 1.5,
-  margin: 0,
+export const StepImage = styled("img")(({ theme }) => ({
+  width: '100%',
+  height: '30%',
+  borderRadius: 8,
+  marginBottom: 12,
+  objectFit: "cover",
+  alignSelf: "center",
 }));
