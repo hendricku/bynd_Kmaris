@@ -7,8 +7,7 @@ export const HeroSection = styled("section")(({ theme }) => ({
   maxWidth: 1440,
   margin: "0 auto",
   background: theme.palette.navy.main,
-  // backgroundColor: theme.palette.navy.main,
-  color: theme.palette.navy.main,
+  backgroundColor: theme.palette.navy.main,
   position: "relative",
 
 }));
@@ -37,7 +36,7 @@ export const BgImage = styled("div")<{ src: string }>(({ src }) => ({
   backgroundImage: `url(${src})`,
   backgroundSize: "cover",
   backgroundPosition: "center",
-  
+
 }));
 
 export const Overlay = styled("div")({
