@@ -8,4 +8,5 @@ export interface AppButtonProps {
   long?: boolean;
   className?: string;
   disabled?: boolean;
+  widthPercent?: number;
 }

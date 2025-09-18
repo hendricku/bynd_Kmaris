@@ -75,6 +75,7 @@ const AboutUs: React.FC = () => {
               onClick={handleLearnMore}
               size="large"
               // variant="default"
+              widthPercent={50}
             />
           </TextContent>
         </TopSection>

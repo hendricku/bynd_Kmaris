@@ -3,10 +3,12 @@
 import { styled } from "@mui/material/styles";
 import { AppButtonProps } from "./interface";
 
-type ButtonRootProps = Omit<AppButtonProps, 'label' | 'onClick'>;
+type ButtonRootProps = Omit<AppButtonProps, 'label' | 'onClick'> & {
+  widthPercent?: number;
+};
 
 export const ButtonRoot = styled("a")<ButtonRootProps>(
-  ({ theme, size = 'large', variant = 'default', withArrow = false, long = false }) => {
+  ({ theme, size = 'large', variant = 'default', withArrow = false, long = false, widthPercent }) => {
     const tokensBySize = {
       small: { minHeight: 36, padY: 8, padX: 14, fontSize: 13 },
       medium: { minHeight: 42, padY: 10, padX: 18, fontSize: 14 },
@@ -34,6 +36,7 @@ export const ButtonRoot = styled("a")<ButtonRootProps>(
       padding,
       fontSize: t.fontSize,
       minHeight: t.minHeight,
+      width: widthPercent ? `${widthPercent}%` : undefined,
       position: "relative",
       overflow: "hidden",
       "&::before": {

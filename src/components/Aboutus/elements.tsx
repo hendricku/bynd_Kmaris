@@ -5,10 +5,9 @@ import { styled } from "@mui/material/styles";
 export const Section = styled("section")(({ theme }) => ({
   width: "100%",
   backgroundColor: theme.palette.common.white,
-  padding: "64px 64px",
+  padding: "56px 24px",
   position: "relative",
 }));
-
 export const Container = styled("div")(({ theme }) => ({
   width: "100%",
  maxWidth: theme.breakpoints.values.xl,
@@ -23,12 +22,12 @@ export const TopSection = styled("section")(({ theme }) => ({
   gap: 64,
 
   [theme.breakpoints.down("lg")]: {
-    padding: "48px 32px",
+    // padding: "48px 32px",
     gap: 48,
   },
   [theme.breakpoints.down("md")]: {
     flexDirection: "column",
-    padding: "32px 24px",
+    // padding: "32px 24px",
     gap: 32,
   },
 }));

@@ -14,6 +14,7 @@ export function AppButton({
   long = false,
   className,
   disabled,
+  widthPercent,
 }: AppButtonProps) {
   const content = (
     <>
@@ -33,6 +34,7 @@ export function AppButton({
         long={long}
         className={className}
         disabled={disabled}
+        widthPercent={widthPercent}
       >
         {content}
       </ButtonRoot>
@@ -48,6 +50,7 @@ export function AppButton({
       withArrow={withArrow}
       long={long}
       className={className}
+      widthPercent={widthPercent}
     >
       {content}
     </ButtonRoot>
