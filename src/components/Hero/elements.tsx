@@ -2,10 +2,11 @@
 
 import { styled } from "@mui/material/styles";
 
-export const HeroSection = styled("section")(() => ({
+export const HeroSection = styled("section")(({ theme }) => ({
   width: "100%",
   maxWidth: 1440,
   margin: "0 auto",
+  background: theme.palette.navy.main,
   // backgroundColor: theme.palette.common.black,
   position: "relative",
 
