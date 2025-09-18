@@ -13,12 +13,14 @@ export const HeroSection = styled("section")(({ theme }) => ({
 
 }));
 
-export const HeroInner = styled("div")({
+export const HeroInner = styled("div")(({ theme }) => ({
   width: "100%",
   // maxWidth: 1440,
+  background: theme.palette.navy.main,
+  backgroundColor: theme.palette.navy.main,
   margin: "0 ",
   position: "relative",
-});
+}));
 
 export const HeroImageWrap = styled("div")({
   position: "relative",
