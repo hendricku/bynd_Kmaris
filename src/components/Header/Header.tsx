@@ -41,6 +41,7 @@ import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import MenuIcon from "@mui/icons-material/Menu";
 
+
 const defaultLinks: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
@@ -108,7 +109,7 @@ export function Header({
           <DesktopOnly style={{ gap: "20px" }}>
             <Nav aria-label="Primary Navigation">
               {navLinks.map((item) => (
-                <Link key={item.href} href={item.href} passHref legacyBehavior>
+                <Link key={item.href} href={item.href}>
                   <LinkItem>{item.label}</LinkItem>
                 </Link>
               ))}
@@ -146,7 +147,6 @@ export function Header({
               key={`m-${item.href}`}
               href={item.href}
               passHref
-              legacyBehavior
             >
               <DrawerLink onClick={closeDrawer}>{item.label}</DrawerLink>
             </Link>

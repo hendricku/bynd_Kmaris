@@ -1,0 +1,3 @@
+- [x] Import Section from elements.tsx in Aboutus.tsx
+- [x] Wrap the Container with Section in the return statement
+- [x] Remove backgroundColor from Container since Section provides it
