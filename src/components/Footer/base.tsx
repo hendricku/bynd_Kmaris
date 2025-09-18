@@ -13,7 +13,7 @@ export const Top = styled("div")(({ theme }) => ({
   width: "100%",
   maxWidth: theme.breakpoints.values.xl,
   margin: "0 auto",
-  padding: "48px 24px",
+   padding: "48px 24px",
   display: "grid",
   gap: 48,
   gridTemplateColumns: "1fr",
