@@ -30,9 +30,15 @@ import {
   MobileDrawerPanel,
   DrawerCloseButton,
   MobileDrawerHeader,
+  DrawerLogoSection,
+  DrawerSubtitle,
+  DrawerContent,
   DrawerNav,
   DrawerLink,
+  DrawerFooter,
   DrawerIconSection,
+  DrawerSectionTitle,
+  DrawerDivider,
 } from "./drawer";
 import { ProfileMenu, DropdownContent, MenuItem } from "./menu";
 
@@ -40,7 +46,6 @@ import { ProfileMenu, DropdownContent, MenuItem } from "./menu";
 import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import MenuIcon from "@mui/icons-material/Menu";
-
 
 const defaultLinks: NavLink[] = [
   { label: "Home", href: "/" },
@@ -65,17 +70,17 @@ export function Header({
 
   const userIcons = (
     <>
-      {/* <IconButton onClick={onCartClick}>
-        <StyledCartIcon />
-        {cartCount > 0 && <CartBadge>{cartCount}</CartBadge>}
-      </IconButton> */}
       <ProfileMenu ref={dropdownRef}>
         <IconButton onClick={() => setDropdownOpen((o) => !o)}>
           <StyledAccountIcon />
         </IconButton>
         <DropdownContent isOpen={dropdownOpen}>
-          <MenuItem href="https://accesskmaris.vercel.app/" target="_blank">Sign In</MenuItem>
-          <MenuItem href="https://accesskmaris.vercel.app/signup" target="_blank">Create Account</MenuItem>
+          <MenuItem href="https://accesskmaris.vercel.app/" target="_blank">
+            Sign In
+          </MenuItem>
+          <MenuItem href="https://accesskmaris.vercel.app/signup" target="_blank">
+            Create Account
+          </MenuItem>
         </DropdownContent>
       </ProfileMenu>
     </>
@@ -136,25 +141,34 @@ export function Header({
       <MobileDrawerOverlay open={drawerOpen} onClick={closeDrawer} />
       <MobileDrawerPanel open={drawerOpen}>
         <MobileDrawerHeader>
-          <Image src="/whitelogo.png" alt="Logo" width={150} height={80} />
-          <DrawerCloseButton onClick={closeDrawer}>
-            <CloseRoundedIcon sx={{ color: "white" }} />
+          <Image 
+            src="/whitelogo.png" 
+            alt="KMARIS Logo" 
+            width={160} 
+            height={48}
+            style={{ maxWidth: '100%', height: 'auto' }}
+          />
+          <DrawerCloseButton onClick={closeDrawer} aria-label="Close menu">
+            <CloseRoundedIcon />
           </DrawerCloseButton>
         </MobileDrawerHeader>
-        <DrawerNav>
-          {navLinks.map((item) => (
-            <Link
-              key={`m-${item.href}`}
-              href={item.href}
-              passHref
-            >
-              <DrawerLink onClick={closeDrawer}>{item.label}</DrawerLink>
-            </Link>
-          ))}
-        </DrawerNav>
-        <DrawerIconSection>
-          <IconRow>{userIcons}</IconRow>
-        </DrawerIconSection>
+        
+        <DrawerContent>
+          <DrawerNav>
+            {navLinks.map((item) => (
+              <Link key={`m-${item.href}`} href={item.href} passHref>
+                <DrawerLink onClick={closeDrawer}>{item.label}</DrawerLink>
+              </Link>
+            ))}
+          </DrawerNav>
+
+          <DrawerFooter>
+            <DrawerSectionTitle>Account</DrawerSectionTitle>
+            <DrawerIconSection>
+              <div>{userIcons}</div>
+            </DrawerIconSection>
+          </DrawerFooter>
+        </DrawerContent>
       </MobileDrawerPanel>
     </HeaderRoot>
   );

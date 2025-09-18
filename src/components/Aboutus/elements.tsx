@@ -59,16 +59,16 @@ export const TextContent = styled("div")(({ theme }) => ({
 
 export const Title = styled("h1")(({ theme }) => ({
   fontFamily: 'var(--font-inter)',
-  fontSize: "16px",
+  fontSize: "1rem",
   fontWeight: 700,
   lineHeight: 1.2,
   margin: "0 0 16px 0",
   color: theme.palette.text.primary,
   [theme.breakpoints.down("md")]: {
-    fontSize: "2rem",
+    fontSize: "1rem",
   },
   [theme.breakpoints.down("sm")]: {
-    fontSize: "1.75rem",
+    fontSize: "1rem",
   },
 }));
 export const MainTitle = styled("h1")(({ theme }) => ({

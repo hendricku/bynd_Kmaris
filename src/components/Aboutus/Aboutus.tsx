@@ -105,7 +105,7 @@ const AboutUs: React.FC = () => {
                     />
                   </StepIconPlaceholder>
                   <StepContent>
-                    <StepTitle>{step.title}</StepTitle>
+                    <Title>{step.title}</Title>
                     <StepDescription>{step.description}</StepDescription>
                   </StepContent>
                 </StepCard>
