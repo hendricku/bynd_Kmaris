@@ -4,8 +4,6 @@ import { styled } from "@mui/material/styles";
 
 export const HeroSection = styled("section")(({ theme }) => ({
   width: "100%",
-  maxWidth: 1440,
-  margin: "0 auto",
   background: theme.palette.navy.main,
   backgroundColor: theme.palette.navy.main,
   position: "relative",
@@ -14,10 +12,8 @@ export const HeroSection = styled("section")(({ theme }) => ({
 
 export const HeroInner = styled("div")(({ theme }) => ({
   width: "100%",
-  // maxWidth: 1440,
-  background: theme.palette.navy.main,
-  backgroundColor: theme.palette.navy.main,
-  margin: "0 ",
+  maxWidth: 1440,
+  margin: "0 auto",
   position: "relative",
 }));
 
