@@ -19,6 +19,7 @@ export const Container = styled("div")(({ theme }) => ({
 export const TopSection = styled("section")(({ theme }) => ({
   maxWidth: 1440,
   margin: "0 auto",
+  padding : "0 0 64px 0",
   display: "flex",
   alignItems: "center",
   gap: 64,
@@ -97,7 +98,7 @@ export const Description = styled("p")(({ theme }) => ({
 
 export const HowItWorksSection = styled("section")(({ theme }) => ({
   width: "100%",
-  padding: "64px 0",
+  // padding: "64px",
 
   [theme.breakpoints.down("md")]: {
     padding: "48px 0",
