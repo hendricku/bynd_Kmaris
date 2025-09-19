@@ -27,7 +27,8 @@ export const NewsletterForm = styled("form")({
 export const NewsletterInput = styled("input")(({ theme }) => ({
   flex: 1,
   padding: "0 60px 0 20px",
-  border: "none",
+  borderColor: theme.palette.navy.main,
+  opacity:0.2,
   borderRadius: 8,
   background: theme.palette.common.white,
   color: theme.palette.navy.main,

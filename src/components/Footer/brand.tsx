@@ -6,7 +6,7 @@ flexDirection: "column",
 gap: 24,
 });
 export const Logo = styled("img")({
-height: 150,
+height: 60,
 width: "auto",
 alignSelf: "flex-start",
 marginTop: "-2rem",
@@ -20,7 +20,7 @@ opacity: 0.9,
 export const Divider = styled("hr")(({ theme }) => ({
 border: 0,
 height: 1,
-backgroundColor: theme.palette.common.white,
+backgroundColor: theme.palette.navy.main,
 opacity: 0.1,
 width: "80%",
 margin: "0",

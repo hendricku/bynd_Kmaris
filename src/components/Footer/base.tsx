@@ -4,8 +4,8 @@ import { styled } from "@mui/material/styles";
 
 export const FooterRoot = styled("footer")(({ theme }) => ({
   width: "100%",
-  background: theme.palette.navy.main,
-  color: theme.palette.common.white,
+  background: theme.palette.common.white,
+  color: theme.palette.navy.main,
   fontFamily: theme.typography.fontFamily,
 }));
 
@@ -48,11 +48,11 @@ export const BottomInner = styled("div")(({ theme }) => ({
   },
 }));
 
-export const BottomLinks = styled("div")({
+export const BottomLinks = styled("div")(({ theme }) => ({
   display: "flex",
   gap: 24,
   "& a": {
-    color: "white",
+    color: theme.palette.navy.main,
     textDecoration: "none",
     opacity: 0.8,
     transition: "opacity 200ms ease",
@@ -60,4 +60,4 @@ export const BottomLinks = styled("div")({
       opacity: 1,
     },
   },
-});
+}));

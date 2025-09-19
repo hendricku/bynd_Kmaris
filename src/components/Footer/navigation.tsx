@@ -23,13 +23,13 @@ export const LinkList = styled("ul")({
 });
 
 export const LinkItem = styled("a")(({ theme }) => ({
-  color: theme.palette.common.white,
+  color: theme.palette.navy.main,
   textDecoration: "none",
   fontSize: 15,
   opacity: 0.85,
   transition: "opacity 120ms ease, transform 120ms ease",
-  ":hover": { 
-    opacity: 1, 
-    transform: "translateX(2px)" 
+  ":hover": {
+    opacity: 1,
+    transform: "translateX(2px)"
   },
 }));

@@ -28,7 +28,7 @@ const defaultGroups: LinkGroup[] = [
     title: "Links",
     links: [
       { label: "Home", href: "/" },
-      { label: "About Us", href: "/aboutus" },
+      { label: "About Us", href: "/about" },
       { label: "All Services", href: "/AllForms" },
           { label: "News", href: "/News" },
       { label: "Contact", href: "/contact" },
@@ -44,7 +44,7 @@ const defaultBottomLinks: NavLink[] = [
 
 // --- Main Footer Component ---
 export function Footer({
-  logoSrc = "/whitelogo.png",
+  logoSrc = "/logo.png",
   addressLines = ["5900 Balcones Dr, Austin", "Texas 78731, United States"], 
   socials = defaultSocials,
   groups = defaultGroups,
@@ -57,7 +57,18 @@ export function Footer({
   bottomLinks = defaultBottomLinks,
 }: FooterProps) {
   return (
+    
     <FooterRoot>
+       <Divider
+        sx={{
+          width: "auto",
+          opacity: 0.1,
+          margin: "0 auto",
+          maxWidth: 1440,
+          marginTop: 0,
+       
+        }}
+      />
       <Top>
         <Brand>
           <Logo src={logoSrc} alt="KMARIS Logo" />
@@ -98,6 +109,17 @@ export function Footer({
           </NewsletterForm>
         </Newsletter>
       </Top>
+
+      <Divider
+        sx={{
+          width: "auto",
+          opacity: 0.1,
+          margin: "0 auto",
+          maxWidth: 1440,
+          marginTop: 0,
+       
+        }}
+      />
 
       <Bottom>
         <BottomInner>
