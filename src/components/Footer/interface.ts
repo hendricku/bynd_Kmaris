@@ -13,6 +13,7 @@ export interface NavLink {
 
 export interface LinkGroup {
   title: string;
+
   links: NavLink[];
 }
 
