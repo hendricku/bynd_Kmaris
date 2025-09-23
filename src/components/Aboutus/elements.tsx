@@ -6,7 +6,7 @@ import { styled } from "@mui/material/styles";
 export const Section = styled("section")(({ theme }) => ({
   width: "100%",
   backgroundColor: theme.palette.common.white,
-  padding: "64px 26px 0 26px",
+  padding: "64px 26px 1px 26px",
   position: "relative",
 }));
 
@@ -104,7 +104,7 @@ export const HowItWorksSection = styled("section")(({ theme }) => ({
   justifyContent: "space-between",
 
   [theme.breakpoints.down("md")]: {
-    // padding: "48px 0",
+    // padding: "48px 0",  
   },
 }));
 
