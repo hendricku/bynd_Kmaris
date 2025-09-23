@@ -18,15 +18,7 @@ export const HeroBackground = styled("div")({
   overflow: "hidden",
 });
 
-export const HeroInner = styled("div")(({ theme }) => ({
-  width: "100%",
-  maxWidth: "1440px",
-  // margin: "0 auto",
-  position: "relative",
-  height: "100%",
-  display: "flex",
-  alignItems: "center",
-}));
+
 
 export const HeroImageWrap = styled("div")({
   position: "relative",
@@ -52,6 +44,10 @@ export const ContentContainer = styled("div")(({ theme }) => ({
   maxWidth: 1440,
   margin: "0 auto",
   position: "relative",
+  zIndex: 3,
+  height: "100%",
+  display: "flex",
+  alignItems: "center",
 }));
 
 export const Content = styled("div")(({ theme }) => ({

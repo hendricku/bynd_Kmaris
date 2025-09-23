@@ -5,7 +5,6 @@ import { HeroProps } from "./interface";
 import {
   HeroSection,
   HeroBackground,
-  HeroInner,
   HeroImageWrap,
   Overlay,
   ContentContainer,
@@ -34,7 +33,7 @@ export function Hero({
       }}>
         <Overlay />
       </HeroBackground>
-      <HeroInner>
+      <ContentContainer>
         <HeroImageWrap>
           <Content>
             <ContentBox className="animate-fade-in-up">
@@ -58,7 +57,7 @@ export function Hero({
             </ContentBox>
           </Content>
         </HeroImageWrap>
-      </HeroInner>
+      </ContentContainer>
     </HeroSection>
   );
 }
