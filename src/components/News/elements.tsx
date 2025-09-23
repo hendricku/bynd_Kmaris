@@ -107,7 +107,7 @@ export const ListItemRoot = styled(Link)(({ theme }) => ({
   display: 'flex',
   gap: '16px',
 paddingTop:'1rem',
-  paddingBottom: '2rem',
+  paddingBottom: '3.5rem',
   borderBottom: `1px solid ${theme.palette.divider}`,
   '&:last-of-type': {
     borderBottom: 'none',
