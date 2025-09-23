@@ -36,7 +36,7 @@ export const TopSection = styled("section")(({ theme }) => ({
 }));
 
 export const Image = styled("img")(({ theme }) => ({
-  width: 624,
+  width: 720,
   height: 450,
   borderRadius: 8,
   objectFit: "cover",
