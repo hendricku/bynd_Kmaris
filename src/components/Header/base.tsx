@@ -5,7 +5,7 @@ import { styled } from "@mui/material/styles";
 export const HeaderRoot = styled("header")(({ theme }) => ({
   width: "100%",
   backgroundColor: theme.palette.navy.main, 
-  padding: "64px 8px 32px 8px",
+  padding: "32px 8px 32px 8px",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
