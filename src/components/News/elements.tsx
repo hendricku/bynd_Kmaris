@@ -32,8 +32,7 @@ export const TopSection = styled("div")(({ theme }) => ({
 export const ArticleList = styled("div")({
   display: 'flex',
   flexDirection: 'column',
-      justifyContent: 'space-around',
-
+  justifyContent: 'flex-end',
 });
 
 export const BottomGrid = styled("div")(({ theme }) => ({
@@ -106,9 +105,11 @@ export const ListItemRoot = styled(Link)(({ theme }) => ({
   textDecoration: 'none',
   display: 'flex',
   gap: '16px',
-paddingTop:'1rem',
-  paddingBottom: '3.5rem',
+  padding: '32px 0',
   borderBottom: `1px solid ${theme.palette.divider}`,
+  '&:first-of-type': {
+    paddingTop: 0,
+  },
   '&:last-of-type': {
     borderBottom: 'none',
     paddingBottom: 0,
@@ -118,7 +119,7 @@ paddingTop:'1rem',
 export const ListItemTextContent = styled('div')({
   display: 'flex',
   flexDirection: 'column',
-
+  flex: 1,
 });
 
 export const ListItemTitle = styled('h3')(({ theme }) => ({
@@ -127,14 +128,13 @@ export const ListItemTitle = styled('h3')(({ theme }) => ({
   fontWeight: theme.typography.fontWeightBold,
   color: theme.palette.text.primary,
   lineHeight: 1.4,
-  margin: 0,
-
+  margin: '0 0 8px 0',
 }));
 
 export const ListItemSummary = styled('p')<{ truncate?: boolean }>(({ theme, truncate = true }) => ({
   fontSize: '14px',
   color: theme.palette.text.secondary,
-  margin: '8px 0',
+  margin: '0 0 12px 0',
   lineHeight: 1.5,
   ...(truncate && {
     display: '-webkit-box',
@@ -162,7 +162,7 @@ export const ListItemCategory = styled('span')(({ theme }) => ({
 export const ListItemImageWrapper = styled('div')({
   position: 'relative',
   width: '120px',
-  height: '100%',
+  height: '80px',
   flexShrink: 0,
   borderRadius: '8px',
   overflow: 'hidden',

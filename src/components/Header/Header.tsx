@@ -86,7 +86,7 @@ export function Header({
     </>
   );
 
-  if (pathname?.startsWith("/admin") || pathname?.startsWith("/auth")) {
+  if (pathname?.startsWith("/admin") || pathname?.startsWith("/auth") || pathname === "/steps") {
     return null;
   }
 

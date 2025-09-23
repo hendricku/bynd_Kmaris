@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
+import { useRouter } from 'next/navigation';
 
 import { AllFormsProps, Form } from "./interface";
 import formsData from "@/json/allforms.json";
@@ -15,7 +16,7 @@ const tabs = ["ALL SERVICES", "FAMILY PETITION", "ADJUSTMENT OF STATUS","OTHER S
 
 export function AllForms({ items = [] }: AllFormsProps) {
   const [activeTab, setActiveTab] = useState("ALL SERVICES");
-  const [requesting] = useState<{ [key: string]: boolean }>({});
+  const router = useRouter();
 
   const activeFormsFromJSON = useMemo(() => {
     return (formsData.forms as Form[]).filter((form: Form) => form.status === 'active');
@@ -23,8 +24,8 @@ export function AllForms({ items = [] }: AllFormsProps) {
 
   const formsToDisplay = items.length > 0 ? items.filter(form => form.status === 'active') : activeFormsFromJSON;
 
-  const handleRequestForm = async () => {
-
+  const handleRequestForm = () => {
+    router.push('/steps');
   };
 
   const filteredForms = useMemo(() => {
@@ -69,9 +70,8 @@ export function AllForms({ items = [] }: AllFormsProps) {
                 <FormContent>
                   <FormTitle>{form.subtitle}</FormTitle>
                   <AppButton
-                    label={requesting[form.id] ? 'Requesting...' : 'Order to File Now'}
-                    onClick={() => handleRequestForm()}
-                    disabled={requesting[form.id]}
+                    label={'Order to File Now'}
+                    onClick={handleRequestForm}
                     size="medium"
                     long 
                   />
