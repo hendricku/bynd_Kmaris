@@ -7,13 +7,25 @@ export const HeroSection = styled("section")(({ theme }) => ({
   background: theme.palette.navy.main,
   backgroundColor: theme.palette.navy.main,
   position: "relative",
+    margin:'0 auto',
 }));
+
+export const HeroBackground = styled("div")({
+  position: "absolute",
+  inset: 0,
+  width: "100%",
+  height: "100%",
+  overflow: "hidden",
+});
 
 export const HeroInner = styled("div")(({ theme }) => ({
   width: "100%",
   maxWidth: "1440px",
   margin: "0 auto",
   position: "relative",
+  height: "100%",
+  display: "flex",
+  alignItems: "center",
 }));
 
 export const HeroImageWrap = styled("div")({
@@ -30,9 +42,17 @@ export const HeroImageWrap = styled("div")({
 export const Overlay = styled("div")({
   position: "absolute",
   inset: 0,
+    // display: "flex",
   background:
     "linear-gradient(135deg, rgba(0,37,66,0.9) 0%, rgba(0,37,66,0.7) 40%, rgba(0,37,66,0.2) 100%)",
 });
+
+export const ContentContainer = styled("div")(({ theme }) => ({
+  width: "100%",
+  maxWidth: 1440,
+  margin: "0 auto",
+  position: "relative",
+}));
 
 export const Content = styled("div")(({ theme }) => ({
   position: "absolute",

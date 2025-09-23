@@ -4,9 +4,11 @@ import React from "react";
 import { HeroProps } from "./interface";
 import {
   HeroSection,
+  HeroBackground,
   HeroInner,
   HeroImageWrap,
   Overlay,
+  ContentContainer,
   Content,
   ContentBox,
   Title,
@@ -24,14 +26,16 @@ export function Hero({
 }: HeroProps) {
   return (
     <HeroSection>
-      <HeroInner style={{
+      <HeroBackground style={{
         background: backgroundSrc ? `url(${backgroundSrc})` : undefined,
         backgroundColor: backgroundSrc ? undefined : undefined,
         backgroundSize: backgroundSrc ? "cover" : undefined,
         backgroundPosition: backgroundSrc ? "center" : undefined,
       }}>
+        <Overlay />
+      </HeroBackground>
+      <HeroInner>
         <HeroImageWrap>
-          <Overlay />
           <Content>
             <ContentBox className="animate-fade-in-up">
               <Title>{title}</Title>
