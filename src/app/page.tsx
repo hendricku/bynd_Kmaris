@@ -23,13 +23,16 @@ const PageWrapper = styled("main")({
 export default function Home() {
   return (
     <PageWrapper>
-      <Hero
-        title="IMMIGRATION FORMS EXPERT"
-        description="We Specialized In Family-Based Immigration, Adjustment Of Status, Consular Processing, Asylum/Refugee Application/Petition, Non-ImImmigrant Visa, VAWA, & Other Services."
-        ctaLabel="LEARN MORE"
-      />
+      <Hero />
       <Services />
-      <Offering />
+      <Offering
+        videoSrc="https://youtu.be/NuqlZ3NbbbU"
+        videoThumbnail="/placeholder.png"
+        youtubeChannelUrl="https://www.youtube.com/@kmaristv4568"
+        autoPlay={false}
+        muted={true}
+        loop={true}
+      />
       <Feedback />
       <Footer />
     </PageWrapper>

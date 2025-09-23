@@ -6,7 +6,7 @@ import { styled } from "@mui/material/styles";
 export const Section = styled("section")(({ theme }) => ({
   width: "100%",
   backgroundColor: theme.palette.common.white,
-  padding: "56px 24px",
+  padding: "64px 26px 0 26px",
   position: "relative",
 }));
 
@@ -19,9 +19,10 @@ export const Container = styled("div")(({ theme }) => ({
 export const TopSection = styled("section")(({ theme }) => ({
   maxWidth: 1440,
   margin: "0 auto",
-  padding : "0 0 64px 0",
+  // padding : "0 0 64px 0",
   display: "flex",
   alignItems: "center",
+
   gap: 64,
 
   [theme.breakpoints.down("lg")]: {
@@ -30,6 +31,7 @@ export const TopSection = styled("section")(({ theme }) => ({
   [theme.breakpoints.down("md")]: {
     flexDirection: "column",
     gap: 32,
+    justifyContent: "center",
   },
 }));
 
@@ -98,10 +100,11 @@ export const Description = styled("p")(({ theme }) => ({
 
 export const HowItWorksSection = styled("section")(({ theme }) => ({
   width: "100%",
-  // padding: "64px",
+  padding: "64px 0 0 0",
+  justifyContent: "space-between",
 
   [theme.breakpoints.down("md")]: {
-    padding: "48px 0",
+    // padding: "48px 0",
   },
 }));
 

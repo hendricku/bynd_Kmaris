@@ -5,7 +5,7 @@ import { styled } from "@mui/material/styles";
 export const HeaderRoot = styled("header")(({ theme }) => ({
   width: "100%",
   backgroundColor: theme.palette.navy.main, 
-  padding: "12px 8px 22px 8px",
+  padding: "64px 8px 32px 8px",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
@@ -19,25 +19,25 @@ export const HeaderRoot = styled("header")(({ theme }) => ({
   },
 }));
 
-export const AddressBar = styled("div")(({ theme }) => ({
-  width: "100%",
-  maxWidth: theme.breakpoints.values.xl, 
-  minHeight: 28,
-  display: "flex",
-  alignItems: "center",
-  gap: 6,
-  padding: "8px 24px", 
-  color: "#D9E6F2",
-  fontSize: 14,
-  fontFamily: theme.typography.fontFamily,
-  justifyContent: "flex-start",
-  [theme.breakpoints.down('md')]: {
-    fontSize: 13,
-    padding: "6px 12px",
-    justifyContent: "center",
-    textAlign: "center",
-  },
-}));
+// export const AddressBar = styled("div")(({ theme }) => ({
+//   width: "100%",
+//   maxWidth: theme.breakpoints.values.xl, 
+//   minHeight: 28,
+//   display: "flex",
+//   alignItems: "center",
+//   gap: 6,
+//   padding: "8px 24px", 
+//   color: "#D9E6F2",
+//   fontSize: 14,
+//   fontFamily: theme.typography.fontFamily,
+//   justifyContent: "flex-start",
+//   [theme.breakpoints.down('md')]: {
+//     fontSize: 13,
+//     padding: "6px 12px",
+//     justifyContent: "center",
+//     textAlign: "center",
+//   },
+// }));
 
 export const Bar = styled("div")(({ theme }) => ({
   width: "100%",

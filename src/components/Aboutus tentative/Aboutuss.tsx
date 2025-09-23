@@ -15,8 +15,8 @@ import {
 import { AppButton } from "../Button/Button";
 
 export function Hero({
-  title = "IMMIGRATION FORMS EXPERT",
-  description = "We Specialized In Family-Based Immigration, Adjustment Of Status, Consular Processing, Asylum/Refugee Application/Petition, Non-ImImmigrant Visa, VAWA, & Other Services.",
+  title = "About Us",
+  description = " Lorem ipsum dolor sit amet consectetur adipiscing elit, pretiumsapien mattis nulla litora proin purus varius, pulvinar diam netusvolutpat morbi magnis. Porta semper potenti faucibus blandittorquent ad vehicula sociis integer, feugiat aptent netus gravida enim neque posuere penatibus, sed imperdiet maecenas venenatis scelerisque consequat purus mauris.",
   ctaLabel = "LEARN MORE",
   ctaHref = "#",
   backgroundSrc = "/Herologo.webp",

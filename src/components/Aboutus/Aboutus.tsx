@@ -75,13 +75,13 @@ const AboutUs: React.FC = () => {
               enim neque posuere penatibus, sed imperdiet maecenas venenatis
               scelerisque consequat purus mauris.
             </Description>
-            <AppButton
+            {/* <AppButton
               label="LEARN MORE"
               onClick={handleLearnMore}
-              size="large"
-              // variant="default"
-              widthPercent={50}
-            />
+              size="large" 
+             variant="default"
+              {/* widthPercent={50}
+            /> */}
           </TextContent>
         </TopSection>
 
