@@ -5,7 +5,7 @@ import { styled } from "@mui/material/styles";
 export const Section = styled("section")(({ theme }) => ({
   width: "100%",
   backgroundColor: theme.palette.common.white,
-  padding: "64px 24px",
+  padding: "64px 32px",
   position: "relative",
   display: "flex",
   alignItems: "center",
@@ -45,7 +45,7 @@ export const Image = styled("img")({
 
 export const VideoContainer = styled("div")({
   width: "100%",
-  height: "600px",
+  height: "385px",
   position: "relative",
   borderRadius: 16,
   overflow: "hidden",

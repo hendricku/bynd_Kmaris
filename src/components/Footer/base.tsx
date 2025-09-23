@@ -36,7 +36,7 @@ export const BottomInner = styled("div")(({ theme }) => ({
   width: "100%",
   maxWidth: theme.breakpoints.values.xl,
   margin: "0 auto",
-  padding: "24px",
+  padding: "32px",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",

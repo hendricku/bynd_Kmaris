@@ -12,7 +12,7 @@ export const Container = styled("div")(({ theme }) => ({
   width: "100%",
   maxWidth: theme.breakpoints.values.xl,
   margin: "0 auto", 
-  padding: "40px 24px",
+  padding: "64px 32px",
   [theme.breakpoints.down('md')]: {
     padding: "32px 32px",
   },

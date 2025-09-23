@@ -70,7 +70,7 @@ export const Content = styled("div")(({ theme }) => ({
     padding: "0 48px",
   },
   [theme.breakpoints.up("lg")]: {
-    padding: "0 64px",
+    padding: "0 32px",
   },
 }));
 

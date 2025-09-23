@@ -13,8 +13,8 @@ export const NewsSection = styled("section")(({ theme }) => ({
 
 export const Container = styled("div")(({ theme }) => ({
   maxWidth: '1440px',
-  margin: '0 auto',
-  padding: theme.spacing(6, 2),
+  // margin: '0 auto',
+  padding: '64px 32px',
   fontFamily: theme.typography.fontFamily,
 
 }));

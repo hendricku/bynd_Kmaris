@@ -6,7 +6,7 @@ import { styled } from "@mui/material/styles";
 export const Section = styled("section")(({ theme }) => ({
   width: "100%",
   backgroundColor: theme.palette.common.white,
-  padding: "64px 26px 1px 26px",
+  padding: "64px 32px 1px 32px",
   position: "relative",
 }));
 
@@ -154,13 +154,13 @@ export const StepCard = styled("article")(({ theme }) => ({
   textAlign: "center",
   display: "flex",
   flexDirection: "column",
-  boxShadow: "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
+  // boxShadow: "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
   transition: "all 0.2s ease",
   overflow: "hidden",
-  "&:hover": {
-    boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
-    transform: "translateY(-1px)",
-  },
+  // "&:hover": {
+  //   boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+  //   transform: "translateY(-1px)",
+  // },
 }));
 
 export const StepIconPlaceholder = styled("div")(({ theme }) => ({

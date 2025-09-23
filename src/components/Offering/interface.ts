@@ -10,12 +10,12 @@ export interface OfferingProps {
 
   ctaHref?: string;
 
-  // Video properties
+
   videoSrc?: string;
   videoThumbnail?: string;
   youtubeChannelUrl?: string;
 
-  // Local video file properties
+
   videoFile?: string;
   autoPlay?: boolean;
   muted?: boolean;
