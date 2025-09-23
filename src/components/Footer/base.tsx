@@ -18,7 +18,7 @@ export const Top = styled("div")(({ theme }) => ({
   gap: 48,
   gridTemplateColumns: "1fr",
   [theme.breakpoints.up('md')]: {
-    padding: "80px 32px",
+    padding: "64px 32px",
     gridTemplateColumns: "repeat(2, 1fr)",
     gap: 64,
   },

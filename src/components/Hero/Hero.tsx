@@ -18,7 +18,7 @@ export function Hero({
   title = "IMMIGRATION FORMS EXPERT",
   description = "We Specialized In Family-Based Immigration, Adjustment Of Status, Consular Processing, Asylum/Refugee Application/Petition, Non-ImImmigrant Visa, VAWA, & Other Services.",
   ctaLabel = "LEARN MORE",
-  ctaHref = "#",
+  ctaHref = "/about",
   backgroundSrc = "/Herologo.webp",
   userName,
 }: HeroProps) {

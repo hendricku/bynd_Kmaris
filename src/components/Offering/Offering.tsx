@@ -45,18 +45,18 @@ export function Offering({
 
   const handleVideoClick = () => {
     if (videoSrc) {
-      // For YouTube videos, we'll use an embedded player
+    
       setIsVideoPlaying(true);
       setShowThumbnail(false);
     }
   };
 
   const handleLearnMoreClick = () => {
-    // Open YouTube channel in new tab
+
     window.open(youtubeChannelUrl, '_blank');
   };
 
-  // Extract YouTube video ID from URL
+
   const getYouTubeVideoId = (url: string) => {
     const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
     const match = url.match(regExp);

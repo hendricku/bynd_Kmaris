@@ -5,7 +5,7 @@ import { styled } from "@mui/material/styles";
 export const Section = styled("section")(({ theme }) => ({
   width: "100%",
   backgroundColor: theme.palette.navy.main,
-  padding: "80px 24px",
+  padding: "64px 24px",
   color: theme.palette.common.white,
 }));
 
