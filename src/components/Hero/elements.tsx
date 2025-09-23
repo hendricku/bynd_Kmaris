@@ -21,7 +21,7 @@ export const HeroBackground = styled("div")({
 export const HeroInner = styled("div")(({ theme }) => ({
   width: "100%",
   maxWidth: "1440px",
-  margin: "0 auto",
+  // margin: "0 auto",
   position: "relative",
   height: "100%",
   display: "flex",
@@ -64,13 +64,13 @@ export const Content = styled("div")(({ theme }) => ({
   zIndex: 2,
 
   [theme.breakpoints.up("sm")]: {
-    padding: "0 24px",
+    padding: "24px",
   },
   [theme.breakpoints.up("md")]: {
-    padding: "0 32px",
+    padding: "48px",
   },
   [theme.breakpoints.up("lg")]: {
-    padding: "0 32px",
+    padding: " 32px",
   },
 }));
 
