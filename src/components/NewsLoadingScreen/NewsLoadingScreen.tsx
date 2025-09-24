@@ -31,7 +31,7 @@ export default function NewsLoadingScreen() {
   return (
     <LoadingContainer>
       {/* Loading indicator */}
-      <LoadingText>Loading articles...</LoadingText>
+      {/* <LoadingText>Loading articles...</LoadingText> */}
       <LoadingDots>
         <span />
         <span />

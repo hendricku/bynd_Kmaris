@@ -32,7 +32,7 @@ export default function ArticleLoadingScreen() {
       
       <ArticleLoadingContent>
         {/* Loading indicator */}
-        <LoadingText>Loading article...</LoadingText>
+        {/* <LoadingText>Loading article...</LoadingText> */}
         <LoadingDots>
           <span />
           <span />
