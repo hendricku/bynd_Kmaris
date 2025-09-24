@@ -25,14 +25,17 @@ export function Hero({
 }: HeroProps) {
   return (
     <HeroSection>
-      <HeroBackground style={{
-        background: backgroundSrc ? `url(${backgroundSrc})` : undefined,
-        backgroundColor: backgroundSrc ? undefined : undefined,
-        backgroundSize: backgroundSrc ? "cover" : undefined,
-        backgroundPosition: backgroundSrc ? "center" : undefined,
-      }}>
+      <HeroBackground
+        style={{
+          background: backgroundSrc ? `url(${backgroundSrc})` : undefined,
+          backgroundColor: backgroundSrc ? undefined : undefined,
+          backgroundSize: backgroundSrc ? "cover" : undefined,
+          backgroundPosition: backgroundSrc ? "center" : undefined,
+        }}
+      >
         <Overlay />
       </HeroBackground>
+      
       <ContentContainer>
         <HeroImageWrap>
           <Content>

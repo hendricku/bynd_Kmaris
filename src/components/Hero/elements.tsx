@@ -2,12 +2,24 @@
 
 import { styled } from "@mui/material/styles";
 
+export const Container = styled("div")(({ theme }) => ({
+  width: "100%",
+  maxWidth: `calc(1440px + 4rem)`, 
+  margin: "0 auto",
+  padding: "0 2rem", 
+  boxSizing: "border-box",
+  
+  [theme.breakpoints.down("sm")]: {
+    padding: "0 1rem",
+    maxWidth: `calc(1440px + 2rem)`,
+  },
+}));
+
 export const HeroSection = styled("section")(({ theme }) => ({
   width: "100%",
   background: theme.palette.navy.main,
   backgroundColor: theme.palette.navy.main,
   position: "relative",
-    margin:'0 auto',
 }));
 
 export const HeroBackground = styled("div")({
@@ -18,8 +30,6 @@ export const HeroBackground = styled("div")({
   overflow: "hidden",
 });
 
-
-
 export const HeroImageWrap = styled("div")({
   position: "relative",
   minHeight: "clamp(500px, 85vh, 800px)",
@@ -29,39 +39,39 @@ export const HeroImageWrap = styled("div")({
   width: "100%",
 });
 
-
-
 export const Overlay = styled("div")({
   position: "absolute",
   inset: 0,
-    // display: "flex",
   background:
     "linear-gradient(135deg, rgba(0,37,66,0.9) 0%, rgba(0,37,66,0.7) 40%, rgba(0,37,66,0.2) 100%)",
 });
 
 export const ContentContainer = styled("div")(({ theme }) => ({
   width: "100%",
-  maxWidth: 1440,
+  maxWidth: `calc(1440px + 4rem)`,
   margin: "0 auto",
   position: "relative",
   zIndex: 3,
   height: "100%",
   display: "flex",
   alignItems: "center",
+  padding: "0 2rem", 
+  boxSizing: "border-box",
+  
+  [theme.breakpoints.down("sm")]: {
+    padding: "0 1rem",
+    maxWidth: `calc(1440px + 2rem)`, 
+  },
 }));
 
 export const Content = styled("div")(({ theme }) => ({
-  position: "absolute",
-
-  height: "10%",
+  position: "relative",
+  height: "100%",
   display: "flex",
   alignItems: "center",
-  padding: "0 16px",
   zIndex: 2,
-
-
+  width: "100%",
 }));
-
 
 export const ContentBox = styled("div")(({ theme }) => ({
   color: theme.palette.common.white,
@@ -70,8 +80,8 @@ export const ContentBox = styled("div")(({ theme }) => ({
   maxWidth: "100%",
   borderLeft: "3px solid red",
   paddingLeft: theme.spacing(2),
-  margin: "0 auto",
   textAlign: "left",
+  
   [theme.breakpoints.up("sm")]: {
     maxWidth: 520,
   },
@@ -103,3 +113,29 @@ export const Description = styled("p")({
   marginBottom: 24,
   fontFamily: "var(--font-inter)",
 });
+
+export const Section = styled("section")(({ theme }) => ({
+  width: "100%",
+  
+  "& > *": {
+    width: "100%",
+    maxWidth: 1440,
+    margin: "0 auto",
+    padding: "2rem",
+    
+    [theme.breakpoints.down("sm")]: {
+      padding: "1rem",
+    },
+  },
+}));
+
+export const SectionContent = styled("div")(({ theme }) => ({
+  width: "100%",
+  maxWidth: 1440,
+  margin: "0 auto",
+  padding: "2rem",
+  
+  [theme.breakpoints.down("sm")]: {
+    padding: "1rem",
+  },
+}));
