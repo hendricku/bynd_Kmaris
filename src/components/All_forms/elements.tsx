@@ -12,7 +12,7 @@ export const Container = styled("div")(({ theme }) => ({
   width: "100%",
   maxWidth: theme.breakpoints.values.xl,
   margin: "0 auto", 
-  padding: "64px 32px",
+  padding: "64px 0",
   [theme.breakpoints.down('md')]: {
     padding: "32px 32px",
   },
@@ -29,6 +29,7 @@ export const TabsWrapper = styled("div")({
 
 export const Tabs = styled("div")(({ theme }) => ({
   display: "flex",
+  justifyContent:"center",
   minWidth: "min-content",
   padding: "16px 0",
   margin: "0 auto",
