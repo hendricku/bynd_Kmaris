@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
+import { useSearchParams } from 'next/navigation';
 import { Box, Typography, RadioGroup, Radio, Checkbox, MenuItem } from "@mui/material";
 import { FormData, ServiceOption, ValidationErrors } from "./interface";
 import { Stepper } from "./Stepper";
@@ -26,15 +27,19 @@ import {
   SummaryItem,
   ErrorBanner,
   GroupTitle,
-  HintText
+  HintText,
+  CustomAlert
 } from "./elements";
 
 const SERVICE_OPTIONS: ServiceOption[] = [
+
   { value: 'i130', label: 'I-130 · Petition for Relative', category: 'family' },
   { value: 'i129f', label: 'I-129F · Petition for Fiancé(e)', category: 'family' },
-  { value: 'i485_package', label: 'I-485 · Adjustment Package', category: 'adjustment' },
+
+  { value: 'i485_package', label: 'I-485 · Adjustment of Status Package', category: 'adjustment' },
   { value: 'i360_i485', label: 'I-360 / I-485 · VAWA Adjustment Package', category: 'adjustment' },
-  { value: 'i751', label: 'I-751 · Removal of Conditions of Residence', category: 'other' },
+
+  { value: 'i751', label: 'I-751 · Removal of Conditions on Residence', category: 'other' },
   { value: 'i539', label: 'I-539 · Extend/Change Nonimmigrant Status', category: 'other' },
   { value: 'i589_i765', label: 'I-589 / I-765 · Asylum Package', category: 'other' },
   { value: 'i765_renewal', label: 'I-765 · Renewal of Work Authorization', category: 'other' },
@@ -43,22 +48,83 @@ const SERVICE_OPTIONS: ServiceOption[] = [
 ];
 
 const ADJUSTMENT_OPTIONS = [
-  { value: 'i130_approved', label: 'I-130 Approved' },
-  { value: 'i140_approved', label: 'I-140 Approved' },
-  { value: 'asylum_approved', label: 'Asylum Approved' },
-  { value: 'none', label: 'No approved petition yet' },
+  { value: 'i130_approved', label: 'With an Approved I-130' },
+  { value: 'i140_approved', label: 'With an Approved I-140' },
+  { value: 'asylum_approved', label: 'With an Approved Asylum case' },
+  // This covers the 'i130-i485-single' and 'i130-i485-two' packages
+  { value: 'none', label: 'Filing concurrently (no approved petition yet)' },
+];
+const VAWA_OPTIONS = [
+  { value: 'principal_only', label: 'Principal Applicant Only' },
+  { value: 'principal_child', label: 'Principal Applicant + Child' },
 ];
 
-const VAWA_OPTIONS = [
-  { value: 'principal_only', label: 'Principal Only' },
-  { value: 'principal_child', label: 'Principal + Child' },
-];
+const getInitialFormData = (formId: string | null | undefined): Partial<FormData> => {
+  if (!formId) return {};
+
+  switch (formId) {
+    case 'i130-single':
+      return { service: 'i130', party_count: 1 };
+    case 'i130-two':
+      return { service: 'i130', party_count: 2 };
+    case 'i130-three':
+      return { service: 'i130', party_count: 3 };
+    case 'i129f':
+      return { service: 'i129f', party_count: 1 };
+    case 'i130-i485-single':
+      return { service: 'i485_package', party_count: 1 };
+    case 'i130-i485-two':
+      return { service: 'i485_package', party_count: 2 };
+    case 'i485-approved-i130':
+      return { service: 'i485_package', adjustment_type: 'i130_approved', party_count: 1 };
+    case 'i485-approved-i140':
+      return { service: 'i485_package', adjustment_type: 'i140_approved', party_count: 1 };
+    case 'i485-approved-asylum':
+      return { service: 'i485_package', adjustment_type: 'asylum_approved', party_count: 1 };
+    case 'i360-i485-vawa':
+      return { service: 'i360_i485', vawa_party: 'principal_only', party_count: 1 };
+    case 'i360-i485-vawa-child':
+      return { service: 'i360_i485', vawa_party: 'principal_child', party_count: 2 };
+    case 'i539':
+      return { service: 'i539', party_count: 1 };
+    case 'i589-i765-asylum':
+      return { service: 'i589_i765', party_count: 1 };
+    case 'i751':
+      return { service: 'i751', party_count: 1 };
+    case 'i765-renewal':
+      return { service: 'i765_renewal', party_count: 1 };
+    case 'i918':
+      return { service: 'i918', party_count: 1 };
+    case 'n400-naturalization':
+      return { service: 'n400_n600', party_count: 1 };
+    default:
+      return {};
+  }
+};
 
 export function Steps() {
-  const [formData, setFormData] = useState<FormData>({ party_count: 1 });
+  const searchParams = useSearchParams();
+
+  const formId = searchParams?.get('formId');
+
+  
+  const [formData, setFormData] = useState<FormData>(() => {
+    const defaultState: FormData = { party_count: 1 };
+    const initialStateFromUrl = getInitialFormData(formId);
+    return { ...defaultState, ...initialStateFromUrl };
+  });
+  
   const [currentStep, setCurrentStep] = useState(0);
   const [errors, setErrors] = useState<ValidationErrors>({});
   const [errorBanner, setErrorBanner] = useState('');
+  const [showAlert, setShowAlert] = useState(false);
+
+  useEffect(() => {
+    const defaultState: FormData = { party_count: 1 };
+    const initialData = getInitialFormData(formId);
+    setFormData({ ...defaultState, ...initialData });
+  }, [formId]);
+
 
   const otherServices = new Set(['i129f', 'i751', 'i539', 'i589_i765', 'i765_renewal', 'i918', 'n400_n600']);
   const isOtherService = otherServices.has(formData.service || '');
@@ -75,7 +141,7 @@ export function Steps() {
     const stepData = flow[stepIndex];
 
     switch (stepData) {
-      case 0: // Service selection
+      case 0: 
         if (!formData.service) {
           newErrors.service = 'Please select a service';
         }
@@ -127,12 +193,16 @@ export function Steps() {
 
   const handleSubmit = () => {
     if (validateStep(currentStep)) {
-      alert('Form submitted successfully!');
+      setShowAlert(true);
       setFormData({ party_count: 1 });
       setCurrentStep(0);
       setErrors({});
       setErrorBanner('');
     }
+  };
+
+  const handleCloseAlert = () => {
+    setShowAlert(false);
   };
 
   const getPartyConstraints = () => {
@@ -154,15 +224,14 @@ export function Steps() {
       <FieldsetContainer>
         <FieldsetLegend>Select one</FieldsetLegend>
         <GridContainer>
-          <FullWidthContainer>
-            <GroupTitle>Family Petition</GroupTitle>
-          </FullWidthContainer>
-          
           <RadioGroup
             value={formData.service || ''}
             onChange={(e) => updateFormData({ service: e.target.value })}
             sx={{ gridColumn: '1 / -1' }}
           >
+            <FullWidthContainer>
+              <GroupTitle>Family Petition</GroupTitle>
+            </FullWidthContainer>
             <OptionsContainer>
               {SERVICE_OPTIONS.filter(opt => opt.category === 'family').map((option) => (
                 <ChipOption
@@ -170,40 +239,41 @@ export function Steps() {
                   value={option.value}
                   control={<Radio />}
                   label={option.label}
+                  checked={formData.service === option.value}
+                />
+              ))}
+            </OptionsContainer>
+
+            <FullWidthContainer sx={{ marginTop: 1 }}>
+              <GroupTitle>Adjustment of Status</GroupTitle>
+            </FullWidthContainer>
+            <OptionsContainer>
+              {SERVICE_OPTIONS.filter(opt => opt.category === 'adjustment').map((option) => (
+                <ChipOption
+                  key={option.value}
+                  value={option.value}
+                  control={<Radio />}
+                  label={option.label}
+                  checked={formData.service === option.value}
+                />
+              ))}
+            </OptionsContainer>
+
+            <FullWidthContainer sx={{ marginTop: 1 }}>
+              <GroupTitle>Other Services</GroupTitle>
+            </FullWidthContainer>
+            <OptionsContainer>
+              {SERVICE_OPTIONS.filter(opt => opt.category === 'other').map((option) => (
+                <ChipOption
+                  key={option.value}
+                  value={option.value}
+                  control={<Radio />}
+                  label={option.label}
+                  checked={formData.service === option.value}
                 />
               ))}
             </OptionsContainer>
           </RadioGroup>
-
-          <FullWidthContainer sx={{ marginTop: 1 }}>
-            <GroupTitle>Adjustment of Status</GroupTitle>
-          </FullWidthContainer>
-          
-          <OptionsContainer sx={{ gridColumn: '1 / -1' }}>
-            {SERVICE_OPTIONS.filter(opt => opt.category === 'adjustment').map((option) => (
-              <ChipOption
-                key={option.value}
-                value={option.value}
-                control={<Radio />}
-                label={option.label}
-              />
-            ))}
-          </OptionsContainer>
-
-          <FullWidthContainer sx={{ marginTop: 1 }}>
-            <GroupTitle>Other Services</GroupTitle>
-          </FullWidthContainer>
-          
-          <OptionsContainer sx={{ gridColumn: '1 / -1' }}>
-            {SERVICE_OPTIONS.filter(opt => opt.category === 'other').map((option) => (
-              <ChipOption
-                key={option.value}
-                value={option.value}
-                control={<Radio />}
-                label={option.label}
-              />
-            ))}
-          </OptionsContainer>
         </GridContainer>
       </FieldsetContainer>
 
@@ -411,21 +481,35 @@ export function Steps() {
   };
 
   return (
-    <FormWrapper>
-      <FormCard>
-        <FormTitle>Get Started</FormTitle>
-        <FormSubtitle>
-          Answer a few questions so we can set up the right immigration support for you.
-        </FormSubtitle>
+    <>
+      <FormWrapper>
+        <FormCard>
+          <FormTitle>Get Started</FormTitle>
+          <FormSubtitle>
+            Answer a few questions so we can set up the right immigration support for you.
+          </FormSubtitle>
 
-        <Stepper 
-          currentStep={currentStep} 
-          totalSteps={flow.length} 
-          flow={flow} 
-        />
+          {/* FIX: Call to stepper no longer needs totalSteps prop */}
+          <Stepper
+            currentStep={currentStep}
+            flow={flow}
+          />
 
-        {renderCurrentStep()}
-      </FormCard>
-    </FormWrapper>
+          {renderCurrentStep()}
+        </FormCard>
+      </FormWrapper>
+
+      {showAlert && (
+        <CustomAlert onClick={handleCloseAlert}>
+          <div className="alert-content">
+            <div className="alert-title">Success!</div>
+            <div className="alert-message">Form submitted successfully!</div>
+            <div className="alert-buttons">
+              <PrimaryButton onClick={handleCloseAlert}>OK</PrimaryButton>
+            </div>
+          </div>
+        </CustomAlert>
+      )}
+    </>
   );
 }

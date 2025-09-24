@@ -1,13 +1,19 @@
+// src/components/Steps/interface.ts
+
 export interface FormData {
   service?: string;
   adjustment_type?: string;
   vawa_party?: string;
-  party_count: number;
+  party_count: number; // Must always be a number
   full_name?: string;
   email?: string;
   phone?: string;
   contact_method?: string;
   consent?: boolean;
+}
+
+export interface ValidationErrors {
+  [key: string]: string | undefined;
 }
 
 export interface ServiceOption {
@@ -18,20 +24,6 @@ export interface ServiceOption {
 
 export interface StepperProps {
   currentStep: number;
-  totalSteps: number;
   flow: number[];
-}
-
-export interface StepProps {
-  formData: FormData;
-  onDataChange: (data: Partial<FormData>) => void;
-  onNext: () => void;
-  onBack: () => void;
-  errors: Record<string, string>;
-  isFirstStep: boolean;
-  isLastStep: boolean;
-}
-
-export interface ValidationErrors {
-  [key: string]: string;
+  // totalSteps has been removed as it is redundant
 }

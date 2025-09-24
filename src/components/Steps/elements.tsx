@@ -24,11 +24,13 @@ export const FormCard = styled(Card)(({ theme }) => ({
 export const FormTitle = styled(Typography)(({ theme }) => ({
   fontSize: '28px',
   fontWeight: theme.typography.fontWeightBold,
+  fontFamily: theme.typography.fontFamily,
   margin: '0 0 8px 0',
   color: theme.palette.text.primary,
 }));
 
 export const FormSubtitle = styled(Typography)(({ theme }) => ({
+  fontFamily: theme.typography.fontFamily,
   color: theme.palette.text.secondary,
   marginTop: 0,
   marginBottom: theme.spacing(2.5),
@@ -37,6 +39,7 @@ export const FormSubtitle = styled(Typography)(({ theme }) => ({
 export const StepTitle = styled(Typography)(({ theme }) => ({
   fontSize: '20px',
   fontWeight: theme.typography.fontWeightBold,
+  fontFamily: theme.typography.fontFamily,
   margin: '0 0 12px 0',
   color: theme.palette.text.primary,
 }));
@@ -44,6 +47,7 @@ export const StepTitle = styled(Typography)(({ theme }) => ({
 export const GroupTitle = styled(Typography)(({ theme }) => ({
   fontSize: '14px',
   fontWeight: theme.typography.fontWeightBold,
+  fontFamily: theme.typography.fontFamily,
   color: theme.palette.text.secondary,
   textTransform: 'uppercase',
   letterSpacing: '0.02em',
@@ -106,6 +110,7 @@ export const FieldsetLegend = styled(Typography)(({ theme }) => ({
   padding: '0 6px',
   color: theme.palette.text.secondary,
   fontSize: '14px',
+  fontFamily: theme.typography.fontFamily,
   marginBottom: theme.spacing(1),
 }));
 
@@ -245,11 +250,53 @@ export const ErrorBanner = styled(Box)(({ theme }) => ({
 export const ErrorMessage = styled(Typography)(({ theme }) => ({
   color: '#DD1C23',
   fontSize: '12px',
+  fontFamily: theme.typography.fontFamily,
   marginTop: theme.spacing(0.5),
 }));
 
 export const HintText = styled(Typography)(({ theme }) => ({
   color: theme.palette.text.secondary,
   fontSize: '12px',
+  fontFamily: theme.typography.fontFamily,
   marginTop: theme.spacing(0.5),
+}));
+
+// Custom Alert
+export const CustomAlert = styled(Box)(({ theme }) => ({
+  position: 'fixed',
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  zIndex: 9999,
+  '& .alert-content': {
+    backgroundColor: '#fff',
+    borderRadius: '12px',
+    padding: theme.spacing(3),
+    maxWidth: '400px',
+    textAlign: 'center',
+    boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)',
+    '& .alert-title': {
+      fontSize: '20px',
+      fontWeight: theme.typography.fontWeightBold,
+      fontFamily: theme.typography.fontFamily,
+      color: theme.palette.text.primary,
+      marginBottom: theme.spacing(2),
+    },
+    '& .alert-message': {
+      fontSize: '16px',
+      fontFamily: theme.typography.fontFamily,
+      color: theme.palette.text.primary,
+      marginBottom: theme.spacing(3),
+    },
+    '& .alert-buttons': {
+      display: 'flex',
+      gap: theme.spacing(2),
+      justifyContent: 'center',
+    },
+  },
 }));

@@ -24,8 +24,8 @@ export function AllForms({ items = [] }: AllFormsProps) {
 
   const formsToDisplay = items.length > 0 ? items.filter(form => form.status === 'active') : activeFormsFromJSON;
 
-  const handleRequestForm = () => {
-    router.push('/steps');
+  const handleRequestForm = (formId: string) => {
+    router.push(`/steps?formId=${formId}`);
   };
 
   const filteredForms = useMemo(() => {
@@ -71,7 +71,7 @@ export function AllForms({ items = [] }: AllFormsProps) {
                   <FormTitle>{form.subtitle}</FormTitle>
                   <AppButton
                     label={'Order to File Now'}
-                    onClick={handleRequestForm}
+                    onClick={() => handleRequestForm(form.id)}
                     size="medium"
                     long 
                   />

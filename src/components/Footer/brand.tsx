@@ -10,7 +10,7 @@ height: 60,
 width: "auto",
 alignSelf: "flex-start",
 // marginTop: "-2rem",
-marginLeft: "1rem",
+// marginLeft: "1rem",
 });
 export const Address = styled("div")({
 fontSize: 15,
