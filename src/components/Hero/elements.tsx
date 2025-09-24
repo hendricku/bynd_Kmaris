@@ -69,22 +69,8 @@ export const Content = styled("div")(({ theme }) => ({
   height: "100%",
   display: "flex",
   alignItems: "center",
-  padding: "0 32px",
   zIndex: 2,
-
-  [theme.breakpoints.values.sm]: {
-    padding: "32px",
-  },
-   [theme.breakpoints.values.md]: {
-    padding: "32px",
-  },
-   [theme.breakpoints.values.lg]: {
-    padding: "32px",
-  },
-   [theme.breakpoints.values.xl]: {
-    padding: "32px",
-  },
-
+  width: "100%",
 }));
 
 export const ContentBox = styled("div")(({ theme }) => ({
@@ -153,3 +139,4 @@ export const SectionContent = styled("div")(({ theme }) => ({
     padding: "1rem",
   },
 }));
+
