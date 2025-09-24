@@ -6,6 +6,7 @@ import { Article, ApiArticle } from "@/components/News/interface";
 import { NewsArticle } from "@/components/NewsArticle/news_article";
 import ArticleLoadingScreen from "@/components/NewsLoadingScreen/NewsLoadingScreen";
 import { Header } from "@/components/Header/Header";
+import { Footer } from "@/components/Footer/Footer";
 
 interface NewsArticlePageProps {
   params: Promise<{
@@ -166,6 +167,7 @@ export default function NewsArticlePage({ params }: NewsArticlePageProps) {
   return (
     <>
       <NewsArticle article={article} relatedArticles={relatedArticles} />
+      <Footer />
     </>
   );
 }
