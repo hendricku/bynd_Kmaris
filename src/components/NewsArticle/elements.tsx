@@ -8,20 +8,32 @@ export const ArticleSection = styled("section")(({ theme }) => ({
 }));
 
 export const Container = styled("div")(({ theme }) => ({
-  maxWidth: "1440px",
+  width: "100%",
+  maxWidth: `calc(1440px + 4rem)`, 
   margin: "0 auto",
-  padding: theme.spacing(0, 2),
+  padding: "0 2rem", 
   display: "grid",
   gridTemplateColumns: "1fr",
   gap: theme.spacing(6),
+  boxSizing: "border-box",
+  
   [theme.breakpoints.up("lg")]: {
     gridTemplateColumns: "2fr 1fr",
   },
+  
+  [theme.breakpoints.down("sm")]: {
+    padding: "0 1rem", 
+    maxWidth: `calc(1440px + 2rem)`, 
+  },
 }));
 
-export const MainContent = styled("article")({});
+export const MainContent = styled("article")({
+  width: "100%",
+});
 
-export const Sidebar = styled("aside")({});
+export const Sidebar = styled("aside")({
+  width: "100%",
+});
 
 export const BreadcrumbContainer = styled("nav")(({ theme }) => ({
   marginBottom: theme.spacing(2),
@@ -41,7 +53,7 @@ export const ArticleTitle = styled("h1")(({ theme }) => ({
 export const ArticleImage = styled("div")({
   position: "relative",
   width: "100%",
-  aspectRatio: "16/9",
+  aspectRatio: "16/8.5",
   borderRadius: "12px",
   overflow: "hidden",
   margin: "24px 0",

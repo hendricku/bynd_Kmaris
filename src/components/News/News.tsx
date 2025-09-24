@@ -14,6 +14,7 @@ import {
   BottomGrid,
   SectionDivider,
   SectionTitle,
+  SectionWrapper,
   LatestArticlesGrid,
   LatestArticleCardLink,
   LatestImageWrapper,
@@ -27,7 +28,7 @@ import {
 const LatestArticlesSection: React.FC<{ articles: Article[] }> = ({
   articles,
 }) => (
-  <div style={{ maxWidth: 1440 }}>
+  <SectionWrapper>
     <SectionTitle>Articles</SectionTitle>
     <LatestArticlesGrid>
       {articles.map((article) => (
@@ -41,7 +42,6 @@ const LatestArticlesSection: React.FC<{ articles: Article[] }> = ({
               alt={article.title}
               fill
               style={{ objectFit: "cover" }}
-
             />
           </LatestImageWrapper>
           {article.author && (
@@ -49,9 +49,9 @@ const LatestArticlesSection: React.FC<{ articles: Article[] }> = ({
               <LatestMetaText>{article.author.name}</LatestMetaText>
               <LatestMetaText>•</LatestMetaText>
               <LatestMetaText>{article.publishedAt}</LatestMetaText>
-            <LatestMetaText>•</LatestMetaText>
-            <LatestMetaText>{article.readTime}</LatestMetaText>
-          </AuthorInfo>
+              <LatestMetaText>•</LatestMetaText>
+              <LatestMetaText>{article.readTime}</LatestMetaText>
+            </AuthorInfo>
           )}
           <LatestTitle>{article.title}</LatestTitle>
           <LatestCategoryMeta>
@@ -62,11 +62,11 @@ const LatestArticlesSection: React.FC<{ articles: Article[] }> = ({
         </LatestArticleCardLink>
       ))}
     </LatestArticlesGrid>
-  </div>
+  </SectionWrapper>
 );
 
 const VideoNewsSection: React.FC<{ videos: Article[] }> = ({ videos }) => (
-  <div>
+  <SectionWrapper>
     <SectionTitle>News in Video</SectionTitle>
     <LatestArticlesGrid>
       {videos.map((video) => (
@@ -83,7 +83,6 @@ const VideoNewsSection: React.FC<{ videos: Article[] }> = ({ videos }) => (
             />
             <PlayCircleFilledIcon
               style={{
-
                 position: "absolute",
                 top: "50%",
                 left: "50%",
@@ -102,7 +101,7 @@ const VideoNewsSection: React.FC<{ videos: Article[] }> = ({ videos }) => (
         </LatestArticleCardLink>
       ))}
     </LatestArticlesGrid>
-  </div>
+  </SectionWrapper>
 );
 
 export function News() {

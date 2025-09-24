@@ -4,19 +4,23 @@ import Link from "next/link";
 import Image from "next/image";
 import { styled } from "@mui/material/styles";
 
-
-
 export const NewsSection = styled("section")(({ theme }) => ({
   width: '100%',
   backgroundColor: theme.palette.background.default,
 }));
 
 export const Container = styled("div")(({ theme }) => ({
-  maxWidth: '1440px',
-  margin: '0 auto',
-  padding: '64px 32px',
+  width: "100%",
+  maxWidth: `calc(1440px + 4rem)`, 
+  margin: "0 auto",
+  padding: "4rem 2rem", 
   fontFamily: theme.typography.fontFamily,
-
+  boxSizing: "border-box",
+  
+  [theme.breakpoints.down("sm")]: {
+    padding: "1rem 1rem", 
+    maxWidth: `calc(1440px + 2rem)`, 
+  },
 }));
 
 export const TopSection = styled("div")(({ theme }) => ({
@@ -49,7 +53,6 @@ export const SectionDivider = styled("hr")(({ theme }) => ({
   height: '1px',
   backgroundColor: theme.palette.divider,
   margin: `${theme.spacing(6)} 0`,
-
 }));
 
 export const SectionTitle = styled("h2")(({ theme }) => ({
@@ -60,14 +63,16 @@ export const SectionTitle = styled("h2")(({ theme }) => ({
   margin: `0 0 ${theme.spacing(3)} 0`,
 }));
 
-
+// Section wrapper for consistent layout
+export const SectionWrapper = styled("div")({
+  width: "100%", 
+});
 
 export const FeaturedArticleRoot = styled(Link)({
   textDecoration: 'none',
   display: 'flex',
   flexDirection: 'column',
   gap: '16px',
-
 });
 
 export const FeaturedTitle = styled('h2')(({ theme }) => ({
@@ -95,11 +100,10 @@ export const FeaturedCategory = styled('span')(({ theme }) => ({
 export const FeaturedImageWrapper = styled('div')({
   position: 'relative',
   width: '100%',
-  aspectRatio: '16 / 9.5',
+  aspectRatio: '16 / 8.5',
   borderRadius: '12px',
   overflow: 'hidden',
 });
-
 
 export const ListItemRoot = styled(Link)(({ theme }) => ({
   textDecoration: 'none',
@@ -168,8 +172,6 @@ export const ListItemImageWrapper = styled('div')({
   overflow: 'hidden',
 });
 
-
-
 export const GridCardRoot = styled(Link)(({ theme }) => ({
   display: 'block',
   position: 'relative',
@@ -216,13 +218,10 @@ export const GridCardCategory = styled('span')({
   fontWeight: 700,
 });
 
-
-
 export const LatestArticlesGrid = styled("div")(({ theme }) => ({
   display: 'grid',
   gridTemplateColumns: '1fr',
   gap: theme.spacing(3),
-
   overflowX: 'auto',
   [theme.breakpoints.up('sm')]: {
     gridTemplateColumns: 'repeat(4, 1fr)',
