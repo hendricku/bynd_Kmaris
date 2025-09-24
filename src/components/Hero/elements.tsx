@@ -59,15 +59,7 @@ export const Content = styled("div")(({ theme }) => ({
   padding: "0 16px",
   zIndex: 2,
 
-  [theme.breakpoints.up("sm")]: {
-    padding: "24px",
-  },
-  [theme.breakpoints.up("md")]: {
-    padding: "48px",
-  },
-  [theme.breakpoints.up("lg")]: {
-    padding: " 32px",
-  },
+
 }));
 
 
