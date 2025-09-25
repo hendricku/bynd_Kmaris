@@ -4,23 +4,19 @@ import Link from "next/link";
 import Image from "next/image";
 import { styled } from "@mui/material/styles";
 
+
+
 export const NewsSection = styled("section")(({ theme }) => ({
   width: '100%',
   backgroundColor: theme.palette.background.default,
 }));
 
 export const Container = styled("div")(({ theme }) => ({
-  width: "100%",
-  maxWidth: `calc(1440px + 4rem)`, 
-  margin: "0 auto",
-  padding: "4rem 2rem", 
+  maxWidth: '1440px',
+  margin: '0 auto',
+  padding: '64px 32px',
   fontFamily: theme.typography.fontFamily,
-  boxSizing: "border-box",
-  
-  [theme.breakpoints.down("sm")]: {
-    padding: "1rem 1rem", 
-    maxWidth: `calc(1440px + 2rem)`, 
-  },
+
 }));
 
 export const TopSection = styled("div")(({ theme }) => ({
@@ -34,15 +30,18 @@ export const TopSection = styled("div")(({ theme }) => ({
 }));
 
 export const ArticleList = styled("div")({
-  display: 'flex',
+  display: 'flex',  
   flexDirection: 'column',
   justifyContent: 'flex-end',
+
+
 });
 
 export const BottomGrid = styled("div")(({ theme }) => ({
   display: 'grid',
   gridTemplateColumns: '1fr',
   gap: theme.spacing(3),
+  
   [theme.breakpoints.up('sm')]: {
     gridTemplateColumns: 'repeat(2, 1fr)',
   },
@@ -53,6 +52,7 @@ export const SectionDivider = styled("hr")(({ theme }) => ({
   height: '1px',
   backgroundColor: theme.palette.divider,
   margin: `${theme.spacing(6)} 0`,
+
 }));
 
 export const SectionTitle = styled("h2")(({ theme }) => ({
@@ -63,16 +63,14 @@ export const SectionTitle = styled("h2")(({ theme }) => ({
   margin: `0 0 ${theme.spacing(3)} 0`,
 }));
 
-// Section wrapper for consistent layout
-export const SectionWrapper = styled("div")({
-  width: "100%", 
-});
+
 
 export const FeaturedArticleRoot = styled(Link)({
   textDecoration: 'none',
   display: 'flex',
   flexDirection: 'column',
   gap: '16px',
+
 });
 
 export const FeaturedTitle = styled('h2')(({ theme }) => ({
@@ -105,12 +103,12 @@ export const FeaturedImageWrapper = styled('div')({
   overflow: 'hidden',
 });
 
+
 export const ListItemRoot = styled(Link)(({ theme }) => ({
   textDecoration: 'none',
   display: 'flex',
   gap: '16px',
-  paddingTop: '3rem',
-  paddingBottom: "1.5rem",
+  padding: '2rem 0 2rem 0',  
   borderBottom: `1px solid ${theme.palette.divider}`,
   '&:first-of-type': {
     paddingTop: 0,
@@ -138,6 +136,7 @@ export const ListItemTitle = styled('h3')(({ theme }) => ({
 
 export const ListItemSummary = styled('p')<{ truncate?: boolean }>(({ theme, truncate = true }) => ({
   fontSize: '14px',
+  width:'90%',
   color: theme.palette.text.secondary,
   margin: '0 0 12px 0',
   lineHeight: 1.5,
@@ -167,11 +166,13 @@ export const ListItemCategory = styled('span')(({ theme }) => ({
 export const ListItemImageWrapper = styled('div')({
   position: 'relative',
   width: '120px',
-  height: '80px',
+  height: '100px',
   flexShrink: 0,
   borderRadius: '8px',
   overflow: 'hidden',
 });
+
+
 
 export const GridCardRoot = styled(Link)(({ theme }) => ({
   display: 'block',
@@ -219,10 +220,13 @@ export const GridCardCategory = styled('span')({
   fontWeight: 700,
 });
 
+
+
 export const LatestArticlesGrid = styled("div")(({ theme }) => ({
   display: 'grid',
   gridTemplateColumns: '1fr',
   gap: theme.spacing(3),
+
   overflowX: 'auto',
   [theme.breakpoints.up('sm')]: {
     gridTemplateColumns: 'repeat(4, 1fr)',

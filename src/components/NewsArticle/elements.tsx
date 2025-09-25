@@ -4,7 +4,7 @@ export const ArticleSection = styled("section")(({ theme }) => ({
   fontFamily: theme.typography.fontFamily,
   width: "100%",
   backgroundColor: theme.palette.background.default,
-  padding: theme.spacing(4, 0),
+  justifyContent: 'flex-end',
 }));
 
 export const Container = styled("div")(({ theme }) => ({

@@ -4,8 +4,8 @@ import { styled } from "@mui/material/styles";
 
 export const PageWrapper = styled("div")(({ theme }) => ({
   backgroundColor: theme.palette.common.white,
-
   width: "100%",
+   
 }));
 
 export const Container = styled("div")(({ theme }) => ({
