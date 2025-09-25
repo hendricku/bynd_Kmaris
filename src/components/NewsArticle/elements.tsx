@@ -5,6 +5,7 @@ export const ArticleSection = styled("section")(({ theme }) => ({
   width: "100%",
   backgroundColor: theme.palette.background.default,
   justifyContent: 'flex-end',
+  padding: theme.spacing(4, 0),
 }));
 
 export const Container = styled("div")(({ theme }) => ({
