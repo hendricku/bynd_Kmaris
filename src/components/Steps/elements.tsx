@@ -1,302 +1,356 @@
+// --- START OF FILE: [steps]/elements.tsx ---
 "use client";
 
 import { styled } from "@mui/material/styles";
-import { Box, Card, Typography, Button, TextField, FormControlLabel, Radio, Checkbox, Select } from "@mui/material";
+import { palette } from "@/theme/palette"; // Assumes this path is correct
+import Image from "next/image";
+import {
+  Box,
+  Typography,
+  Button,
+  TextField,
+  FormControlLabel,
+  Radio,
+  Checkbox,
+  Select,
+} from "@mui/material";
 
-// Main container
-export const FormWrapper = styled(Box)(({ theme }) => ({
-  maxWidth: '920px',
-  margin: '40px auto',
-  padding: theme.spacing(3),
-  background: '#fff',
-  borderRadius: '16px',
-  boxShadow: '0 10px 30px rgba(0, 0, 0, 0.07)',
+// --- Main Layout (From Login) ---
+
+export const PageWrapper = styled("div")({
+  minHeight: "100vh",
+  width: "100%",
+  display: "flex",
+  background: "linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%)",
+  padding: "20px",
+  alignItems: "center",
+  justifyContent: "center",
+});
+
+export const Container = styled("div")(({ theme }) => ({
+  width: "100%",
+  display: "flex",
+  flexDirection: "column-reverse",
+  boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+  margin: "auto",
+  maxWidth: "1440px",
+  borderRadius: "20px",
+  overflow: "hidden",
+  backgroundColor: theme.palette.common.white,
+
+  [theme.breakpoints.up("md")]: {
+    flexDirection: "row",
+    height: "auto",
+    minHeight: "700px",
+    maxHeight: "95vh",
+  },
 }));
 
-export const FormCard = styled(Card)(({ theme }) => ({
-  padding: theme.spacing(3),
-  borderRadius: '16px',
-  boxShadow: 'none',
-  border: 'none',
+// --- Left Image Panel (From Login) ---
+
+export const Panel = styled("div")(({ theme }) => ({
+  display: "none",
+  [theme.breakpoints.up("md")]: {
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    position: "relative",
+    padding: "60px 40px",
+    color: theme.palette.common.white,
+  },
 }));
 
-// Typography
-export const FormTitle = styled(Typography)(({ theme }) => ({
-  fontSize: '28px',
-  fontWeight: theme.typography.fontWeightBold,
+export const BackgroundImage = styled(Image)({
+  position: "absolute",
+  top: 0,
+  left: 0,
+  width: "100%",
+  height: "100%",
+  objectFit: "cover",
+  zIndex: 0,
+});
+
+export const Overlay = styled("div")({
+  position: "absolute",
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  background: "linear-gradient(135deg, rgba(15, 23, 42, 0.90) 0%, rgba(30, 41, 59, 0.85) 100%)",
+  zIndex: 1,
+});
+
+export const Content = styled("div")({
+  zIndex: 2,
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "flex-start",
+  justifyContent: "center",
+  height: "100%",
+  maxWidth: "420px",
+});
+
+export const PanelTitle = styled("h2")(({ theme }) => ({
+  fontSize: "32px",
+  fontWeight: 700,
+  textAlign: "left",
+  marginBottom: "20px",
+  letterSpacing: "-0.025em",
+  lineHeight: 1.2,
   fontFamily: theme.typography.fontFamily,
-  margin: '0 0 8px 0',
-  color: theme.palette.text.primary,
 }));
 
-export const FormSubtitle = styled(Typography)(({ theme }) => ({
+export const PanelText = styled("p")(({ theme }) => ({
+  fontSize: "15px",
+  lineHeight: 1.6,
+  marginBottom: "40px",
+  opacity: 0.95,
   fontFamily: theme.typography.fontFamily,
-  color: theme.palette.text.secondary,
-  marginTop: 0,
-  marginBottom: theme.spacing(2.5),
 }));
 
-export const StepTitle = styled(Typography)(({ theme }) => ({
-  fontSize: '20px',
-  fontWeight: theme.typography.fontWeightBold,
-  fontFamily: theme.typography.fontFamily,
-  margin: '0 0 12px 0',
-  color: theme.palette.text.primary,
+// --- Right Form Panel & Form Elements ---
+
+export const FormRoot = styled("div")(({ theme }) => ({
+  width: "100%",
+  padding: "40px 30px",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "flex-start",
+  backgroundColor: theme.palette.common.white,
+  position: "relative",
+  overflowY: 'auto',
+
+  [theme.breakpoints.up("md")]: {
+    width: "90%",
+    padding: "40px 50px",
+  },
 }));
 
-export const GroupTitle = styled(Typography)(({ theme }) => ({
-  fontSize: '14px',
-  fontWeight: theme.typography.fontWeightBold,
+export const LogoContainer = styled("div")({
+  display: "flex",
+  justifyContent: "center",
+  marginBottom: "-12px",
+  cursor: "pointer",
+  paddingBottom: "8px",
+});
+
+export const Title = styled("h1")(({ theme }) => ({
+  fontSize: "28px",
+  fontWeight: 700,
+  color: palette.text.dark,
+  textAlign: "center",
+  marginBottom: "6px",
+  marginTop: "20px",
+  letterSpacing: "-0.025em",
   fontFamily: theme.typography.fontFamily,
-  color: theme.palette.text.secondary,
-  textTransform: 'uppercase',
-  letterSpacing: '0.02em',
-  margin: '4px 0',
+}));
+
+export const Subtitle = styled("p")(({ theme }) => ({
+  fontSize: "15px",
+  color: palette.text.primary,
+  textAlign: "center",
+  margin: "0 auto 32px",
+  fontWeight: 400,
+  maxWidth: '450px',
+  fontFamily: theme.typography.fontFamily,
 }));
 
 // Stepper
 export const StepperContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
   gap: theme.spacing(1),
-  margin: `${theme.spacing(2.5)} 0 ${theme.spacing(3.5)} 0`,
+  marginBottom: theme.spacing(4),
 }));
 
-interface StepperDotProps {
-  $active?: boolean;
-}
-
+interface StepperDotProps { $active?: boolean; }
 export const StepperDot = styled(Box)<StepperDotProps>(({ theme, $active }) => ({
   flex: 1,
   height: '6px',
-  background: '#e5e7eb',
+  backgroundColor: '#e2e8f0',
   borderRadius: '999px',
-  position: 'relative',
-  overflow: 'hidden',
-  '&::after': {
-    content: '""',
-    position: 'absolute',
-    inset: 0,
-    background: $active ? 'linear-gradient(90deg, #DD1C23, #ff8a85)' : 'transparent',
-  },
+  transition: 'background-color 0.4s ease',
+  ...($active && {
+    backgroundColor: palette.primary.main,
+  }),
 }));
 
-// Layout
-export const StepContainer = styled(Box)({
-  display: 'block',
+// Form Elements
+export const StepContainer = styled(Box)({ display: "block" });
+export const StepTitle = styled(Typography)({
+  fontSize: '22px',
+  fontWeight: 700,
+  marginBottom: '24px',
+  color: palette.text.dark,
 });
 
 export const GridContainer = styled(Box)(({ theme }) => ({
   display: 'grid',
-  gap: theme.spacing(2),
+  gap: theme.spacing(2.5),
   gridTemplateColumns: '1fr',
-  [theme.breakpoints.up('md')]: {
-    gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+  [theme.breakpoints.up('sm')]: {
+    gridTemplateColumns: 'repeat(2, 1fr)',
   },
 }));
 
-export const FullWidthContainer = styled(Box)({
-  gridColumn: '1 / -1',
-});
-
-// Form elements
-export const FieldsetContainer = styled(Box)(({ theme }) => ({
-  border: '1px solid #e5e7eb',
-  borderRadius: '12px',
-  padding: theme.spacing(2),
-  margin: 0,
-}));
-
-export const FieldsetLegend = styled(Typography)(({ theme }) => ({
-  padding: '0 6px',
-  color: theme.palette.text.secondary,
-  fontSize: '14px',
+export const Label = styled("label")(({ theme }) => ({
+  fontSize: "14px",
+  fontWeight: 600,
+  color: palette.primary.main,
+  letterSpacing: "0.025em",
+  display: 'block',
+  marginBottom: '8px',
   fontFamily: theme.typography.fontFamily,
-  marginBottom: theme.spacing(1),
 }));
 
 export const StyledTextField = styled(TextField)(({ theme }) => ({
+  width: '100%',
   '& .MuiOutlinedInput-root': {
-    borderRadius: '10px',
-    height: '44px',
-    '& fieldset': {
-      borderColor: '#d1d5db',
-    },
-    '&:hover fieldset': {
-      borderColor: theme.palette.primary.main,
-    },
+    borderRadius: '12px',
+    backgroundColor: '#fafafa',
+    '& input': { padding: '16px' },
+    '& fieldset': { border: `1px solid ${theme.palette.divider}` },
+    '&:hover fieldset': { borderColor: theme.palette.primary.main },
     '&.Mui-focused fieldset': {
       borderColor: theme.palette.primary.main,
-      borderWidth: '1px',
+      boxShadow: `0 0 0 3px rgba(0,37,66,0.08)`,
     },
-  },
-  '& .MuiInputLabel-root': {
-    fontWeight: 600,
   },
 }));
 
 export const StyledSelect = styled(Select)(({ theme }) => ({
-  borderRadius: '10px',
-  height: '44px',
-  '& .MuiOutlinedInput-notchedOutline': {
-    borderColor: '#d1d5db',
-  },
-  '&:hover .MuiOutlinedInput-notchedOutline': {
-    borderColor: theme.palette.primary.main,
-  },
+  width: '100%',
+  borderRadius: '12px',
+  backgroundColor: '#fafafa',
+  '& .MuiSelect-select': { padding: '16px' },
+  '& .MuiOutlinedInput-notchedOutline': { border: `1px solid ${theme.palette.divider}` },
+  '&:hover .MuiOutlinedInput-notchedOutline': { borderColor: theme.palette.primary.main },
   '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
     borderColor: theme.palette.primary.main,
-    borderWidth: '1px',
+    boxShadow: `0 0 0 3px rgba(0,37,66,0.08)`,
   },
 }));
 
-// Radio/Checkbox options
 export const OptionsContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
   flexWrap: 'wrap',
-  gap: theme.spacing(1),
-  marginTop: theme.spacing(0.5),
+  gap: theme.spacing(1.5),
+  marginTop: theme.spacing(1),
 }));
 
 export const ChipOption = styled(FormControlLabel)(({ theme }) => ({
   margin: 0,
   '& .MuiFormControlLabel-label': {
     fontSize: '14px',
+    fontWeight: 500,
+    padding: '0 8px 0 4px',
+    color: palette.text.dark,
+    fontFamily: theme.typography.fontFamily,
   },
   '& .MuiButtonBase-root': {
-    display: 'inline-flex',
-    alignItems: 'center',
-    gap: theme.spacing(1),
-    border: '1px solid #d1d5db',
-    padding: '10px 12px',
-    borderRadius: '999px',
-    cursor: 'pointer',
-    background: '#fff',
-    minHeight: 'unset',
+    border: `1px solid ${theme.palette.divider}`,
+    padding: '10px 14px',
+    borderRadius: '8px',
+    transition: 'all 0.2s ease',
     '&:hover': {
-      backgroundColor: '#f9fafb',
+      borderColor: palette.primary.light,
+      backgroundColor: 'rgba(0, 37, 66, 0.04)',
     },
+  },
+  '& .Mui-checked': {
+    borderColor: palette.primary.main,
+    backgroundColor: 'rgba(0, 37, 66, 0.08)',
   },
   '& .MuiRadio-root, & .MuiCheckbox-root': {
     padding: 0,
     marginRight: theme.spacing(1),
-    '& .MuiSvgIcon-root': {
-      fontSize: '18px',
-    },
   },
 }));
 
-// Actions
 export const ActionsContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
   justifyContent: 'space-between',
-  marginTop: theme.spacing(2.5),
+  marginTop: theme.spacing(4),
+  paddingTop: theme.spacing(3),
+  borderTop: `1px solid ${theme.palette.divider}`,
 }));
 
-export const PrimaryButton = styled(Button)(({ theme }) => ({
-  background: '#DD1C23',
-  color: '#fff',
-  textTransform: 'uppercase',
-  fontSize: '12px',
-  letterSpacing: '1px',
-  fontWeight: 700,
-  borderRadius: '12px',
-  padding: '12px 16px',
-  '&:hover': {
-    background: '#bb151b',
+export const PrimaryButton = styled(Button)({
+  padding: "14px 24px",
+  fontSize: "15px",
+  fontWeight: 600,
+  color: palette.common.white,
+  backgroundColor: palette.primary.main,
+  border: "none",
+  borderRadius: "12px",
+  transition: "all 0.2s ease-in-out",
+  textTransform: 'none',
+  "&:hover": {
+    backgroundColor: palette.primary.dark,
+    transform: "translateY(-1px)",
   },
-}));
+  "&:disabled": { backgroundColor: palette.primary.light },
+});
 
 export const SecondaryButton = styled(Button)(({ theme }) => ({
-  background: 'rgba(17, 24, 39, 0.05)',
-  color: '#111827',
-  fontWeight: 700,
-  borderRadius: '12px',
-  padding: '12px 16px',
-  '&:hover': {
-    background: 'rgba(17, 24, 39, 0.1)',
+  padding: "14px 24px",
+  fontSize: "15px",
+  fontWeight: 600,
+  color: palette.text.dark,
+  backgroundColor: "rgba(0, 37, 66, 0.04)",
+  border: `1px solid ${theme.palette.divider}`,
+  borderRadius: "12px",
+  transition: "all 0.2s ease-in-out",
+  textTransform: 'none',
+  "&:hover": {
+    borderColor: palette.primary.main,
+    backgroundColor: "rgba(0, 37, 66, 0.08)",
   },
 }));
 
-// Summary
+// Other Components
 export const SummaryContainer = styled(Box)(({ theme }) => ({
-  background: '#fff',
-  border: '1px dashed #e5e7eb',
-  borderRadius: '12px',
-  padding: theme.spacing(2),
+  background: 'rgba(0, 37, 66, 0.04)',
+  borderLeft: `4px solid ${palette.primary.main}`,
+  borderRadius: '8px',
+  padding: theme.spacing(3),
   marginBottom: theme.spacing(2),
 }));
 
 export const SummaryItem = styled(Box)(({ theme }) => ({
-  marginBottom: theme.spacing(1),
-  '&:last-child': {
-    marginBottom: 0,
-  },
+  marginBottom: theme.spacing(1.5),
+  fontSize: '15px',
+  '&:last-child': { marginBottom: 0 },
   '& strong': {
     fontWeight: 600,
+    color: palette.text.dark,
+    display: 'block',
+    marginBottom: '4px'
   },
 }));
 
-// Error states
 export const ErrorBanner = styled(Box)(({ theme }) => ({
   background: '#fff5f5',
-  border: '1px solid #DD1C23',
-  color: '#DD1C23',
-  padding: '10px 12px',
+  border: `1px solid ${theme.palette.error.main}`,
+  color: theme.palette.error.dark,
+  padding: '12px 16px',
   borderRadius: '10px',
-  margin: '8px 0 12px',
+  margin: '0 0 24px 0',
   fontSize: '14px',
 }));
 
-export const ErrorMessage = styled(Typography)(({ theme }) => ({
-  color: '#DD1C23',
-  fontSize: '12px',
-  fontFamily: theme.typography.fontFamily,
-  marginTop: theme.spacing(0.5),
-}));
-
 export const HintText = styled(Typography)(({ theme }) => ({
-  color: theme.palette.text.secondary,
-  fontSize: '12px',
-  fontFamily: theme.typography.fontFamily,
-  marginTop: theme.spacing(0.5),
+  color: theme.palette.text.primary,
+  fontSize: '13px',
+  marginTop: theme.spacing(0.75),
 }));
 
-// Custom Alert
-export const CustomAlert = styled(Box)(({ theme }) => ({
-  position: 'fixed',
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
-  backgroundColor: 'rgba(0, 0, 0, 0.5)',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  zIndex: 9999,
-  '& .alert-content': {
-    backgroundColor: '#fff',
-    borderRadius: '12px',
-    padding: theme.spacing(3),
-    maxWidth: '400px',
-    textAlign: 'center',
-    boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)',
-    '& .alert-title': {
-      fontSize: '20px',
-      fontWeight: theme.typography.fontWeightBold,
-      fontFamily: theme.typography.fontFamily,
-      color: theme.palette.text.primary,
-      marginBottom: theme.spacing(2),
-    },
-    '& .alert-message': {
-      fontSize: '16px',
-      fontFamily: theme.typography.fontFamily,
-      color: theme.palette.text.primary,
-      marginBottom: theme.spacing(3),
-    },
-    '& .alert-buttons': {
-      display: 'flex',
-      gap: theme.spacing(2),
-      justifyContent: 'center',
-    },
-  },
+export const GroupTitle = styled(Typography)(({ theme }) => ({
+  fontSize: '14px',
+  fontWeight: theme.typography.fontWeightBold,
+  color: theme.palette.text.primary,
+  textTransform: 'uppercase',
+  letterSpacing: '0.05em',
+  margin: '24px 0 8px 0',
+  '&:first-of-type': { marginTop: 0 }
 }));
