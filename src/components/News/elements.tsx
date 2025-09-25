@@ -12,11 +12,17 @@ export const NewsSection = styled("section")(({ theme }) => ({
 }));
 
 export const Container = styled("div")(({ theme }) => ({
-  maxWidth: '1440px',
-  margin: '0 auto',
-  padding: '64px 32px',
+  width: "100%",
+  maxWidth: `calc(1440px + 4rem)`, 
+  margin: "0 auto",
+  padding: "4rem 2rem", 
   fontFamily: theme.typography.fontFamily,
-
+  boxSizing: "border-box",
+  
+  [theme.breakpoints.down("sm")]: {
+    padding: "1rem 1rem", 
+    maxWidth: `calc(1440px + 2rem)`, 
+  },
 }));
 
 export const TopSection = styled("div")(({ theme }) => ({

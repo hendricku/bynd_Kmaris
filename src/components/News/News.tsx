@@ -412,13 +412,24 @@ export default function News() {
     );
   }
 
-  // Filter and organize articles (unchanged)
+  // Filter and organize articles with the new ordering logic
   const publishedArticles = articles.filter(article => article.status === 'published');
+  
+  // Featured article (News 1) - Most latest news
   const featuredArticle = publishedArticles[0];
-  const mainArticles = publishedArticles.filter(article => !article.videoUrl && !article.newsVideo);
-  const listArticles = mainArticles.slice(0, 3);
-  const gridArticles = mainArticles.slice(3, 5);
-  const latestArticles = publishedArticles.slice(0, 6);
+  
+  // List articles (News 2, 3, 4) - Skip the featured article
+  const listArticles = publishedArticles.slice(1, 4);
+  
+  // Grid articles (News 5, 6) - Next 2 articles after list articles
+  const gridArticles = publishedArticles.slice(4, 6);
+  
+  // Articles section - Skip first 6 articles (1-6) and filter out videos
+  const articlesForSection = publishedArticles
+    .slice(6) // Skip the first 6 articles used in featured, list, and grid
+    .filter(article => !article.videoUrl && !article.newsVideo); // Filter out videos
+  
+  // Video news - All published articles that have video (can include any from 1-6)
   const videoNews = publishedArticles.filter(article => article.videoUrl || article.newsVideo);
 
   return (
@@ -442,9 +453,14 @@ export default function News() {
         </BottomGrid>
 
         <SectionDivider />
-        <LatestArticlesSection articles={latestArticles} />
-        <SectionDivider />
-        <VideoNewsSection videos={videoNews} />
+        <LatestArticlesSection articles={articlesForSection} />
+        
+        {videoNews.length > 0 && (
+          <>
+            <SectionDivider />
+            <VideoNewsSection videos={videoNews} />
+          </>
+        )}
       </Container>
     </NewsSection>
   );
