@@ -180,7 +180,7 @@ export function NewsArticle({ article: initialArticle, relatedArticles: initialR
               <Link href="/" style={{ textDecoration: "none", color: "inherit" }}>
                 Home
               </Link>
-              <Link href="/news-preview" style={{ textDecoration: "none", color: "inherit" }}>
+              <Link href="/News" style={{ textDecoration: "none", color: "inherit" }}>
                 News
               </Link>
               <Typography color="text.primary">{article.title}</Typography>
