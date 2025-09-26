@@ -530,7 +530,7 @@ export function StepsForm() {
           }
           label={
             <>
-              I confirm that I've read and agree to the{" "}
+              I confirm that I&apos;ve read and agree to the{" "}
               <TermsLink type="button" onClick={handleOpenTermsModal}>
                 terms and conditions
               </TermsLink>
