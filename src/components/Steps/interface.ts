@@ -10,6 +10,8 @@ export interface FormData {
   phone?: string;
   contact_method?: string;
   consent?: boolean;
+  password?: string;
+  confirmPassword?: string;
 }
 
 export interface ValidationErrors {

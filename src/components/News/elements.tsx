@@ -15,7 +15,7 @@ export const Container = styled("div")(({ theme }) => ({
   width: "100%",
   maxWidth: `calc(1440px + 4rem)`, 
   margin: "0 auto",
-  padding: "4rem 2rem", 
+  padding: "2rem", 
   fontFamily: theme.typography.fontFamily,
   boxSizing: "border-box",
   
