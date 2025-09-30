@@ -16,17 +16,28 @@ import {
 } from "./elements";
 import { AppButton } from "@/components/Button/Button";
 import { Heading } from "../Heading/Heading";
-import { Modal } from "@/components/Modal/Modal"; 
+import { Modal } from "@/components/Modal/Modal";
 import servicesData from "@/json/servicesitems.json";
+
+interface ServiceSection {
+  title?: string;
+  list?: string[];
+  paragraph?: string;
+}
+
+interface ServiceContent {
+  intro: string;
+  sections: ServiceSection[];
+}
 
 const defaultItems: ServiceItem[] = servicesData.items;
 
-const renderServiceContent = (content: any): React.ReactNode => {
+const renderServiceContent = (content: ServiceContent | undefined): React.ReactNode => {
   if (!content) return null;
   return (
     <>
       <p style={{ fontFamily: 'Inter' }}>{content.intro}</p>
-      {content.sections.map((section: any, index: number) => (
+      {content.sections.map((section: ServiceSection, index: number) => (
         <React.Fragment key={index}>
           {section.title && <h3 style={{ fontFamily: 'Inter' }}>{section.title}</h3>}
           {section.list && (
@@ -115,7 +126,7 @@ export function Services({
           title={selectedService.title}
           imageSrc={selectedService.imageSrc}
         >
-          {renderServiceContent((servicesData.content as any)[selectedService.id.toString()]) || (
+          {renderServiceContent((servicesData.content as Record<string, ServiceContent>)[selectedService.id.toString()]) || (
             <p>
               For more information about this service, please contact our office
               to schedule a consultation with one of our experienced attorneys.
