@@ -45,7 +45,7 @@ const defaultBottomLinks: NavLink[] = [
 // --- Main Footer Component ---
 export function Footer({
   logoSrc = "/Logo.png",
-  addressLines = ["5900 Balcones Dr. Austin", "Texas 78731"], 
+  addressLines = ["5900 Balcones Dr Ste 100", "Austin, TX 78731"], 
   socials = defaultSocials,
   groups = defaultGroups,
   newsletter = {

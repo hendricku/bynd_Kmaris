@@ -3,8 +3,6 @@
 import { styled, Theme } from "@mui/material/styles";
 import { HeadingVariant, HeadingAlign } from "./interface";
 
-// Define the props that are passed to the styled-component for styling.
-// The "$" prefix prevents them from being passed down to the DOM element.
 interface StyledHeadingProps {
   $variant: HeadingVariant;
   $color?: string;
@@ -14,13 +12,13 @@ interface StyledHeadingProps {
   $marginBottom?: number;
 }
 
-// A clean function to get the styles for each variant from the theme.
+
 const getVariantStyles = (variant: HeadingVariant, theme: Theme) => {
   switch (variant) {
     case "hero":
       return {
         fontSize: "28px",
-        fontWeight: theme.typography.fontWeightBold, // Assuming you have fontWeightBold
+        fontWeight: theme.typography.fontWeightBold, 
         lineHeight: 1.1,
         [theme.breakpoints.up("sm")]: { fontSize: "36px" },
         [theme.breakpoints.up("md")]: { fontSize: "48px" },

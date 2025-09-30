@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { ServicesProps, ServiceItem } from "./interface";
 import {
   Section,
@@ -15,38 +15,53 @@ import {
   ServiceButtonWrapper,
 } from "./elements";
 import { AppButton } from "@/components/Button/Button";
-
 import { Heading } from "../Heading/Heading";
-const defaultItems: ServiceItem[] = [
-  {
-    id: 1,
-    title: "FAMILY PETITION & ADJUSTMENT OF STATUS",
-    imageSrc: "/image.webp",
-  },
-  {
-    id: 2,
-    title: "VAWA – Violence Against Women’s Act",
-    imageSrc: "/image2.webp",
-  },
-  { id: 3, title: "ASYLUM/REFUGEE APPLICATION", imageSrc: "/image3.webp" },
-  { id: 4, title: "NATURALIZATION & CITIZENSHIP", imageSrc: "/image4.webp" },
-  { id: 5, title: "U-VISA", imageSrc: "/visa.webp" },
-  {
-    id: 6,
-    title: "CHANGE OF STATUS TO F1 STUDENT",
-    imageSrc: "/greencard.webp",
-  },
-  { id: 7, title: "RENEWAL OF WORK AUTHORIZATION", imageSrc: "/asylum.webp" },
-  { id: 8, title: "RENEWAL OF GREEN CARD", imageSrc: "/conditions.webp" },
-];
+import { Modal } from "@/components/Modal/Modal"; 
+import servicesData from "@/json/servicesitems.json";
+
+const defaultItems: ServiceItem[] = servicesData.items;
+
+const renderServiceContent = (content: any): React.ReactNode => {
+  if (!content) return null;
+  return (
+    <>
+      <p style={{ fontFamily: 'Inter' }}>{content.intro}</p>
+      {content.sections.map((section: any, index: number) => (
+        <React.Fragment key={index}>
+          {section.title && <h3 style={{ fontFamily: 'Inter' }}>{section.title}</h3>}
+          {section.list && (
+            <ul style={{ fontFamily: 'Inter' }}>
+              {section.list.map((item: string, i: number) => (
+                <li key={i} style={{ fontFamily: 'Inter' }}>{item}</li>
+              ))}
+            </ul>
+          )}
+          {section.paragraph && <p style={{ fontFamily: 'Inter' }}>{section.paragraph}</p>}
+        </React.Fragment>
+      ))}
+    </>
+  );
+};
+
 export function Services({
   title = "We offer payment plans for our Service Fees",
-  ctaLabel = "VIEW ALL CATEGORIES",
+  ctaLabel = "VIEW ALL SERVICES",
   ctaHref = "/services_categories",
   items = defaultItems,
   hideHeader = false,
 }: ServicesProps) {
+  const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
+
   const itemsToShow = hideHeader ? items : items.slice(0, 4);
+
+  const handleReadMoreClick = (item: ServiceItem) => {
+    setSelectedService(item);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedService(null);
+  };
+
   return (
     <Section>
       <Container>
@@ -55,7 +70,8 @@ export function Services({
             <Heading level={2} variant="section" maxWidth={560}>
               {title}
             </Heading>
-            <ServiceButtonWrapper>
+
+            <ServiceButtonWrapper className="header-button">
               <AppButton
                 label={ctaLabel}
                 href={ctaHref}
@@ -65,6 +81,7 @@ export function Services({
             </ServiceButtonWrapper>
           </HeaderRow>
         )}
+
         <Grid>
           {itemsToShow.map((item) => (
             <Card key={item.id} href={item.href || "#"}>
@@ -76,10 +93,11 @@ export function Services({
                 <ButtonRow>
                   <ServiceButtonWrapper>
                     <AppButton
-                      label="READ MORE"
+                      label="Read More"
                       size="medium"
                       withArrow
                       className="app-button"
+                      onClick={() => handleReadMoreClick(item)}
                     />
                   </ServiceButtonWrapper>
                 </ButtonRow>
@@ -88,7 +106,25 @@ export function Services({
           ))}
         </Grid>
       </Container>
+
+      {/* Modal */}
+      {selectedService && (
+        <Modal
+          open={!!selectedService}
+          onClose={handleCloseModal}
+          title={selectedService.title}
+          imageSrc={selectedService.imageSrc}
+        >
+          {renderServiceContent((servicesData.content as any)[selectedService.id.toString()]) || (
+            <p>
+              For more information about this service, please contact our office
+              to schedule a consultation with one of our experienced attorneys.
+            </p>
+          )}
+        </Modal>
+      )}
     </Section>
   );
 }
+
 export default Services;

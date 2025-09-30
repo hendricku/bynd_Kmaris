@@ -1,0 +1,237 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "title": "FAMILY PETITION & ADJUSTMENT OF STATUS",
+      "imageSrc": "/image.webp"
+    },
+    {
+      "id": 2,
+      "title": "VAWA  Violence Against Womens Act",
+      "imageSrc": "/image2.webp"
+    },
+    {
+      "id": 3,
+      "title": "ASYLUM/REFUGEE APPLICATION",
+      "imageSrc": "/image4.webp"
+    },
+    {
+      "id": 4,
+      "title": "NATURALIZATION & CITIZENSHIP",
+      "imageSrc": "/image3.webp"
+    },
+    {
+      "id": 5,
+      "title": "REMOVAL OF CONDITIONS ON RESIDENCE",
+      "imageSrc": "/visa.webp"
+    },
+    {
+      "id": 6,
+      "title": "PETITION FOR U-VISA & T-VISA",
+      "imageSrc": "/greencard.webp"
+    },
+    {
+      "id": 7,
+      "title": "RENEWAL OF WORK AUTHORIZATION",
+      "imageSrc": "/asylum.webp"
+    },
+    {
+      "id": 8,
+      "title": "TRAVEL/PAROLE DOCUMENT",
+      "imageSrc": "/conditions.webp"
+    },
+    {
+      "id": 9,
+      "title": "CHANGE OF STATUS (COS)",
+      "imageSrc": "/conditions.webp"
+    },
+    {
+      "id": 10,
+      "title": "CONSULTATION SERVICES",
+      "imageSrc": "/conditions.webp"
+    }
+  ],
+  "content": {
+    "1": {
+      "intro": "Our experienced immigration attorneys provide comprehensive assistance with family-based immigration petitions and adjustment of status applications. We guide you through every step of the process to reunite families.",
+      "sections": [
+        {
+          "title": "Services Include:",
+          "list": [
+            "Immediate relative petitions (spouses, parents, children)",
+            "Family preference category petitions",
+            "Adjustment of status applications (Form I-485)",
+            "Consular processing assistance",
+            "Work authorization and travel permits"
+          ]
+        },
+        {
+          "title": "Why Choose Us?",
+          "paragraph": "With years of experience in immigration law, we provide personalized service and expert guidance. We understand the complexities of family immigration and work diligently to ensure your case is handled with care and professionalism."
+        }
+      ]
+    },
+    "2": {
+      "intro": "The Violence Against Women Act (VAWA) provides protection and immigration relief for victims of domestic violence, abuse, and other crimes. Our compassionate attorneys help survivors navigate the legal process with care and discretion.",
+      "sections": [
+        {
+          "title": "We Can Help With:",
+          "list": [
+            "VAWA self-petitions for spouses and children",
+            "Protection from abusive family members",
+            "Work authorization applications",
+            "Adjustment of status for VAWA beneficiaries",
+            "Confidential case handling"
+          ]
+        },
+        {
+          "paragraph": "Your safety and privacy are our top priorities. Contact us for a confidential consultation."
+        }
+      ]
+    },
+    "3": {
+      "intro": "Seeking asylum or refugee status can be a complex and challenging process. Our dedicated team provides expert legal representation to help you find safety and protection in the United States.",
+      "sections": [
+        {
+          "title": "Our Services Include:",
+          "list": [
+            "Asylum application preparation and filing",
+            "Refugee processing and interviews",
+            "Defensive asylum representation",
+            "Credible fear and reasonable fear interviews",
+            "Family reunification for asylees and refugees"
+          ]
+        },
+        {
+          "paragraph": "We understand the urgency and sensitivity of asylum cases and work tirelessly to protect your rights and secure your future."
+        }
+      ]
+    },
+    "4": {
+      "intro": "Becoming a U.S. citizen is a significant milestone. Our attorneys guide you through the naturalization process, ensuring all requirements are met and your application is properly prepared.",
+      "sections": [
+        {
+          "title": "Naturalization Services:",
+          "list": [
+            "Eligibility assessment and consultation",
+            "Form N-400 preparation and filing",
+            "Interview preparation and coaching",
+            "Citizenship test preparation",
+            "Oath ceremony coordination"
+          ]
+        },
+        {
+          "paragraph": "Let us help you achieve your dream of U.S. citizenship. Schedule a consultation today to begin your journey."
+        }
+      ]
+    },
+    "5": {
+      "intro": "U-Visa provides immigration protection for victims of certain crimes who have suffered mental or physical abuse and are helpful to law enforcement in the investigation or prosecution of criminal activity.",
+      "sections": [
+        {
+          "title": "U-Visa Services:",
+          "list": [
+            "Eligibility evaluation and case assessment",
+            "U-Visa petition preparation (Form I-918)",
+            "Law enforcement certification assistance",
+            "Work authorization applications",
+            "Path to permanent residency guidance"
+          ]
+        },
+        {
+          "paragraph": "We provide compassionate, confidential representation for crime victims seeking protection and legal status in the United States."
+        }
+      ]
+    },
+    "6": {
+      "intro": "Changing your immigration status to F1 student visa allows you to pursue educational opportunities in the United States. We help you navigate the requirements and successfully transition to student status.",
+      "sections": [
+        {
+          "title": "Change of Status Services:",
+          "list": [
+            "Eligibility assessment for F1 status change",
+            "Form I-539 application preparation",
+            "School enrollment assistance",
+            "SEVIS registration guidance",
+            "Maintaining legal status consultation"
+          ]
+        },
+        {
+          "paragraph": "Start your educational journey in the U.S. with proper legal guidance. Contact us to discuss your change of status options."
+        }
+      ]
+    },
+    "7": {
+      "intro": "Maintaining valid work authorization is essential for your ability to work legally in the United States. We assist with timely renewals to ensure continuity of your employment authorization.",
+      "sections": [
+        {
+          "title": "Work Authorization Renewal:",
+          "list": [
+            "EAD renewal application (Form I-765)",
+            "Timely filing to avoid work interruption",
+            "Status verification and compliance",
+            "Expedited processing when eligible",
+            "Receipt notice follow-up"
+          ]
+        },
+        {
+          "paragraph": "Don't let your work authorization expire. Contact us well in advance of your expiration date to ensure a smooth renewal process."
+        }
+      ]
+    },
+    "8": {
+      "intro": "Green Card renewal is important to maintain your permanent resident status. Our team ensures your renewal application is properly prepared and submitted before your card expires.",
+      "sections": [
+        {
+          "title": "Green Card Renewal Services:",
+          "list": [
+            "Form I-90 application preparation",
+            "Lost or stolen card replacement",
+            "Name change updates",
+            "ADIT stamp appointments if needed",
+            "Biometrics appointment coordination"
+          ]
+        },
+        {
+          "paragraph": "Keep your permanent resident status current. Schedule a consultation to begin your Green Card renewal process today."
+        }
+      ]
+    },
+    "9": {
+      "intro": "Changing your immigration status allows you to adjust to a new visa category without leaving the United States. We provide expert guidance on change of status applications.",
+      "sections": [
+        {
+          "title": "Change of Status Services:",
+          "list": [
+            "Eligibility assessment for status change",
+            "Form I-539 preparation and filing",
+            "Maintaining legal status during processing",
+            "Work authorization extensions",
+            "Travel permissions"
+          ]
+        },
+        {
+          "paragraph": "Navigate your status change smoothly with our experienced attorneys. Contact us to discuss your options."
+        }
+      ]
+    },
+    "10": {
+      "intro": "Our consultation services provide personalized advice on immigration matters. Whether you're planning your next steps or need clarification on your options, we're here to help.",
+      "sections": [
+        {
+          "title": "Consultation Services Include:",
+          "list": [
+            "Initial case assessment",
+            "Immigration strategy planning",
+            "Document review and advice",
+            "Application guidance",
+            "Ongoing support"
+          ]
+        },
+        {
+          "paragraph": "Schedule a consultation to get expert immigration advice tailored to your situation."
+        }
+      ]
+    }
+  }
+}

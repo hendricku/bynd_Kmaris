@@ -7,6 +7,7 @@ export const Section = styled("section")(({ theme }) => ({
   backgroundColor: theme.palette.common.white,
   padding: "64px 32px",
   position: "relative",
+  
 }));
 
 export const Container = styled("div")(({ theme }) => ({
@@ -19,8 +20,22 @@ export const HeaderRow = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   alignItems: "flex-start",
+  padding: "0 0 32px 0",
   gap: 16,
-  marginBottom: 32,
+  // marginBottom: 32, 
+  [theme.breakpoints.up("md")]: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+}));
+export const HeaderRowServices = styled("div")(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "flex-start",
+  // padding: "0 0 32px 0",
+  gap: 16,
+  // marginBottom: 32, 
   [theme.breakpoints.up("md")]: {
     flexDirection: "row",
     alignItems: "center",
@@ -31,6 +46,7 @@ export const HeaderRow = styled("div")(({ theme }) => ({
 export const Grid = styled("div")(({ theme }) => ({
   display: "grid",
   gridTemplateColumns: "1fr",
+//  padding:"32px 0 0 0",
   gap: "2rem",
   alignItems: "stretch",
   [theme.breakpoints.up("sm")]: {
@@ -43,6 +59,7 @@ export const Grid = styled("div")(({ theme }) => ({
 
 export const Card = styled("a")(({ theme }) => ({
   display: "flex",
+
   flexDirection: "column",
   height: "100%",
   textDecoration: "none",
@@ -83,6 +100,7 @@ export const CardTitle = styled("h3")(({ theme }) => ({
   textTransform: "uppercase",
   letterSpacing: 0.4,
   margin: 0,
+
 }));
 
 export const ButtonRow = styled("div")({
@@ -104,5 +122,8 @@ export const ServiceButtonWrapper = styled("div")(({ theme }) => ({
     "& .MuiButton-endIcon": {
       marginLeft: "auto",
     },
+  },
+  "&.header-button": {
+    paddingBottom: "2rem",
   },
 }));

@@ -36,4 +36,6 @@ export interface HeadingProps {
   maxWidth?: number | string;
 
   marginBottom?: number;
+
+   paddingTop?: number;
 }
