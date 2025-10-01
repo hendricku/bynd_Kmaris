@@ -5,29 +5,26 @@ export async function POST(request: NextRequest) {
   try {
     const { email } = await request.json();
 
+    console.log('Env SMTP_USER:', process.env.SMTP_USER);
+    console.log('Env SMTP_PASS:', process.env.SMTP_PASS ? '***' : 'Not Set');
+
     if (!email) {
       return NextResponse.json({ error: 'Email is required' }, { status: 400 });
     }
 
-    console.log('SMTP Config:', {
-      host: process.env.SMTP_HOST,
-      port: process.env.SMTP_PORT,
-      user: process.env.SMTP_USER,
-      fromEmail: process.env.FROM_EMAIL,
-      toEmail: process.env.TO_EMAIL,
-    });
-
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: parseInt(process.env.SMTP_PORT || '587'),
-      secure: false, 
+      secure: false,
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
       tls: {
-        rejectUnauthorized: false
-      }
+        rejectUnauthorized: false,
+      },
+      debug: true,
+      logger: true,
     });
 
     const mailOptions = {
@@ -37,14 +34,14 @@ export async function POST(request: NextRequest) {
       text: `A user has requested a free consultation with email: ${email}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #ddd; padding: 20px;">
-          <div style="background-color: #ffffffff; padding: 10px; text-align: center;">
+          <div style=" padding: 10px; text-align: center;">
             <img src="cid:logo" alt="Website Logo" style="height: 50px;" />
           </div>
           <div style="padding: 20px; color: #333;">
             <p>Dear Admin,</p>
             <p>A user has requested a free consultation with the following email address:</p>
             <p style="font-weight: bold; font-size: 16px;">${email}</p>
-       
+     
           </div>
         </div>
       `,
@@ -52,9 +49,9 @@ export async function POST(request: NextRequest) {
         {
           filename: 'Logo.png',
           path: './public/Logo.png',
-          cid: 'logo' // same cid value as in the html img src
-        }
-      ]
+          cid: 'logo',
+        },
+      ],
     };
 
     await transporter.sendMail(mailOptions);
