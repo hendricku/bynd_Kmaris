@@ -81,9 +81,8 @@ export function Services({
             <Heading level={2} variant="section" maxWidth={560}>
               {title}
             </Heading>
-
             <ServiceButtonWrapper className="header-button">
-              <AppButton
+              <AppButton 
                 label={ctaLabel}
                 href={ctaHref}
                 size="large"
@@ -95,7 +94,15 @@ export function Services({
 
         <Grid>
           {itemsToShow.map((item) => (
-            <Card key={item.id} href={item.href || "#"}>
+            <Card
+              key={item.id}
+              href={item.href || "#"}
+              onClick={(e) => {
+                if (item.href === "#" || !item.href) {
+                  e.preventDefault();
+                }
+              }}
+            >
               <ThumbWrap>
                 <Thumb src={item.imageSrc} alt={item.title} />
               </ThumbWrap>
@@ -125,6 +132,7 @@ export function Services({
           onClose={handleCloseModal}
           title={selectedService.title}
           imageSrc={selectedService.imageSrc}
+  
         >
           {renderServiceContent((servicesData.content as Record<string, ServiceContent>)[selectedService.id.toString()]) || (
             <p>

@@ -31,7 +31,7 @@ const defaultGroups: LinkGroup[] = [
       { label: "About Us", href: "/about" },
       { label: "All Services", href: "/AllForms" },
           { label: "News", href: "/News" },
-      { label: "Contact", href: "/contact" },
+    
     ],
   },
 ];
@@ -50,7 +50,7 @@ export function Footer({
   groups = defaultGroups,
   newsletter = {
     title: "Inquiry",
-    description: "Subscribe to receive our offers and updates in your inbox.",
+    description: "Enter your email & full name for a free consultation",
     placeholder: "Email Address",
   },
   bottomNote = <>Designed & Developed by <a href="http://bynddigital.co/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline" }}>BYND Digital</a></>,
