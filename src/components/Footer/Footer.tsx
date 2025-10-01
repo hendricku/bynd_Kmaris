@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { FooterProps, SocialLink, LinkGroup, NavLink } from "./interface";
 
 
@@ -45,17 +45,35 @@ const defaultBottomLinks: NavLink[] = [
 // --- Main Footer Component ---
 export function Footer({
   logoSrc = "/Logo.png",
-  addressLines = ["5900 Balcones Dr Ste 100", "Austin, TX 78731"], 
+  addressLines = ["5900 Balcones Dr Ste 100", "Austin, TX 78731"],
   socials = defaultSocials,
   groups = defaultGroups,
   newsletter = {
     title: "Inquiry",
-    description: "Enter your email & full name for a free consultation",
+    description: "Enter your email for a free consultation",
     placeholder: "Email Address",
   },
   bottomNote = <>Designed & Developed by <a href="http://bynddigital.co/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline" }}>BYND Digital</a></>,
   bottomLinks = defaultBottomLinks,
 }: FooterProps) {
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      if (response.ok) {
+        setEmail('');
+      } else {
+      }
+    } catch (error) {
+    }
+  };
+
   return (
     
     <FooterRoot>
@@ -101,10 +119,16 @@ export function Footer({
         <Newsletter>
           <GroupTitle>{newsletter.title}</GroupTitle>
           <NewsletterDescription>{newsletter.description}</NewsletterDescription>
-          <NewsletterForm onSubmit={(e) => e.preventDefault()}>
-            <NewsletterInput placeholder={newsletter.placeholder} type="email" required />
+          <NewsletterForm onSubmit={handleSubmit}>
+            <NewsletterInput
+              placeholder={newsletter.placeholder}
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
             <NewsletterButton type="submit" aria-label="Subscribe">
-              <SendIcon sx={{ fontSize: 20 }}/>
+              <SendIcon sx={{ fontSize: 20 }} />
             </NewsletterButton>
           </NewsletterForm>
         </Newsletter>

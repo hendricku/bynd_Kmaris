@@ -75,7 +75,7 @@ export const ThumbWrap = styled("div")({
   position: "relative",
   overflow: "hidden",
   margin: "-1px",
-});
+});  
 
 export const Thumb = styled("img")({
   width: "100%",
