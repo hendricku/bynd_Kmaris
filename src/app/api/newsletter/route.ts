@@ -7,6 +7,10 @@ export async function POST(request: NextRequest) {
 
     console.log('Env SMTP_USER:', process.env.SMTP_USER);
     console.log('Env SMTP_PASS:', process.env.SMTP_PASS ? '***' : 'Not Set');
+    console.log('Env SMTP_HOST:', process.env.SMTP_HOST);
+    console.log('Env SMTP_PORT:', process.env.SMTP_PORT);
+    console.log('Env FROM_EMAIL:', process.env.FROM_EMAIL);
+    console.log('Env TO_EMAIL:', process.env.TO_EMAIL);
 
     if (!firstName || !lastName || !email) {
       return NextResponse.json({ error: 'First name, last name, and email are required' }, { status: 400 });
