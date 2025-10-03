@@ -14,25 +14,65 @@ export const Overlay = styled('div')<{ open: boolean }>(({ open }) => ({
   zIndex: 9999,
   padding: '16px',
   backdropFilter: 'blur(4px)',
+  animation: open ? 'fadeIn 0.3s ease-out' : 'fadeOut 0.3s ease-out',
+  '@keyframes fadeIn': {
+    from: {
+      opacity: 0,
+    },
+    to: {
+      opacity: 1,
+    },
+  },
+  '@keyframes fadeOut': {
+    from: {
+      opacity: 1,
+    },
+    to: {
+      opacity: 0,
+    },
+  },
 }));
 
-export const ModalContainer = styled('div')(({ theme }) => ({
+export const ModalContainer = styled('div', {
+  shouldForwardProp: (prop) => prop !== 'isClosing',
+})<{ isClosing?: boolean }>(({ theme, isClosing }) => ({
   backgroundColor: theme.palette.common.white,
-  borderRadius: '0px',
+  borderRadius: '12px',
   maxWidth: '800px',
   width: '100%',
   maxHeight: '90vh',
   overflow: 'hidden',
   display: 'flex',
   flexDirection: 'column',
-  boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)',
-  border: `1px solid ${theme.palette.primary.main}`,
+  boxShadow: '0 20px 60px rgba(0, 0, 0, 0.15)',
+  border: `1px solid rgba(0, 0, 0, 0.08)`,
   position: 'relative',
+  animation: isClosing ? 'modalOut 0.3s ease-out forwards' : 'modalIn 0.3s ease-out',
+  '@keyframes modalIn': {
+    from: {
+      opacity: 0,
+      transform: 'scale(0.9) translateY(20px)',
+    },
+    to: {
+      opacity: 1,
+      transform: 'scale(1) translateY(0)',
+    },
+  },
+  '@keyframes modalOut': {
+    from: {
+      opacity: 1,
+      transform: 'scale(1) translateY(0)',
+    },
+    to: {
+      opacity: 0,
+      transform: 'scale(0.9) translateY(20px)',
+    },
+  },
 }));
 
 export const ModalHeader = styled('div')(({ theme }) => ({
   padding: '24px 32px',
-  borderBottom: '1px solid #E5E7EB',
+  borderBottom: '1px solid rgba(0, 0, 0, 0.06)',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',

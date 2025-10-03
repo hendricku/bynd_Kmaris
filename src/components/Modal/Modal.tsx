@@ -4,18 +4,30 @@ import { ModalProps } from './interface';
 import { Overlay, ModalContainer, ModalHeader, ModalTitle, CloseButton, ModalBody, ModalImage, ModalContent } from './elements';
 
 export function Modal({ open, onClose, title, imageSrc, children }: ModalProps) {
+  const [isClosing, setIsClosing] = React.useState(false);
+
+  const handleClose = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsClosing(false);
+      onClose();
+    }, 300);
+  };
+
   const handleOverlayClick = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) {
-      onClose();
+      handleClose();
     }
   };
 
+  if (!open && !isClosing) return null;
+
   return (
     <Overlay open={open} onClick={handleOverlayClick}>
-      <ModalContainer>
+      <ModalContainer isClosing={isClosing}>
         <ModalHeader>
           <ModalTitle>{title}</ModalTitle>
-          <CloseButton onClick={onClose} aria-label="Close modal">
+          <CloseButton onClick={handleClose} aria-label="Close modal">
             ×
           </CloseButton>
         </ModalHeader>
