@@ -616,7 +616,7 @@ export function StepsForm() {
     <FormRoot>
       <LogoContainer>
         <Image
-          src="/logo.png"
+          src="/Logo.png"
           alt="KMARIS LLC"
           width={140}
           height={80}
