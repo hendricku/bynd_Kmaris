@@ -43,7 +43,6 @@ export function Feedback({ items = defaultItems }: FeedbackProps) {
   return (
     <Section>
       <Container>
-        <Subheading>CUSTOMER FEEDBACKS</Subheading>
         <Heading level={2} variant="section" color="white" align="center" marginBottom={56}>
           SEE WHAT OUR CLIENTS HAVE TO SAY
         </Heading>
