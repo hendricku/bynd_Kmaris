@@ -29,25 +29,25 @@ const steps: Step[] = [
     title: "Find the service you need",
     description:
       "Lorem ipsum dolor sit amet consectetur adipiscing elit, pretium sapien mattis nulla",
-    icon: "/5.png",
+    icon: "/9.png",
   },
   {
     title: "Register and get approved",
     description:
       "Lorem ipsum dolor sit amet consectetur adipiscing elit, pretium sapien mattis nulla",
-    icon: "/image2.webp",
+    icon: "/10.png",
   },
   {
     title: "Fill out important information",
     description:
       "Lorem ipsum dolor sit amet consectetur adipiscing elit, pretium sapien mattis nulla",
-    icon: "/image3.webp",
+    icon: "/11.png",
   },
   {
     title: "Sit back and relax",
     description:
       "Lorem ipsum dolor sit amet consectetur adipiscing elit, pretium sapien mattis nulla",
-    icon: "/image4.webp",
+    icon: "/12.png",
   },
 ];
 
@@ -98,7 +98,7 @@ const AboutUs: React.FC = () => {
                       alt={step.title}
                       style={{
                         width: "100%",
-                        height: "160px",
+                        height: "165px",
                         borderRadius: 8,
                         objectFit: "cover",
                       }}
