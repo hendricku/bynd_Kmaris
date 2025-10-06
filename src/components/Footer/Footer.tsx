@@ -38,8 +38,8 @@ const defaultGroups: LinkGroup[] = [
 ];
 
 const defaultBottomLinks: NavLink[] = [
-    { label: "Terms Of Use", href: "/terms" },
-    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Terms and Conditions", href: "/Terms-and-conditions" },
+    { label: "Privacy Policy", href: "/privacy-policy" },
 ];
 
 
