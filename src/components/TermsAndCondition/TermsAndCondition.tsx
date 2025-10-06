@@ -10,15 +10,25 @@ import {
   FooterText,
 } from './elements';
 
-const Privacy_Policy: React.FC = () => {
+const TermsAndCondition: React.FC = () => {
   return (
     <StyledContainer>
-      <Title>Privacy Policy</Title>
+      <Title>Terms and Conditions</Title>
 
       <IntroText>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
       </IntroText>
- 
+
+      <SectionTitle>Acceptance of Terms</SectionTitle>
+      <Paragraph>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      </Paragraph>
+
+   
+      <SectionTitle>Prohibited Activities</SectionTitle>
+      <Paragraph>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </Paragraph>
       <StyledList>
         <li>Lorem ipsum dolor sit amet</li>
         <li>Consectetur adipiscing elit</li>
@@ -26,7 +36,7 @@ const Privacy_Policy: React.FC = () => {
         <li>Ut labore et dolore magna aliqua</li>
       </StyledList>
 
-      <SectionTitle>Ut Enim Ad Minim</SectionTitle>
+      <SectionTitle>Intellectual Property</SectionTitle>
       <Paragraph>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
       </Paragraph>
@@ -37,14 +47,9 @@ const Privacy_Policy: React.FC = () => {
         <li><strong>Aliqua ut enim:</strong> Ad minim veniam quis</li>
       </StyledList>
 
-      <SectionTitle>Nostrud Exercitation</SectionTitle>
-      <Paragraph>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </Paragraph>
-
-    
+   
       <ContactInfo>
-        <SectionTitle>Consequat Duis Aute</SectionTitle>
+        <SectionTitle>Contact Information</SectionTitle>
         <Paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </Paragraph>
@@ -61,4 +66,5 @@ const Privacy_Policy: React.FC = () => {
     </StyledContainer>
   );
 };
-export default Privacy_Policy;
+
+export default TermsAndCondition;

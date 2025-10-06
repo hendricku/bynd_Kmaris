@@ -11,6 +11,7 @@ export const StyledContainer = styled(Container)(({ theme }) => ({
   fontFamily: theme.typography.fontFamily,
 }));
 
+
 export const Title = styled(Typography)(({ theme }) => ({
   fontSize: '4rem',
   fontWeight: 700,
