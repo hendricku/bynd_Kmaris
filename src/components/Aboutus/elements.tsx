@@ -165,12 +165,11 @@ export const StepCard = styled("article")(({ theme }) => ({
 
 export const StepIconPlaceholder = styled("div")(({ theme }) => ({
   width: "100%",
-  height: 160,
-  backgroundColor: "#E5E7EB",
+  height: 160 ,
+  // backgroundColor: "#E5E7EB",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  color: "#9CA3AF",
   fontSize: "0.875rem",
   fontFamily: 'var(--font-inter)',
   fontWeight: 500,

@@ -29,7 +29,7 @@ const steps: Step[] = [
     title: "Find the service you need",
     description:
       "Lorem ipsum dolor sit amet consectetur adipiscing elit, pretium sapien mattis nulla",
-    icon: "/image.webp",
+    icon: "/5.png",
   },
   {
     title: "Register and get approved",
