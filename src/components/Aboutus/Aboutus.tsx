@@ -27,26 +27,22 @@ import { AppButton } from "../Button/Button";
 const steps: Step[] = [
   {
     title: "Find the service you need",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipiscing elit, pretium sapien mattis nulla",
+    description: "Browse forms and choose your correct petition type.",
     icon: "/9.png",
   },
   {
     title: "Register and get approved",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipiscing elit, pretium sapien mattis nulla",
+    description: "Create an account and wait for confirmation.",
     icon: "/10.png",
   },
-  {
-    title: "Fill out important information",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipiscing elit, pretium sapien mattis nulla",
-    icon: "/11.png",
-  },
+ {
+  title: "Fill out important information",
+  description: "Enter key details for your selected form and petition.",
+  icon: "/11.png",
+},
   {
     title: "Sit back and relax",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipiscing elit, pretium sapien mattis nulla",
+    description: "Get notified once your request is processed.",
     icon: "/12.png",
   },
 ];
