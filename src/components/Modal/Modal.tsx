@@ -70,7 +70,7 @@ function Demo() {
         imageSrc="/image.webp"
       >
         <p>
-          Our experienced immigration attorneys provide comprehensive assistance with family-based 
+          Our experienced immigration teams provide comprehensive assistance with family-based 
           immigration petitions and adjustment of status applications. We guide you through every 
           step of the process to reunite families.
         </p>
