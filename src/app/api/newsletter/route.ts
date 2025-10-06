@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { readFile } from 'fs/promises';
+import { join } from 'path';
 
 export async function POST(request: NextRequest) {
   try {
@@ -46,6 +48,23 @@ export async function POST(request: NextRequest) {
     // Verify transporter configuration
     await transporter.verify();
 
+    // Read the logo file from public folder
+    let logoAttachment;
+    try {
+      const logoPath = join(process.cwd(), 'public', 'Logo.png');
+      const logoBuffer = await readFile(logoPath);
+      logoAttachment = {
+        filename: 'Logo.png',
+        content: logoBuffer,
+        cid: 'logo',
+      };
+      console.log('Logo loaded successfully');
+    } catch (logoError) {
+      console.error('Error loading logo:', logoError);
+      // Continue without logo if it fails
+      logoAttachment = null;
+    }
+
     const mailOptions = {
       from: process.env.FROM_EMAIL || process.env.SMTP_USER,
       to: process.env.TO_EMAIL || process.env.SMTP_USER,
@@ -56,8 +75,8 @@ Last Name: ${lastName}
 Email: ${email}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #ddd; padding: 20px;">
-          <div style="padding: 10px; text-align: center; background-color: #f5f5f5;">
-            <h2 style="color: #333; margin: 0;">New Consultation Request</h2>
+          <div style="padding: 10px; text-align: center;">
+            ${logoAttachment ? '<img src="cid:logo" alt="Website Logo" style="height: 50px;" />' : '<h2 style="color: #333; margin: 0;">New Consultation Request</h2>'}
           </div>
           <div style="padding: 20px; color: #333;">
             <p>Dear Admin,</p>
@@ -65,12 +84,10 @@ Email: ${email}`,
             <p><strong>First Name:</strong> ${firstName}</p>
             <p><strong>Last Name:</strong> ${lastName}</p>
             <p><strong>Email:</strong> ${email}</p>
-            <hr style="border: 0; border-top: 1px solid #ddd; margin: 20px 0;">
-            <p style="font-size: 12px; color: #666;">This is an automated message from your website contact form.</p>
           </div>
         </div>
       `,
-     
+      attachments: logoAttachment ? [logoAttachment] : [],
     };
 
     await transporter.sendMail(mailOptions);
