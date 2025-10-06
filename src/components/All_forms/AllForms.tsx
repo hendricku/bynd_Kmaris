@@ -25,7 +25,7 @@ export function AllForms({ items = [] }: AllFormsProps) {
   const formsToDisplay = items.length > 0 ? items.filter(form => form.status === 'active') : activeFormsFromJSON;
 
   const handleRequestForm = (formId: string) => {
-    router.push(`/steps?formId=${formId}`);
+    router.push(`https://kmaris-user-dashboard.vercel.app/steps?formId=${formId}`);
   };
 
   const filteredForms = useMemo(() => {
