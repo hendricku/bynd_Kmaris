@@ -42,7 +42,6 @@ export function Hero({
             <ContentBox className="animate-fade-in-up">
               <Title>{title}</Title>
 
-            
               <Description>{description}</Description>
 
               <AppButton

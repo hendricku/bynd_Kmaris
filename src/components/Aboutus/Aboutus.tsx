@@ -42,7 +42,7 @@ const steps: Step[] = [
 },
   {
     title: "Sit back and relax",
-    description: "Get notified once your request is processed.",
+    description: "Get instantly notified once your request is processed",
     icon: "/12.png",
   },
 ];
