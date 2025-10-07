@@ -1,6 +1,6 @@
 "use client";
 
-import { AllForms } from '@/components/All_forms/AllForms';
+import { AllForms } from '@/components/All-Services/All-Services';
 
 export default function AllFormsPage() {
   return <AllForms />;

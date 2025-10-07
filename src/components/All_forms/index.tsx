@@ -1,2 +1,0 @@
-
-export { AllForms } from './AllForms';

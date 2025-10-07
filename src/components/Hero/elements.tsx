@@ -78,8 +78,8 @@ export const ContentBox = styled("div")(({ theme }) => ({
   fontFamily: "var(--font-inter)",
   animation: "fadeInUp 0.8s ease-out 0.2s both",
   maxWidth: "100%",
-  borderLeft: "3px solid red",
-  paddingLeft: theme.spacing(2),
+  borderLeft: "4px solid red",
+  paddingLeft: theme.spacing(3),
   textAlign: "left",
   
   [theme.breakpoints.up("sm")]: {

@@ -31,7 +31,7 @@ const defaultGroups: LinkGroup[] = [
     links: [
       { label: "Home", href: "/" },
       { label: "About Us", href: "/about" },
-      { label: "All Services", href: "/AllForms" },
+      { label: "All Services", href: "/All-Services" },
       { label: "News", href: "/News" },
     ],
   },
