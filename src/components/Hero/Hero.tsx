@@ -42,14 +42,7 @@ export function Hero({
             <ContentBox className="animate-fade-in-up">
               <Title>{title}</Title>
 
-              {userName && (
-                <Description
-                  style={{ fontWeight: "bold", marginBottom: "1rem" }}
-                >
-                  Hello, {userName} 👋
-                </Description>
-              )}
-
+            
               <Description>{description}</Description>
 
               <AppButton
