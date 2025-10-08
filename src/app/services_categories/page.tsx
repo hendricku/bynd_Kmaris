@@ -14,7 +14,7 @@ export default function ServicesCategories() {
         <Container>
           <HeaderRowServices className="animate-fade-in-up">
             <Heading level={2} variant="section" maxWidth={560}>
-              All Services Categories
+              All Categories
             </Heading>
           </HeaderRowServices>
         </Container>

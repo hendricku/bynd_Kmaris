@@ -50,6 +50,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 const defaultLinks: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
+  { label: "All Categories", href: "/services_categories" },
   { label: "All Services", href: "/All-Services" },
   { label: "News", href: "/News" },
 ];
