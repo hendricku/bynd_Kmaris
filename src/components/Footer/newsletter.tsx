@@ -95,6 +95,48 @@ export const NewsletterInput = styled("input")(({ theme }) => ({
   },
 }));
 
+export const NewsletterTextarea = styled("textarea")(({ theme }) => ({
+  width: "100%",
+  padding: "14px 18px",
+  border: `1.5px solid ${theme.palette.navy.main}`,
+  borderRadius: 10,
+  background: theme.palette.common.white,
+  color: theme.palette.navy.main,
+  fontFamily: theme.typography.fontFamily,
+  fontSize: 15,
+  opacity: 1,
+  transition: "border-color 200ms ease, box-shadow 200ms ease, opacity 200ms ease",
+  outline: "none",
+  boxSizing: "border-box",
+  resize: "vertical",
+  minHeight: 100,
+  
+  "&::placeholder": {
+    color: theme.palette.navy.main,
+    opacity: 0.5,
+  },
+  
+  "&:focus": {
+    borderColor: theme.palette.primary.main,
+    boxShadow: `0 0 0 3px ${theme.palette.primary.main}15`,
+  },
+  
+  "&:hover:not(:disabled)": {
+    borderColor: theme.palette.primary.main,
+  },
+  
+  "&:disabled": {
+    opacity: 0.6,
+    cursor: "not-allowed",
+  },
+  
+  // Mobile optimizations
+  [theme.breakpoints.down('sm')]: {
+    fontSize: 16, 
+    padding: "12px 16px",
+  },
+}));
+
 export const NewsletterButton = styled("button")(({ theme }) => ({
   padding: "0 28px",
   border: "none",

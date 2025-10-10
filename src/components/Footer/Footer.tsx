@@ -3,12 +3,10 @@
 import React, { useState } from "react";
 import { FooterProps, SocialLink, LinkGroup, NavLink } from "./interface";
 
-
 import { FooterRoot, Top, Bottom, BottomInner, BottomLinks } from "./base";
 import { Brand, Logo, Divider, Address, Socials, SocialLinkItem } from "./brand";
 import { Group, GroupTitle, LinkList, LinkItem } from "./navigation";
-import { Newsletter, NewsletterDescription, NewsletterForm, NewsletterInput, NewsletterButton } from "./newsletter";
-
+import { Newsletter, NewsletterDescription, NewsletterForm, NewsletterInput, NewsletterButton, NewsletterTextarea } from "./newsletter";
 
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -43,7 +41,6 @@ const defaultBottomLinks: NavLink[] = [
     { label: "Privacy Policy", href: "/privacy-policy" },
 ];
 
-
 // --- Main Footer Component ---
 export function Footer({
   logoSrc = "/Logo.png",
@@ -61,6 +58,7 @@ export function Footer({
   const [firstName, setFirstName] = React.useState('');
   const [lastName, setLastName] = React.useState('');
   const [email, setEmail] = React.useState('');
+  const [message, setMessage] = React.useState('');
   const [isLoading, setIsLoading] = React.useState(false);
   const [showSuccess, setShowSuccess] = React.useState(false);
 
@@ -72,7 +70,7 @@ export function Footer({
       const response = await fetch('/api/newsletter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ firstName, lastName, email }),
+        body: JSON.stringify({ firstName, lastName, email, message }),
       });
       
       if (response.ok) {
@@ -80,6 +78,7 @@ export function Footer({
         setFirstName('');
         setLastName('');
         setEmail('');
+        setMessage('');
         
         // Hide success message after 3 seconds
         setTimeout(() => {
@@ -94,7 +93,6 @@ export function Footer({
   };
 
   return (
-    
     <FooterRoot>
        <Divider
         sx={{
@@ -103,7 +101,6 @@ export function Footer({
           margin: "0 auto",
           maxWidth: 1440,
           marginTop: 0,
-       
         }}
       />
       <Top>
@@ -176,24 +173,31 @@ export function Footer({
                 disabled={isLoading}
               />
             </div>
-            <div className="email-row">
-              <NewsletterInput
-                placeholder={newsletter.placeholder}
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="email-input"
-                disabled={isLoading}
-              />
-              <NewsletterButton type="submit" aria-label="Subscribe" disabled={isLoading}>
-                {isLoading ? (
-                  <CircularProgress size={20} sx={{ color: 'white' }} />
-                ) : (
+            <NewsletterInput
+              placeholder={newsletter.placeholder}
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              disabled={isLoading}
+            />
+            <NewsletterTextarea
+              placeholder="Your message or comment (optional)"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              disabled={isLoading}
+              rows={4}
+            />
+            <NewsletterButton type="submit" aria-label="Subscribe" disabled={isLoading}>
+              {isLoading ? (
+                <CircularProgress size={20} sx={{ color: 'white' }} />
+              ) : (
+                <>
                   <SendIcon sx={{ fontSize: 20 }} />
-                )}
-              </NewsletterButton>
-            </div>
+                  <span>Send Message</span>
+                </>
+              )}
+            </NewsletterButton>
           </NewsletterForm>
         </Newsletter>
       </Top>
@@ -205,7 +209,6 @@ export function Footer({
           margin: "0 auto",
           maxWidth: 1440,
           marginTop: 0,
-       
         }}
       />
 

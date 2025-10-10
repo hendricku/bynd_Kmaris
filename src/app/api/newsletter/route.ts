@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer';
 
 export async function POST(request: NextRequest) {
   try {
-    const { firstName, lastName, email } = await request.json();
+    const { firstName, lastName, email, message } = await request.json();
 
     // Validate input
     if (!firstName || !lastName || !email) {
@@ -48,10 +48,8 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Logo Deployed online Test grrr
+    // Logo Deployed online
     const logoUrl = 'https://kmarisimmigration.vercel.app/Logo.png';
-
-    
     console.log('Using logo URL:', logoUrl);
 
     const mailOptions = {
@@ -63,6 +61,7 @@ export async function POST(request: NextRequest) {
 First Name: ${firstName}
 Last Name: ${lastName}
 Email: ${email}
+${message ? `\nMessage:\n${message}` : ''}
 
 Please respond to this consultation request at your earliest convenience.`,
       html: `
@@ -98,7 +97,7 @@ Please respond to this consultation request at your earliest convenience.`,
                         <tr>
                           <td style="padding: 12px 20px; border-bottom: 1px solid #e9ecef;">
                             <strong style="color: #333333; font-size: 14px;">First Name:</strong>
-                            <span style="color: #555555; font-size: 14px; margin-left: 10px;">${firstName}</span>
+                            <span style ="color: #555555; font-size: 14px; margin-left: 10px;">${firstName}</span>
                           </td>
                         </tr>
                         <tr>
@@ -108,11 +107,19 @@ Please respond to this consultation request at your earliest convenience.`,
                           </td>
                         </tr>
                         <tr>
-                          <td style="padding: 12px 20px;">
+                          <td style="padding: 12px 20px; ${message ? 'border-bottom: 1px solid #e9ecef;' : ''}">
                             <strong style="color: #333333; font-size: 14px;">Email:</strong>
                             <a href="mailto:${email}" style="color: #007bff; text-decoration: none; margin-left: 10px; font-size: 14px;">${email}</a>
                           </td>
                         </tr>
+                        ${message ? `
+                        <tr>
+                          <td style="padding: 12px 20px;">
+                            <strong style="color: #333333; font-size: 14px; display: block; margin-bottom: 8px;">Message:</strong>
+                            <p style="color: #555555; font-size: 14px; line-height: 1.6; margin: 0; white-space: pre-wrap;">${message}</p>
+                          </td>
+                        </tr>
+                        ` : ''}
                       </table>
                       
                       <p style="margin: 30px 0 0 0; color: #666666; font-size: 14px; line-height: 1.5;">
