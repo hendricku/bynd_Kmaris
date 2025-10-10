@@ -138,7 +138,7 @@ export function Offering({
 
               <AppButton
                 label={ctaLabel}
-                href={youtubeChannelUrl}
+              
                 size="large"
                 withArrow
                 onClick={handleLearnMoreClick}
