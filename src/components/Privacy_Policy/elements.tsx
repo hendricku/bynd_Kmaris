@@ -7,7 +7,6 @@ export const StyledContainer = styled(Container)(({ theme }) => ({
   padding: theme.spacing(6, 4),
   maxWidth: 1440,
   margin: '0 auto',
-  minHeight: '100vh',
   fontFamily: theme.typography.fontFamily,
 }));
 
