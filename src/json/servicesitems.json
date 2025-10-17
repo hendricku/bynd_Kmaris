@@ -49,6 +49,11 @@
       "id": 10,
       "title": "CONSULTATION SERVICES",
       "imageSrc": "/new2.webp"
+    },
+    {
+      "id": 11,
+      "title": "Consular Processing",
+      "imageSrc": "/new3.webp"
     }
   ],
   "content": {
@@ -230,6 +235,24 @@
         },
         {
           "paragraph": "Schedule a consultation to get expert immigration advice tailored to your situation."
+        }
+      ]
+    },
+    "11": {
+      "intro": "Our team provides expert guidance on all consular processing services, helping individuals navigate visa applications and interviews at U.S. embassies and consulates abroad.",
+      "sections": [
+        {
+          "title": "Consular Processing Services:",
+          "list": [
+            "Immigrant visa application support",
+            "Non-immigrant visa processing",
+            "Interview preparation and guidance",
+            "Document review and submission",
+            "Follow-up with consular posts"
+          ]
+        },
+        {
+          "paragraph": "We streamline the consular process to help you secure your visa efficiently. Contact us to learn how we can assist with your case."
         }
       ]
     }
