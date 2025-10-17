@@ -17,7 +17,7 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CircularProgress from "@mui/material/CircularProgress";
 
 const defaultSocials: SocialLink[] = [
-  { icon: <FacebookIcon />, href: "#", name: "Facebook" },
+  { icon: <FacebookIcon />, href: "https://www.facebook.com/kmarisofficial", name: "Facebook" },
   { icon: <InstagramIcon />, href: "#", name: "Instagram" },
   { icon: <TwitterIcon />, href: "#", name: "Twitter" },
   { icon: <LinkedInIcon />, href: "#", name: "LinkedIn" },
