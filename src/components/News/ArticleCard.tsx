@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useMemo, memo } from "react";
 import Image from "next/image";
 import { ArticleCardProps } from "./interface";
 import {
@@ -23,38 +23,32 @@ import {
   GridCardCategory,
 } from "./elements";
 
-// Utility function for universal video embedding
 const getVideoEmbedDetails = (url: string) => {
   const normalizedUrl = url.startsWith("http") ? url : `https://${url}`;
 
-  // Direct video file check
   const directVideoRegex = /\.(mp4|avi|mov|wmv|flv|webm|ogv|mkv)$/i;
   if (directVideoRegex.test(normalizedUrl)) {
     return { type: "video" as const, src: normalizedUrl };
   }
 
-  // YouTube
   const youtubeRegex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
   const youtubeMatch = normalizedUrl.match(youtubeRegex);
   if (youtubeMatch) {
     return { type: "iframe" as const, src: `https://www.youtube.com/embed/${youtubeMatch[1]}` };
   }
 
-  // Vimeo
   const vimeoRegex = /(?:vimeo\.com\/|player\.vimeo\.com\/video\/)(\d+)/;
   const vimeoMatch = normalizedUrl.match(vimeoRegex);
   if (vimeoMatch) {
     return { type: "iframe" as const, src: `https://player.vimeo.com/video/${vimeoMatch[1]}` };
   }
 
-  // Dailymotion
   const dailymotionRegex = /(?:dailymotion\.com\/video\/|dailymotion\.com\/embed\/video\/)([a-zA-Z0-9]+)/;
   const dailymotionMatch = normalizedUrl.match(dailymotionRegex);
   if (dailymotionMatch) {
     return { type: "iframe" as const, src: `https://www.dailymotion.com/embed/video/${dailymotionMatch[1]}` };
   }
 
-  // Google Drive
   const driveRegex = /\/file\/d\/([a-zA-Z0-9-_]+)(?:\/[^\/\s]*)?|open\?id=([a-zA-Z0-9-_]+)/;
   const driveMatch = normalizedUrl.match(driveRegex);
   if (driveMatch) {
@@ -62,17 +56,25 @@ const getVideoEmbedDetails = (url: string) => {
     return { type: "iframe" as const, src: `https://drive.google.com/file/d/${fileId}/preview` };
   }
 
-  // Fallback
   return { type: "iframe" as const, src: normalizedUrl };
 };
 
-export function ArticleCard({ article, variant, truncate = true }: ArticleCardProps) {
-  // Determine if there's a video URL and get embed details
-  const videoEmbedDetails = article.videoUrl ? getVideoEmbedDetails(article.videoUrl) : null;
+export const ArticleCard = memo<ArticleCardProps>(({ article, variant, truncate = true }) => {
+  const videoEmbedDetails = useMemo(
+    () => article.videoUrl ? getVideoEmbedDetails(article.videoUrl) : null,
+    [article.videoUrl]
+  );
+  
   const hasVideoUrl = !!article.videoUrl;
-
-  // For image fallback, use imageUrl if no videoUrl
   const imageUrl = hasVideoUrl ? null : article.imageUrl;
+
+  const truncatedSummary = useMemo(() => {
+    if (!truncate || !article.summary) return article.summary;
+    const words = article.summary.split(" ");
+    return words.length > 20 
+      ? words.slice(0, 20).join(" ") + "..."
+      : article.summary;
+  }, [article.summary, truncate]);
 
   if (variant === "featured") {
     return (
@@ -91,6 +93,7 @@ export function ArticleCard({ article, variant, truncate = true }: ArticleCardPr
               <video
                 src={videoEmbedDetails.src}
                 controls
+                preload="metadata"
                 style={{ 
                   position: "absolute",
                   top: 0,
@@ -110,6 +113,7 @@ export function ArticleCard({ article, variant, truncate = true }: ArticleCardPr
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
+                loading="lazy"
                 style={{ 
                   position: "absolute",
                   top: 0,
@@ -137,11 +141,6 @@ export function ArticleCard({ article, variant, truncate = true }: ArticleCardPr
   }
 
   if (variant === "list") {
-    const truncatedSummary = truncate && article.summary
-      ? article.summary.split(" ").slice(0, 20).join(" ") +
-        (article.summary.split(" ").length > 20 ? "..." : "")
-      : article.summary;
-
     return (
       <ListItemRoot href={`/News/${article.id}`}>
         <ListItemTextContent>
@@ -159,6 +158,7 @@ export function ArticleCard({ article, variant, truncate = true }: ArticleCardPr
               <video
                 src={videoEmbedDetails.src}
                 controls
+                preload="metadata"
                 style={{ 
                   position: "absolute",
                   top: 0,
@@ -178,6 +178,7 @@ export function ArticleCard({ article, variant, truncate = true }: ArticleCardPr
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
+                loading="lazy"
                 style={{ 
                   position: "absolute",
                   top: 0,
@@ -196,6 +197,7 @@ export function ArticleCard({ article, variant, truncate = true }: ArticleCardPr
               fill
               style={{ objectFit: "cover" }}
               sizes="120px"
+              loading="lazy"
             />
           )}
         </ListItemImageWrapper>
@@ -212,6 +214,7 @@ export function ArticleCard({ article, variant, truncate = true }: ArticleCardPr
               <video
                 src={videoEmbedDetails.src}
                 controls
+                preload="metadata"
                 style={{ 
                   position: "absolute",
                   top: 0,
@@ -231,6 +234,7 @@ export function ArticleCard({ article, variant, truncate = true }: ArticleCardPr
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
+                loading="lazy"
                 style={{ 
                   position: "absolute",
                   top: 0,
@@ -259,6 +263,7 @@ export function ArticleCard({ article, variant, truncate = true }: ArticleCardPr
               fill
               style={{ objectFit: "cover" }}
               sizes="(max-width: 640px) 100vw, 50vw"
+              loading="lazy"
             />
             <GridCardOverlay>
               <GridCardTitle>{article.title}</GridCardTitle>
@@ -275,4 +280,6 @@ export function ArticleCard({ article, variant, truncate = true }: ArticleCardPr
   }
 
   return null;
-}
+});
+
+ArticleCard.displayName = "ArticleCard";

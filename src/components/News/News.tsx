@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo, memo } from "react";
 import Image from "next/image";
 import PlayCircleFilledIcon from "@mui/icons-material/PlayCircleFilled";
-import { Article, ApiArticle, Category } from "./interface"; // Import Category
+import { Article, ApiArticle, Category } from "./interface";
 import { ArticleCard } from "./ArticleCard";
 import NewsLoadingScreen from "@/components/NewsLoadingScreen/NewsLoadingScreen";
 import { incrementArticleViews } from "./trackView"; 
@@ -25,7 +25,7 @@ import {
   LatestCategory,
 } from "./elements";
 
-// Helper function to safely extract media URL or embed details (unchanged)
+// Memoized utility functions
 const getMediaDetails = (
   newsImage?: string | { url: string; alt?: string; width?: number; height?: number },
   newsVideo?: string | { url: string; title?: string; duration?: number },
@@ -55,38 +55,32 @@ const getMediaDetails = (
   return { type: "placeholder" as const, src: '/placeholder-image.jpg', isEmbed: false };
 };
 
-// Utility function for universal video embedding (unchanged)
 const getVideoEmbedDetails = (url: string) => {
   const normalizedUrl = url.startsWith("http") ? url : `https://${url}`;
 
-  // Direct video file check
   const directVideoRegex = /\.(mp4|avi|mov|wmv|flv|webm|ogv|mkv)$/i;
   if (directVideoRegex.test(normalizedUrl)) {
     return { type: "video" as const, src: normalizedUrl };
   }
 
-  // YouTube
   const youtubeRegex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
   const youtubeMatch = normalizedUrl.match(youtubeRegex);
   if (youtubeMatch) {
     return { type: "iframe" as const, src: `https://www.youtube.com/embed/${youtubeMatch[1]}` };
   }
 
-  // Vimeo
   const vimeoRegex = /(?:vimeo\.com\/|player\.vimeo\.com\/video\/)(\d+)/;
   const vimeoMatch = normalizedUrl.match(vimeoRegex);
   if (vimeoMatch) {
     return { type: "iframe" as const, src: `https://player.vimeo.com/video/${vimeoMatch[1]}` };
   }
 
-  // Dailymotion
   const dailymotionRegex = /(?:dailymotion\.com\/video\/|dailymotion\.com\/embed\/video\/)([a-zA-Z0-9]+)/;
   const dailymotionMatch = normalizedUrl.match(dailymotionRegex);
   if (dailymotionMatch) {
     return { type: "iframe" as const, src: `https://www.dailymotion.com/embed/video/${dailymotionMatch[1]}` };
   }
 
-  // Google Drive
   const driveRegex = /\/file\/d\/([a-zA-Z0-9-_]+)(?:\/[^\/\s]*)?|open\?id=([a-zA-Z0-9-_]+)/;
   const driveMatch = normalizedUrl.match(driveRegex);
   if (driveMatch) {
@@ -94,218 +88,143 @@ const getVideoEmbedDetails = (url: string) => {
     return { type: "iframe" as const, src: `https://drive.google.com/file/d/${fileId}/preview` };
   }
 
-  // Fallback
   return { type: "iframe" as const, src: normalizedUrl };
 };
 
-// LatestArticlesSection component
-const LatestArticlesSection: React.FC<{ articles: Article[] }> = ({
-  articles,
-}) => (
+// Memoized components for better performance
+const LatestArticleCard = memo<{ article: Article }>(({ article }) => {
+  const mediaDetails = useMemo(
+    () => getMediaDetails(article.newsImage, article.newsVideo, article.videoUrl),
+    [article.newsImage, article.newsVideo, article.videoUrl]
+  );
+  const hasMedia = mediaDetails.type !== "placeholder";
+
+  return (
+    <LatestArticleCardLink
+      href={`/News/${article.id || article._id}`}
+      onClick={() => incrementArticleViews(article.id || article._id, article)}
+    >
+      <LatestImageWrapper>
+        {hasMedia ? (
+          mediaDetails.isEmbed && mediaDetails.type === "iframe" ? (
+            <iframe
+              src={mediaDetails.src as string}
+              title={article.title}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              loading="lazy"
+              style={{ 
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%", 
+                height: "100%", 
+                borderRadius: "12px",
+                border: "none"
+              }}
+            />
+          ) : mediaDetails.type === "video" ? (
+            <>
+              <video
+                src={mediaDetails.src as string}
+                controls={false}
+                preload="metadata"
+                style={{ 
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%", 
+                  height: "100%", 
+                  objectFit: "cover", 
+                  borderRadius: "12px" 
+                }}
+              />
+              <PlayCircleFilledIcon
+                style={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                  color: "white",
+                  fontSize: "48px",
+                  zIndex: 1,
+                }}
+              />
+            </>
+          ) : (
+            <Image
+              src={mediaDetails.src as string}
+              alt={article.title}
+              fill
+              style={{ objectFit: "cover" }}
+              sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+              loading="lazy"
+            />
+          )
+        ) : (
+          <div style={{
+            width: '100%',
+            height: '100%',
+            backgroundColor: '#f3f4f6',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: '#6b7280'
+          }}>
+            No Image
+          </div>
+        )}
+      </LatestImageWrapper>
+      {article.author && (
+        <AuthorInfo>
+          <LatestMetaText>{article.author}</LatestMetaText>
+          <LatestMetaText>•</LatestMetaText>
+          <LatestMetaText>{article.publishedAt}</LatestMetaText>
+          <LatestMetaText>•</LatestMetaText>
+          <LatestMetaText>{article.readTime || "3 mins"}</LatestMetaText>
+        </AuthorInfo>
+      )}
+      <LatestTitle>{article.title}</LatestTitle>
+      <LatestCategoryMeta>
+        <LatestCategory>{article.category}</LatestCategory>
+        <span style={{ margin: "0 8px" }}>|</span>
+        <span>{article.readTime || "3 mins"}</span>
+      </LatestCategoryMeta>
+    </LatestArticleCardLink>
+  );
+});
+
+LatestArticleCard.displayName = "LatestArticleCard";
+
+const LatestArticlesSection = memo<{ articles: Article[] }>(({ articles }) => (
   <div style={{ maxWidth: 1440 }}>
     <SectionTitle>Articles</SectionTitle>
     <LatestArticlesGrid>
-      {articles.map((article) => {
-        const mediaDetails = getMediaDetails(article.newsImage, article.newsVideo, article.videoUrl);
-        const hasMedia = mediaDetails.type !== "placeholder";
-
-        return (
-          <LatestArticleCardLink
-            key={article.id || article._id}
-            href={`/News/${article.id || article._id}`}
-            onClick={() => incrementArticleViews(article.id || article._id, article)} // Add onClick
-          >
-            <LatestImageWrapper>
-              {hasMedia ? (
-                mediaDetails.isEmbed && mediaDetails.type === "iframe" ? (
-                  <iframe
-                    src={mediaDetails.src as string}
-                    title={article.title}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    style={{ 
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      width: "100%", 
-                      height: "100%", 
-                      borderRadius: "12px",
-                      border: "none"
-                    }}
-                  />
-                ) : mediaDetails.type === "video" ? (
-                  <>
-                    <video
-                      src={mediaDetails.src as string}
-                      controls={false}
-                      style={{ 
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        width: "100%", 
-                        height: "100%", 
-                        objectFit: "cover", 
-                        borderRadius: "12px" 
-                      }}
-                    />
-                    <PlayCircleFilledIcon
-                      style={{
-                        position: "absolute",
-                        top: "50%",
-                        left: "50%",
-                        transform: "translate(-50%, -50%)",
-                        color: "white",
-                        fontSize: "48px",
-                        zIndex: 1,
-                      }}
-                    />
-                  </>
-                ) : (
-                  <Image
-                    src={mediaDetails.src as string}
-                    alt={article.title}
-                    fill
-                    style={{ objectFit: "cover" }}
-                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                  />
-                )
-              ) : (
-                <div style={{
-                  width: '100%',
-                  height: '100%',
-                  backgroundColor: '#f3f4f6',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#6b7280'
-                }}>
-                  No Image
-                </div>
-              )}
-            </LatestImageWrapper>
-            {article.author && (
-              <AuthorInfo>
-                <LatestMetaText>{article.author}</LatestMetaText>
-                <LatestMetaText>•</LatestMetaText>
-                <LatestMetaText>{article.publishedAt}</LatestMetaText>
-                <LatestMetaText>•</LatestMetaText>
-                <LatestMetaText>{article.readTime || "3 mins"}</LatestMetaText>
-              </AuthorInfo>
-            )}
-            <LatestTitle>{article.title}</LatestTitle>
-            <LatestCategoryMeta>
-              <LatestCategory>{article.category}</LatestCategory>
-              <span style={{ margin: "0 8px" }}>|</span>
-              <span>{article.readTime || "3 mins"}</span>
-            </LatestCategoryMeta>
-          </LatestArticleCardLink>
-        );
-      })}
+      {articles.map((article) => (
+        <LatestArticleCard key={article.id || article._id} article={article} />
+      ))}
     </LatestArticlesGrid>
   </div>
-);
+));
 
-// VideoNewsSection component
-const VideoNewsSection: React.FC<{ videos: Article[] }> = ({ videos }) => (
+LatestArticlesSection.displayName = "LatestArticlesSection";
+
+const VideoNewsSection = memo<{ videos: Article[] }>(({ videos }) => (
   <div>
     <SectionTitle>News in Video</SectionTitle>
     <LatestArticlesGrid>
-      {videos.map((video) => {
-        const mediaDetails = getMediaDetails(video.newsImage, video.newsVideo, video.videoUrl);
-        const hasMedia = mediaDetails.type !== "placeholder";
-
-        return (
-          <LatestArticleCardLink
-            key={video.id || video._id}
-            href={`/News/${video.id || video._id}`}
-            onClick={() => incrementArticleViews(video.id || video._id, video)} // Add onClick
-          >
-            <LatestImageWrapper>
-              {hasMedia ? (
-                mediaDetails.isEmbed && mediaDetails.type === "iframe" ? (
-                  <iframe
-                    src={mediaDetails.src as string}
-                    title={video.title}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    style={{ 
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      width: "100%", 
-                      height: "100%", 
-                      borderRadius: "12px",
-                      border: "none"
-                    }}
-                  />
-                ) : mediaDetails.type === "video" ? (
-                  <>
-                    <video
-                      src={mediaDetails.src as string}
-                      controls={false}
-                      style={{ 
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        width: "100%", 
-                        height: "100%", 
-                        objectFit: "cover", 
-                        borderRadius: "12px" 
-                      }}
-                    />
-                    <PlayCircleFilledIcon
-                      style={{
-                        position: "absolute",
-                        top: "50%",
-                        left: "50%",
-                        transform: "translate(-50%, -50%)",
-                        color: "white",
-                        fontSize: "48px",
-                        zIndex: 1,
-                      }}
-                    />
-                  </>
-                ) : (
-                  <Image
-                    src={mediaDetails.src as string}
-                    alt={video.title}
-                    fill
-                    style={{ objectFit: "cover" }}
-                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                  />
-                )
-              ) : (
-                <div style={{
-                  width: '100%',
-                  height: '100%',
-                  backgroundColor: '#f3f4f6',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#6b7280'
-                }}>
-                  No Media
-                </div>
-              )}
-            </LatestImageWrapper>
-            <LatestTitle>{video.title}</LatestTitle>
-            <LatestCategoryMeta>
-              <LatestCategory>{video.category}</LatestCategory>
-              <span style={{ margin: "0 8px" }}>|</span>
-              <span>{video.readTime || "3 mins"}</span>
-            </LatestCategoryMeta>
-          </LatestArticleCardLink>
-        );
-      })}
+      {videos.map((video) => (
+        <LatestArticleCard key={video.id || video._id} article={video} />
+      ))}
     </LatestArticlesGrid>
   </div>
-);
+));
+
+VideoNewsSection.displayName = "VideoNewsSection";
 
 export default function News() {
   const [articles, setArticles] = useState<Article[]>([]);
-  const [categories, setCategories] = useState<Category[]>([]); // New state for categories
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -313,10 +232,15 @@ export default function News() {
     const fetchData = async () => {
       try {
         setLoading(true);
-        // Fetch articles and categories in parallel
         const [articlesResponse, categoriesResponse] = await Promise.all([
-          fetch('/api/articles'),
-          fetch('/api/categories')
+          fetch('/api/articles', { 
+            next: { revalidate: 60 },
+            headers: { 'Accept': 'application/json' }
+          }),
+          fetch('/api/categories', { 
+            next: { revalidate: 300 },
+            headers: { 'Accept': 'application/json' }
+          })
         ]);
 
         if (!articlesResponse.ok) {
@@ -326,51 +250,48 @@ export default function News() {
           throw new Error(`Failed to fetch categories: ${categoriesResponse.statusText}`);
         }
 
-        const articlesData = await articlesResponse.json();
-        const categoriesData: Category[] = await categoriesResponse.json();
+        const [articlesData, categoriesData] = await Promise.all([
+          articlesResponse.json(),
+          categoriesResponse.json()
+        ]);
 
-        // Create category map: _id -> categoryName
         const categoryMap: Record<string, string> = {};
-        categoriesData.forEach(cat => {
+        categoriesData.forEach((cat: Category) => {
           categoryMap[cat._id] = cat.categoryName;
         });
 
-        // Format articles, resolving category _id to name
-        const formattedArticles: Article[] = articlesData.map((article: ApiArticle) => ({
-          _id: article._id || "",
-          id: article._id || "",
-          title: article.title || "",
-          author: article.author || "Unknown Author",
-          publishedAt: article.date ? new Date(article.date).toLocaleDateString() : new Date().toLocaleDateString(),
-          date: article.date || new Date().toISOString(),
-          imageUrl: getMediaDetails(article.newsImage, article.newsVideo, article.videoUrl).src,
-          newsImage: article.newsImage || '',
-          newsVideo: article.newsVideo || '',
-          videoUrl: article.videoUrl || '',
-          readTime: article.readTime || "3 mins",
-          category: categoryMap[article.category || ''] || article.category || "Uncategorized", // Resolve here
-          description: article.description || "",
-          summary: article.description || "",
-          views: article.views || 0,
-          status: article.status || "published",
-          type: article.videoUrl || article.newsVideo ? 'video' : 'article'
-        }));
-
-        // Sort by date (latest first)
-        const sortedArticles = formattedArticles.sort((a: Article, b: Article) => {
-          const dateA = new Date(a.date).getTime();
-          const dateB = new Date(b.date).getTime();
-          return dateB - dateA;
+        const formattedArticles: Article[] = articlesData.map((article: ApiArticle) => {
+          const mediaDetails = getMediaDetails(article.newsImage, article.newsVideo, article.videoUrl);
+          return {
+            _id: article._id || "",
+            id: article._id || "",
+            title: article.title || "",
+            author: article.author || "Unknown Author",
+            publishedAt: article.date ? new Date(article.date).toLocaleDateString() : new Date().toLocaleDateString(),
+            date: article.date || new Date().toISOString(),
+            imageUrl: mediaDetails.src,
+            newsImage: article.newsImage || '',
+            newsVideo: article.newsVideo || '',
+            videoUrl: article.videoUrl || '',
+            readTime: article.readTime || "3 mins",
+            category: categoryMap[article.category || ''] || article.category || "Uncategorized",
+            description: article.description || "",
+            summary: article.description || "",
+            views: article.views || 0,
+            status: article.status || "published",
+            type: article.videoUrl || article.newsVideo ? 'video' : 'article'
+          };
         });
 
+        const sortedArticles = formattedArticles.sort((a, b) => 
+          new Date(b.date).getTime() - new Date(a.date).getTime()
+        );
+
         setArticles(sortedArticles);
-        setCategories(categoriesData); // Store for potential future use (e.g., filters)
         setError(null);
       } catch (err) {
         const errorMessage = err instanceof Error ? err.message : 'An error occurred while fetching data';
         setError(errorMessage);
-        // If categories fail, articles can still load with raw category strings
-        // (You could add separate error state for categories if needed)
       } finally {
         setLoading(false);
       }
@@ -378,6 +299,26 @@ export default function News() {
 
     fetchData();
   }, []);
+
+  const { 
+    featuredArticle, 
+    listArticles, 
+    gridArticles, 
+    articlesForSection, 
+    videoNews 
+  } = useMemo(() => {
+    const publishedArticles = articles.filter(article => article.status === 'published');
+    
+    return {
+      featuredArticle: publishedArticles[0],
+      listArticles: publishedArticles.slice(1, 4),
+      gridArticles: publishedArticles.slice(4, 6),
+      articlesForSection: publishedArticles
+        .slice(6)
+        .filter(article => !article.videoUrl && !article.newsVideo),
+      videoNews: publishedArticles.filter(article => article.videoUrl || article.newsVideo)
+    };
+  }, [articles]);
 
   if (loading) {
     return (
@@ -411,26 +352,6 @@ export default function News() {
       </NewsSection>
     );
   }
-
-  // Filter and organize articles with the new ordering logic
-  const publishedArticles = articles.filter(article => article.status === 'published');
-  
-  // Featured article (News 1) - Most latest news
-  const featuredArticle = publishedArticles[0];
-  
-  // List articles (News 2, 3, 4) - Skip the featured article
-  const listArticles = publishedArticles.slice(1, 4);
-  
-  // Grid articles (News 5, 6) - Next 2 articles after list articles
-  const gridArticles = publishedArticles.slice(4, 6);
-  
-  // Articles section - Skip first 6 articles (1-6) and filter out videos
-  const articlesForSection = publishedArticles
-    .slice(6) // Skip the first 6 articles used in featured, list, and grid
-    .filter(article => !article.videoUrl && !article.newsVideo); // Filter out videos
-  
-  // Video news - All published articles that have video (can include any from 1-6)
-  const videoNews = publishedArticles.filter(article => article.videoUrl || article.newsVideo);
 
   return (
     <NewsSection>
